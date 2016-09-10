@@ -1,10 +1,18 @@
 import RaisedButton from 'material-ui/RaisedButton';
 import React from 'react';
+import { withRouter } from 'react-router';
+import NavBar from 'components/NavBar';
+
 
 const App = React.createClass({
+
+
   render() {
-    return <RaisedButton label="Hello world" />;
+    return <div>
+      <NavBar />
+      hey
+    </div>;
   }
 });
 
-export default App;
+export default withRouter(App);
