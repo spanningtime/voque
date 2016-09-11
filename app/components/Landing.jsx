@@ -17,15 +17,19 @@ const Landing = React.createClass({
           Search and request songs from your phone
         </h2>
 
+        <div className="circle">
+          <img className="phone-icon"src={'./images/phone.svg'} />
+        </div>
+
         <h3 className="third-header">Sign up for free!</h3>
 
         <div className="buttons-container">
-          <div className="singers">
-            <RaisedButton className="button" label="Singers" />
+          <div>
+          <RaisedButton label="Singers" className="button" />
           </div>
-
-          <div className="kjs">
-            <RaisedButton className="button" label="Karaoke DJs" />
+          <div>
+            <RaisedButton label="Karaoke DJs"
+              className="button" />
           </div>
         </div>
 
