@@ -1,8 +1,10 @@
 import React from 'react';
+import DrawerMenu from 'components/DrawerMenu';
+
+
 
 
 const NavBar = React.createClass({
-
 
   render() {
     return <div className="nav-container">
@@ -11,7 +13,7 @@ const NavBar = React.createClass({
         <img className="mic" src={'./images/mic.svg'} />
         <div className="link-container">
           <a className="login" href="#">Login</a>
-          <img className="menu-icon"src={'./images/menu.svg'} />
+          <DrawerMenu />
         </div>
       </div>
     </div>
