@@ -10,15 +10,17 @@ const Landing = React.createClass({
       <div>
 
         <h1 className="main-header">
-          Ditch those huge and unorganized karaoke songbooks
+          Ditch those <span>huge</span> and <span>unorganized</span> karaoke songbooks
         </h1>
 
         <h2 className="second-header">
           Search and request songs from your phone
         </h2>
 
-        <div className="circle">
-          <img className="phone-icon"src={'./images/phone.svg'} />
+        <div className="outer-circle">
+          <div className="circle">
+            <img className="phone-icon"src={'./images/phone.svg'} />
+          </div>
         </div>
 
         <h3 className="third-header">Sign up for free!</h3>
@@ -34,7 +36,6 @@ const Landing = React.createClass({
         </div>
 
         <p>Already have an account? <a href="#">Login</a></p>
-
       </div>
     </div>
   }
