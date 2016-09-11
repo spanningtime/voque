@@ -2,7 +2,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import React from 'react';
 import { withRouter } from 'react-router';
 import NavBar from 'components/NavBar';
-import Footer from 'components/Footer';
+import Landing from 'components/Landing';
 
 
 const App = React.createClass({
@@ -11,7 +11,7 @@ const App = React.createClass({
   render() {
     return <main>
       <NavBar />
-      <Footer />
+        <Landing />
     </main>;
   }
 });

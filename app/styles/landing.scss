@@ -1,0 +1,19 @@
+.content-container {
+  display:flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: space-between;
+  align-items: center;
+  text-align: center;
+  h1 {
+    font-size: 4em;
+  }
+  h2 {
+    font-size: 3em;
+    margin-bottom: 50px;
+  }
+  .singers, .kjs {
+    font-size: 1.5em;
+  }
+}
