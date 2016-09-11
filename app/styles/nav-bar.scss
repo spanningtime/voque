@@ -1,4 +1,47 @@
-.nav-bar {
-  height: 7em;
-  background-color: black;
+// NavBar
+.nav-container {
+  display:flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: center;
+  .nav-bar {
+    display: flex;
+    align-items: center;
+    height: 7em;
+    width: 100%;
+    background-color: black;
+  }
+  header {
+    color: white;
+    font-size: 5em;
+    vertical-align: middle;
+    font-family: Roboto;
+    margin-left: 15px;
+  }
+  img {
+    height: 6em;
+  }
+  .link-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    align-content: flex-start;
+    height: 100%;
+    width: 100%;
+  }
+  a {
+    margin-right: 20px;
+    margin-left: 20px;
+    text-decoration: none;
+    color: white;
+    font-family: Roboto;
+    font-size: 1.5em;
+    &:hover {
+      background-color: red;
+    }
+  }
 }
+// end NavBar

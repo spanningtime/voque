@@ -8,10 +8,9 @@ const App = React.createClass({
 
 
   render() {
-    return <div>
+    return <main>
       <NavBar />
-      hey
-    </div>;
+    </main>;
   }
 });
 
