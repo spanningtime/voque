@@ -14,7 +14,7 @@
   }
   .second-header {
     // font-size: 3em;
-    margin-bottom: 50px;
+    margin-bottom: 80px;
   }
   .singers, .kjs {
     font-size: 1.5em;
@@ -23,6 +23,11 @@
   .singers button div div, .kjs button div div {
     width: 120px;
   }
+  .buttons-container {
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+
   p a {
     text-decoration: none;
     color: $Yellow;
