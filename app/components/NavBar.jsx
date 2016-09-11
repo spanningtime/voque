@@ -7,10 +7,11 @@ const NavBar = React.createClass({
   render() {
     return <div className="nav-container">
       <div className="nav-bar">
-        <header>VOQUE</header>
-        <img src={'./images/mic.svg'} />
+        <header className="title">VOQUE</header>
+        <img className="mic" src={'./images/mic.svg'} />
         <div className="link-container">
-          <a href="#">Login</a>
+          <a className="login" href="#">Login</a>
+          <img className="menu-icon"src={'./images/menu.svg'} />
         </div>
       </div>
     </div>

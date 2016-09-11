@@ -13,14 +13,14 @@
     width: 100%;
     background-color: black;
   }
-  header {
+  .title {
     color: white;
     font-size: 5em;
     vertical-align: middle;
     font-family: Roboto;
     margin-left: 15px;
   }
-  img {
+  .mic {
     height: 6em;
   }
   .link-container {
@@ -32,16 +32,16 @@
     height: 100%;
     width: 100%;
   }
-  a {
+  .login {
     margin-right: 20px;
     margin-left: 20px;
     text-decoration: none;
     color: white;
     font-family: Roboto;
     font-size: 1.5em;
-    &:hover {
-      background-color: red;
-    }
+  }
+  .menu-icon {
+    height: 6em;
   }
 }
 // end NavBar
