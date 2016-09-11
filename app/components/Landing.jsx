@@ -9,21 +9,24 @@ const Landing = React.createClass({
     return <div className="content-container">
       <div>
 
-        <h1>
-          Ditch the huge and unorganized karaoke songbooks
+        <h1 className="main-header">
+          Ditch those huge and unorganized karaoke songbooks
         </h1>
 
-        <h2>
+        <h2 className="second-header">
           Search and request songs from your phone
         </h2>
 
-        <div className="singers">
-          Singers <RaisedButton label="Register" />
-        </div>
+        <div>
+          <div className="singers">
+            Singers <RaisedButton label="Register" />
+          </div>
 
-        <div className="kjs">
-          Karaoke DJs <RaisedButton label="Learn More" />
+          <div className="kjs">
+            Karaoke DJs <RaisedButton label="Learn More" />
+          </div>
         </div>
+        <p>Already have an account? <a href="#">Login</a></p>
 
       </div>
     </div>

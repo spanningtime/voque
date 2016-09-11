@@ -11,7 +11,9 @@ const App = React.createClass({
   render() {
     return <main>
       <NavBar />
-        <Landing />
+        <div className="app-container">
+          <Landing />
+      </div>
     </main>;
   }
 });

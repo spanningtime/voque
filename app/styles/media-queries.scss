@@ -1,14 +1,51 @@
+// mobile screen
 @media screen and (max-width: 500px) {
   .title, .login {
     display: none;
   }
+  .app-container {
+    margin-left: 1%;
+    margin-right: 1%;
+  }
   .menu-icon {
     display: block;
+  }
+  .main-header {
+    font-size: 25px;
   }
 }
 
 @media screen and (min-width: 501px) {
   .menu-icon {
     display: none
+  }
+  .app-container {
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+  .main-header {
+    font-size: 40px;
+  }
+  .second-header {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 1092px) {
+  // .main-header {
+  //   font-size: 40px;
+  // }
+  // .second-header {
+  //   font-size: 30px;
+  // }
+}
+
+// full screen
+@media screen and (min-width: 1093px) {
+  .main-header {
+    font-size: 60px;
+  }
+  .second-header {
+    font-size: 45px;
   }
 }

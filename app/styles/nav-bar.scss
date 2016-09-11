@@ -9,19 +9,19 @@
   .nav-bar {
     display: flex;
     align-items: center;
-    height: 7em;
+    height: 5em;
     width: 100%;
     background-color: black;
   }
   .title {
     color: white;
-    font-size: 5em;
+    font-size: 4em;
     vertical-align: middle;
     font-family: Roboto;
     margin-left: 15px;
   }
   .mic {
-    height: 6em;
+    height: 4em;
   }
   .link-container {
     display: flex;
@@ -41,7 +41,7 @@
     font-size: 1.5em;
   }
   .menu-icon {
-    height: 6em;
+    height: 4em;
   }
 }
 // end NavBar
