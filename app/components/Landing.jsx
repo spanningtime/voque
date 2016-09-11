@@ -17,15 +17,18 @@ const Landing = React.createClass({
           Search and request songs from your phone
         </h2>
 
+        <h3 className="third-header">Sign up for free!</h3>
+
         <div className="buttons-container">
           <div className="singers">
-            Singers <RaisedButton className="button" label="Register" />
+            <RaisedButton className="button" label="Singers" />
           </div>
 
           <div className="kjs">
-            Karaoke DJs <RaisedButton className="button" label="Learn More" />
+            <RaisedButton className="button" label="Karaoke DJs" />
           </div>
         </div>
+
         <p>Already have an account? <a href="#">Login</a></p>
 
       </div>

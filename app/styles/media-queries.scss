@@ -13,6 +13,9 @@
   .main-header {
     font-size: 25px;
   }
+  .content-container p {
+    display: block
+  }
 }
 
 @media screen and (min-width: 501px) {
@@ -28,6 +31,9 @@
   }
   .second-header {
     font-size: 30px;
+  }
+  .content-container p {
+    display: none;
   }
 }
 
