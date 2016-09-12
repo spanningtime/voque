@@ -3,5 +3,19 @@
   // width: 80%;
   // height: 70vh;
   background-color: grey;
-  opacity: 0.15;
+  opacity: 0.09;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  width: 58%;
+  .search-icon {
+    height: 2.2em;
+    vertical-align: middle;
+    margin-left: 10px;
+  }
 }
