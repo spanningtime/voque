@@ -6,7 +6,7 @@ const SongList = React.createClass({
 
   render() {
     const inputStyle = {
-      borderColor: '#F4AF1D'
+      borderColor: '#F4AF1D',
     };
 
     return <div className="content-container">
@@ -14,13 +14,16 @@ const SongList = React.createClass({
         <h1 className="kj-name">
           Donnie's Songs
         </h1>
+        <div className="mobile-search-container">
+          <div id="mobile-artist-tab"><span>Artist</span></div>
+          <div id="mobile-title-tab"><span>Title</span></div>
+        </div>
         <div className="search-container">
           <div id="artist-tab"><span>Artist</span></div>
           <div id="title-tab"><span>Title</span></div>
-          <TextField
-            className='song-search'
-            underlineFocusStyle={inputStyle}
-          />
+            <TextField
+              underlineFocusStyle={inputStyle}
+            />
           <img className="search-icon"src={'./images/search.svg'} />
         </div>
       </div>
