@@ -1,4 +1,11 @@
+main {
+  display: flex;
+  min-height: 100h;
+  flex-direction: column;
+}
+
 .app-container {
   margin-left: 8%;
   margin-right: 8%;
+  flex: 1;
 }

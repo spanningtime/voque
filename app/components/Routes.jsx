@@ -7,7 +7,7 @@ const Routes = React.createClass({
   render() {
     return <Router history={browserHistory}>
       <Route component={App} path="/" >
-        <IndexRoute component={Landing} ></IndexRoute>
+        <IndexRoute component={Landing}></IndexRoute>
       </Route>
     </Router>;
   }

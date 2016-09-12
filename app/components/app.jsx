@@ -36,7 +36,7 @@ const App = React.createClass({
         toggleDrawer: this.toggleDrawer,
         closeDrawer: this.closeDrawer,
       })}
-
+      <footer id="footer"></footer>
     </main>;
   }
 });
