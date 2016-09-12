@@ -12,12 +12,16 @@ const SongList = React.createClass({
     return <div className="content-container">
       <div className="header-container">
         <h1 className="kj-name">
-          Donnie's Song List
+          Donnie's Songs
         </h1>
-        <div>
-        <TextField className='song-search' underlineFocusStyle={inputStyle}
-        />
-        <img className="search-icon"src={'./images/search.svg'} />
+        <div className="search-container">
+          <div id="artist-tab"><span>Artist</span></div>
+          <div id="title-tab"><span>Title</span></div>
+          <TextField
+            className='song-search'
+            underlineFocusStyle={inputStyle}
+          />
+          <img className="search-icon"src={'./images/search.svg'} />
         </div>
       </div>
       <div className="songs-container">

@@ -1,3 +1,5 @@
+@import 'variables';
+
 .songs-container {
   border-radius: 2%;
   // width: 80%;
@@ -12,10 +14,31 @@
   justify-content: space-between;
   flex-wrap: nowrap;
   align-items: flex-end;
-  width: 58%;
+  margin-top: 10px;
+  .kj-name {
+    font-family: $main;
+    font-size: 2em;
+  }
+  .search-container {
+    display: flex;
+  }
   .search-icon {
     height: 2.2em;
     vertical-align: middle;
     margin-left: 10px;
+  }
+  #artist-tab, #title-tab {
+    background-color: $Yellow;
+    opacity: 0.5;
+    height: 40px;
+    line-height: 40px;
+    width: 60px;
+    vertical-align: bottom;
+    font-family: $main;
+  }
+  #title-tab {
+    opacity: 1;
+    margin-right: 10px;
+
   }
 }
