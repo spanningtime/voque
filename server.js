@@ -8,7 +8,6 @@ const port = process.env.PORT || 8000;
 const path = require('path');
 
 const app = express();
-const http = require('http').Server(app);
 
 app.disable('x-powered-by');
 
@@ -18,7 +17,7 @@ app.use((_req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 })
 
-http.listen(port, () => {
+app.listen(port, () => {
   console.log('Listening on port,', port);
 });
 
