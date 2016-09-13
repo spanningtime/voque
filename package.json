@@ -8,6 +8,7 @@
     "type": "git",
     "url": ""
   },
+  "main":"server.js",
   "scripts": {
     "lint": "eslint --ext .js,.jsx --ignore-pattern public",
     "start": "brunch watch --server",
