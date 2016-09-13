@@ -30,7 +30,7 @@ const SongList = React.createClass({
         <ol>
           <li>
             <span className="artist">Whitney Houston</span>
-            <span className="song-title">I Wanna Dance With Somebody</span>
+            <span className="song-title">I Wanna Dance...</span>
           </li>
           <li>
             <span className="artist">Whitney Houston</span>
@@ -126,27 +126,7 @@ const SongList = React.createClass({
           </li>
           <li>
             <span className="artist">Whitney Houston</span>
-            <span className="song-title">I Wanna Dance With Somebody</span>
-          </li>
-          <li>
-            <span className="artist">Whitney Houston</span>
-            <span className="song-title">I Wanna Dance With Somebody</span>
-          </li>
-          <li>
-            <span className="artist">Whitney Houston</span>
-            <span className="song-title">I Wanna Dance With Somebody</span>
-          </li>
-          <li>
-            <span className="artist">Whitney Houston</span>
-            <span className="song-title">I Wanna Dance With Somebody</span>
-          </li>
-          <li>
-            <span className="artist">Whitney Houston</span>
-            <span className="song-title">I Wanna Dance With Somebody</span>
-          </li>
-          <li>
-            <span className="artist">Whitney Houston</span>
-            <span className="song-title">I Wanna Dance With Somebody</span>
+            <span className="song-title">I Wanna Dance with Somebody</span>
           </li>
           <li>
             <span className="artist">Whitney Houston</span>

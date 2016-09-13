@@ -2,21 +2,19 @@
 
 .songs-container {
   border-radius: 2%;
-  // width: 80%;
-  // height: 65vh;
   background-color: #ececec;
+  margin-top: 5px;
   li {
     align-items: center;
     display: flex;
     font-family: $main;
     height: 30px;
     justify-content: space-between;
-    // margin-left: 25px;
-    // margin-right: 25px;
     border-bottom: 1px solid #cfcecb;
     span {
       margin-left: 25px;
       margin-right: 25px;
+      overflow: hidden;
     }
   }
 }
@@ -67,4 +65,8 @@
   #mobile-title-tab {
     opacity: 1;
   }
+}
+
+.request-button {
+  margin-top: 20px;
 }
