@@ -3,7 +3,7 @@
 .songs-container {
   border-radius: 2%;
   // width: 80%;
-  // height: 70vh;
+  // height: 65vh;
   background-color: #ececec;
   li {
     align-items: center;
@@ -11,9 +11,13 @@
     font-family: $main;
     height: 30px;
     justify-content: space-between;
-    margin-left: 25px;
-    margin-right: 25px;
-    border-bottom: 1px solid black
+    // margin-left: 25px;
+    // margin-right: 25px;
+    border-bottom: 1px solid #cfcecb;
+    span {
+      margin-left: 25px;
+      margin-right: 25px;
+    }
   }
 }
 
