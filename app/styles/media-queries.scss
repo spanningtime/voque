@@ -25,6 +25,11 @@
   .content-container {
     min-height: 100vh;
   }
+  .songs-container {
+    width: 95%;
+    height: 55vh;
+    overflow: scroll;
+  }
 }
 
 @media screen and (min-width: 501px) {
@@ -54,14 +59,6 @@
   }
   .header-container {
     width: 78%;
-  }
-}
-
-@media screen and (max-width: 501px) {
-  .songs-container {
-    width: 95%;
-    height: 55vh;
-    overflow: scroll;
   }
 }
 
