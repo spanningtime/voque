@@ -1,7 +1,6 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
 
-
 const SongList = React.createClass({
 
   render() {
@@ -24,11 +23,16 @@ const SongList = React.createClass({
             <TextField
               underlineFocusStyle={inputStyle}
             />
-          <img className="search-icon"src={'./images/search.svg'} />
+            <img className="search-icon"src={'./images/search.svg'} />
         </div>
       </div>
       <div className="songs-container">
-
+        <ol>
+          <li>
+            <span className="artist">Whitney Houston</span>
+            <span className="title">I Wanna Dance With Somebody</span>
+          </li>
+        </ol>
       </div>
     </div>
   }

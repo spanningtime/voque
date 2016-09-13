@@ -4,8 +4,17 @@
   border-radius: 2%;
   // width: 80%;
   // height: 70vh;
-  background-color: grey;
-  opacity: 0.09;
+  background-color: #ececec;
+  li {
+    align-items: center;
+    display: flex;
+    font-family: $main;
+    height: 30px;
+    justify-content: space-between;
+    margin-left: 25px;
+    margin-right: 25px;
+    border-bottom: 1px solid black
+  }
 }
 
 .header-container {
