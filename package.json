@@ -33,8 +33,7 @@
   "devDependencies": {
     "eslint": "^3.2.2",
     "eslint-config-ryansobol": "^8.0.0",
-    "foreman": "^2.0.0",
-    "uglify-js-brunch": "^2.0.1"
+    "foreman": "^2.0.0"
   },
   "engines": {
     "node": "6.4.0"
