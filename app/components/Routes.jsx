@@ -4,6 +4,7 @@ import Landing from 'components/Landing';
 import React from 'react';
 import Access from 'components/Access';
 import SongList from 'components/SongList';
+import Thanks from 'components/Thanks';
 
 const Routes = React.createClass({
   render() {
@@ -12,6 +13,7 @@ const Routes = React.createClass({
         <IndexRoute component={Landing} />
         <Route component={Access} path="/access" />
         <Route component={SongList} path="/songlist" />
+        <Route component={Thanks} path="/thanks" />
       </Route>
     </Router>;
   }
