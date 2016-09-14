@@ -1,4 +1,5 @@
 import React from 'react';
+import RaisedButton from 'material-ui/RaisedButton';
 
 const Info = React.createClass({
 
@@ -12,24 +13,29 @@ const Info = React.createClass({
         Lorem ipsum lorem ipsum lorem ipsum
       </h2>
       <div className="columns-container">
-        <div className="column-item">
-          <img className="money" src={'./images/money.svg'} />
+      <div className="columns-items-container">
+          <div className="column-item">
+            <img className="money" src={'./images/money.svg'} />
+              <p>
+                  Easily upload and manage your entire song list from your computer
+              </p>
+          </div>
+          <div className="column-item">
+            <img className="phone" src={'./images/phone.svg'} />
+              <p>
+                  Ditch the paper and let users access and request songs from their phones
+              </p>
+          </div>
+          <div className="column-item">
+            <img className="folder" src={'./images/folder.svg'} />
             <p>
-              Easily upload and manage your entire song list from your computer
+                Increase your earnings by offering convenient tipping options for singers on their phones
             </p>
-        </div>
-        <div className="column-item">
-          <img className="phone" src={'./images/phone.svg'} />
-            <p>
-              Ditch the paper and let users access and request songs from their phones
-            </p>
-        </div>
-        <div className="column-item">
-          <img className="folder" src={'./images/folder.svg'} />
-          <p>
-            Increase your earnings by offering convenient tipping options for singers on their phones
-          </p>
-        </div>
+          </div>
+          </div>
+          <div>
+          <RaisedButton label="Register" />
+          </div>
       </div>
     </div>
   }

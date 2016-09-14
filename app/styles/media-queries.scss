@@ -32,8 +32,14 @@
     overflow: scroll;
   }
   .columns-container {
-    width: 95%
+    width: 95%;
+    p {
+      width: 250px;
+    }
   }
+  // .columns-items p {
+  //   width: 250px;
+  // }
 }
 
 @media screen and (min-width: 501px) {
@@ -66,7 +72,8 @@
     width: 78%;
   }
   .columns-container {
-    width: 80%;
+    width: 90%;
+    height: 55vh;
   }
 }
 
@@ -85,6 +92,9 @@
   #mobile-artist-tab, #mobile-title-tab {
     display: inline-block;
   }
+  .columns-items-container {
+    flex-direction: column;
+  }
 }
 
 @media screen and (min-width: 861px) {
@@ -93,6 +103,9 @@
   }
   #mobile-artist-tab, #mobile-title-tab {
     display: none;
+  }
+  .column-item p {
+    width: 250px;
   }
 }
 
@@ -110,7 +123,14 @@
     overflow: scroll;
   }
   .columns-container {
-    width: 60%;
+    width: 80%;
+    height: 55vh;
+  }
+  .columns-items-container {
+    width: 80%;
+    p {
+      width: 250px;
+    }
   }
   .header-container {
     width: 58%;
