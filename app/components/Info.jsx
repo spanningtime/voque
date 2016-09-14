@@ -34,7 +34,7 @@ const Info = React.createClass({
           </div>
           </div>
           <div>
-          <RaisedButton label="Register" />
+            <RaisedButton label="Register" />
           </div>
       </div>
     </div>

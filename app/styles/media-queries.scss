@@ -33,13 +33,11 @@
   }
   .columns-container {
     width: 95%;
+    height: 100vh;
     p {
       width: 250px;
     }
   }
-  // .columns-items p {
-  //   width: 250px;
-  // }
 }
 
 @media screen and (min-width: 501px) {
@@ -73,7 +71,6 @@
   }
   .columns-container {
     width: 90%;
-    height: 55vh;
   }
 }
 
