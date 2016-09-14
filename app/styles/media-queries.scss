@@ -31,6 +31,9 @@
     height: 55vh;
     overflow: scroll;
   }
+  .columns-container {
+    width: 95%
+  }
 }
 
 @media screen and (min-width: 501px) {
@@ -61,6 +64,9 @@
   }
   .header-container {
     width: 78%;
+  }
+  .columns-container {
+    width: 80%;
   }
 }
 
@@ -102,6 +108,9 @@
     width: 60%;
     height: 55vh;
     overflow: scroll;
+  }
+  .columns-container {
+    width: 60%;
   }
   .header-container {
     width: 58%;

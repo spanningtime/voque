@@ -1,0 +1,16 @@
+
+.columns-container {
+  display: flex;
+  justify-content: space-between;
+  .column-item {
+    display: flex;
+    flex-direction: column;
+    p {
+      display: inline-block;
+      width: 160px;
+    }
+  }
+  .money, .phone, .folder {
+    height: 8em;
+  }
+}
