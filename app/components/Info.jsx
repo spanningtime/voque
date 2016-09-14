@@ -15,7 +15,7 @@ const Info = React.createClass({
       <div className="columns-container">
       <div className="columns-items-container">
           <div className="column-item">
-            <img className="money" src={'./images/money.svg'} />
+            <img className="money" src={'./images/folder.svg'} />
               <p>
                   Easily upload and manage your entire song list from your computer
               </p>
@@ -27,7 +27,7 @@ const Info = React.createClass({
               </p>
           </div>
           <div className="column-item">
-            <img className="folder" src={'./images/folder.svg'} />
+            <img className="folder" src={'./images/money.svg'} />
             <p>
                 Increase your earnings by offering convenient tipping options for singers on their phones
             </p>
