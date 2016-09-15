@@ -13,7 +13,9 @@ const NavBar = React.createClass({
         <img className="mic" src={'./images/mic.svg'} />
         <div className="link-container">
           <a className="login" href="#">Login</a>
-          <DrawerMenu />
+          <DrawerMenu
+            handleToggle={this.props.handleToggle}
+           />
         </div>
       </div>
     </div>

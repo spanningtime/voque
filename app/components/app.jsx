@@ -13,7 +13,8 @@ const App = React.createClass({
     };
   },
 
-  toggleDrawer() {
+  handleToggle() {
+    console.log('toggle works');
     this.setState({ open: !this.state.open })
   },
 
@@ -27,14 +28,17 @@ const App = React.createClass({
 
   render() {
     return <main>
-      <NavBar />
+      <NavBar
+        handleToggle={this.handleToggle}
+      />
         <div className="app-container">
       </div>
 
       {React.cloneElement(this.props.children, {
         open: this.state.open,
-        toggleDrawer: this.toggleDrawer,
+        handleToggle: this.handleToggle,
         closeDrawer: this.closeDrawer,
+        requestChange: this.requestChange
       })}
       <footer id="footer"></footer>
     </main>;

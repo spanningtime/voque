@@ -5,10 +5,10 @@ import { withRouter } from 'react-router';
 
 const DrawerMenu = React.createClass({
 
-  handleToggle() {
-    console.log('toggle')
-    this.props.toggleDrawer();
-  },
+  // handleToggle() {
+  //   console.log('toggle');
+  //   this.props.toggleDrawer();
+  // },
 
   handleClose() {
     this.props.closeDrawer();
@@ -18,13 +18,13 @@ const DrawerMenu = React.createClass({
     return <div>
       <img
         className="menu-icon"src={'./images/menu.svg'}
-        onTouchTap={this.handleToggle}
+        onTouchTap={this.props.handleToggle}
       />
       <Drawer
         docked={false}
         width={200}
         open={this.props.open}
-        onRequestChange={(open) => this.props.requestChange({open})}
+        onRequestChange={(open) => this.props.requestChange(open)}
       >
         <MenuItem onTouchTap={this.handleClose}>Menu Item</MenuItem>
         <MenuItem onTouchTap={this.handleClose}>Menu Item 2</MenuItem>
