@@ -6,6 +6,7 @@ import Access from 'components/Access';
 import SongList from 'components/SongList';
 import Thanks from 'components/Thanks';
 import Info from 'components/Info';
+import Requests from 'components/Requests';
 
 const Routes = React.createClass({
   render() {
@@ -16,6 +17,7 @@ const Routes = React.createClass({
         <Route component={SongList} path="/songlist" />
         <Route component={Thanks} path="/thanks" />
         <Route component={Info} path="/info" />
+        <Route component={Requests} path="/requests" />
       </Route>
     </Router>;
   }

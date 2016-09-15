@@ -1,0 +1,38 @@
+@import 'variables';
+
+.requests-title {
+  border-bottom: 2px solid $Yellow;
+  width: 200px;
+}
+
+.requests-container {
+  background: $LightGrey;
+  border-radius: 5px;
+  max-height: 730px;
+  overflow: scroll;
+}
+.song-request-container {
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+  width: 590px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  .request-item-container {
+    border-bottom: 1px solid $Grey;
+    display: flex;
+    width: 150px;
+    justify-content: flex-start;
+    &:nth-child(3) {
+      width: 200px;
+    }
+  }
+  span {
+    font-family: $main;
+  }
+  i {
+    color: $Red;
+    margin-right: 30px;
+    margin-left: 10px;
+  }
+}
