@@ -1,5 +1,6 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
+import { Link } from 'react-router';
 
 
 const Landing = React.createClass({
@@ -27,11 +28,15 @@ const Landing = React.createClass({
 
         <div className="buttons-container">
           <div>
-          <RaisedButton label="Singers" className="button" />
+            <Link to="#">
+              <RaisedButton label="Singers" className="button" />
+            </Link>
           </div>
           <div>
-            <RaisedButton label="Karaoke DJs"
-              className="button" />
+            <Link to="/info">
+              <RaisedButton label="Karaoke DJs"
+                className="button" />
+            </Link>
           </div>
         </div>
 

@@ -17,6 +17,7 @@ const NavBar = React.createClass({
             handleToggle={this.props.handleToggle}
             open={this.props.open}
             requestChange={this.props.requestChange}
+            handleClose={this.props.handleClose}
            />
         </div>
       </div>

@@ -2,12 +2,9 @@ import React from 'react';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import { withRouter } from 'react-router';
+import { Link } from 'react-router';
 
 const DrawerMenu = React.createClass({
-
-  handleClose() {
-    this.props.closeDrawer();
-  },
 
   render() {
     return <div>
@@ -17,12 +14,17 @@ const DrawerMenu = React.createClass({
       />
       <Drawer
         docked={false}
+        openSecondary={true}
         width={200}
         open={this.props.open}
         onRequestChange={(open) => this.props.requestChange(open)}
       >
-        <MenuItem onTouchTap={this.handleClose}>Menu Item</MenuItem>
-        <MenuItem onTouchTap={this.handleClose}>Logout</MenuItem>
+        <Link to="/songlist">
+          <MenuItem onTouchTap={this.props.handleClose}>Home</MenuItem>
+        </Link>
+        <Link to="/">
+        <MenuItem onTouchTap={this.props.handleClose}>Logout</MenuItem>
+        </Link>
       </Drawer>
     </div>
   }

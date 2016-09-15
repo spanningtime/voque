@@ -14,11 +14,11 @@ const App = React.createClass({
   },
 
   handleToggle() {
-    console.log('toggle works');
     this.setState({ open: !this.state.open })
   },
 
-  closeDrawer() {
+  handleClose() {
+    console.log('close')
     this.setState({ open: false});
   },
 
@@ -32,6 +32,7 @@ const App = React.createClass({
         handleToggle={this.handleToggle}
         open={this.state.open}
         requestChange={this.requestChange}
+        handleClose={this.handleClose}
       />
         <div className="app-container">
       </div>
@@ -39,7 +40,7 @@ const App = React.createClass({
       {React.cloneElement(this.props.children, {
         open: this.state.open,
         handleToggle: this.handleToggle,
-        closeDrawer: this.closeDrawer,
+        handleClose: this.handleClose,
         requestChange: this.requestChange
       })}
       <footer id="footer"></footer>
