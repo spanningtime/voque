@@ -15,6 +15,8 @@ const NavBar = React.createClass({
           <a className="login" href="#">Login</a>
           <DrawerMenu
             handleToggle={this.props.handleToggle}
+            open={this.props.open}
+            requestChange={this.props.requestChange}
            />
         </div>
       </div>

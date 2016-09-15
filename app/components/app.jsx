@@ -9,7 +9,7 @@ const App = React.createClass({
 
   getInitialState() {
     return {
-      open: false,
+      open: false
     };
   },
 
@@ -22,7 +22,7 @@ const App = React.createClass({
     this.setState({ open: false});
   },
 
-  requestChange() {
+  requestChange(open) {
     this.setState({ open })
   },
 
@@ -30,6 +30,8 @@ const App = React.createClass({
     return <main>
       <NavBar
         handleToggle={this.handleToggle}
+        open={this.state.open}
+        requestChange={this.requestChange}
       />
         <div className="app-container">
       </div>

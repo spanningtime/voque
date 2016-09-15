@@ -5,11 +5,6 @@ import { withRouter } from 'react-router';
 
 const DrawerMenu = React.createClass({
 
-  // handleToggle() {
-  //   console.log('toggle');
-  //   this.props.toggleDrawer();
-  // },
-
   handleClose() {
     this.props.closeDrawer();
   },
@@ -27,7 +22,7 @@ const DrawerMenu = React.createClass({
         onRequestChange={(open) => this.props.requestChange(open)}
       >
         <MenuItem onTouchTap={this.handleClose}>Menu Item</MenuItem>
-        <MenuItem onTouchTap={this.handleClose}>Menu Item 2</MenuItem>
+        <MenuItem onTouchTap={this.handleClose}>Logout</MenuItem>
       </Drawer>
     </div>
   }
