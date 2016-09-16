@@ -7,9 +7,24 @@ const express = require('express');
 const port = process.env.PORT || 8000;
 const path = require('path');
 
+const bodyParser = require('body-parser');
+const morgan = require('morgan');
+
 const app = express();
 
 app.disable('x-powered-by');
+
+switch (app.get('env')) {
+  case 'development':
+    app.use(morgan('dev'));
+    break;
+
+  case 'production':
+    app.use(morgan('short'));
+    break;
+
+    default:
+}
 
 app.use(express.static(path.join(__dirname, 'public')));
 

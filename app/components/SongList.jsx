@@ -60,8 +60,14 @@ const SongList = React.createClass({
           <span>Title</span></div>
         </div>
         <div className="search-container">
-          <div id="artist-tab"><span>Artist</span></div>
-          <div id="title-tab"><span>Title</span></div>
+          <div id="artist-tab"
+               onTouchTap={() => this.handleToggleTab("artist")}
+               style={this.state.selected === "artist" ? styleTabSelected : styleTabDeselected} >
+            <span>Artist</span></div>
+          <div id="title-tab"
+                onTouchTap={() => this.handleToggleTab("title")}
+                >
+              <span>Title</span></div>
             <TextField
               id="searchInput"
               onChange={this.handleChange}
@@ -81,10 +87,6 @@ const SongList = React.createClass({
                 className="song-title">{song.title}</span>
             </li>
           })}
-          {/* <li>
-            <span className="artist"></span>
-            <span className="song-title">I Wanna Dance...</span>
-          </li> */}
         </ol>
       </div>
     </div>

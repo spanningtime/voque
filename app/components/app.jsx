@@ -107,6 +107,143 @@ const App = React.createClass({
           artist: "Korn",
           title: "Make Me Bad"
         }
+      ],
+      requests: [
+        {
+          singer: "Donna",
+          title: "Hey",
+          artist: "The Pixies"
+        },
+        {
+          singer: "William",
+          title: "I Wanna Dance With Somebody",
+          artist: "Whitney Houston"
+        },
+        {
+          singer: "Hank The Tank",
+          title: "Summer Girls",
+          artist: "LFO"
+        },
+        {
+          singer: "Donna",
+          title: "Hey",
+          artist: "The Pixies"
+        },
+        {
+          singer: "William",
+          title: "I Wanna Dance With Somebody",
+          artist: "Whitney Houston"
+        },
+        {
+          singer: "Hank The Tank",
+          title: "Summer Girls",
+          artist: "LFO"
+        },
+        {
+          singer: "Donna",
+          title: "Hey",
+          artist: "The Pixies"
+        },
+        {
+          singer: "William",
+          title: "I Wanna Dance With Somebody",
+          artist: "Whitney Houston"
+        },
+        {
+          singer: "Hank The Tank",
+          title: "Summer Girls",
+          artist: "LFO"
+        },
+        {
+          singer: "Donna",
+          title: "Hey",
+          artist: "The Pixies"
+        },
+        {
+          singer: "William",
+          title: "I Wanna Dance With Somebody",
+          artist: "Whitney Houston"
+        },
+        {
+          singer: "Hank The Tank",
+          title: "Summer Girls",
+          artist: "LFO"
+        },
+        {
+          singer: "Donna",
+          title: "Hey",
+          artist: "The Pixies"
+        },
+        {
+          singer: "William",
+          title: "I Wanna Dance With Somebody",
+          artist: "Whitney Houston"
+        },
+        {
+          singer: "Hank The Tank",
+          title: "Summer Girls",
+          artist: "LFO"
+        },
+        {
+          singer: "Donna",
+          title: "Hey",
+          artist: "The Pixies"
+        },
+        {
+          singer: "William",
+          title: "I Wanna Dance With Somebody",
+          artist: "Whitney Houston"
+        },
+        {
+          singer: "Hank The Tank",
+          title: "Summer Girls",
+          artist: "LFO"
+        },
+        {
+          singer: "Donna",
+          title: "Hey",
+          artist: "The Pixies"
+        },
+        {
+          singer: "William",
+          title: "I Wanna Dance With Somebody",
+          artist: "Whitney Houston"
+        },
+        {
+          singer: "Hank The Tank",
+          title: "Summer Girls",
+          artist: "LFO"
+        },
+        {
+          singer: "Donna",
+          title: "Hey",
+          artist: "The Pixies"
+        },
+        {
+          singer: "William",
+          title: "I Wanna Dance With Somebody",
+          artist: "Whitney Houston"
+        },
+        {
+          singer: "Hank The Tank",
+          title: "Summer Girls",
+          artist: "LFO"
+        },
+        {
+          singer: "Donna",
+          title: "Hey",
+          artist: "The Pixies"
+        },
+        {
+          singer: "William",
+          title: "I Wanna Dance With Somebody",
+          artist: "Whitney Houston"
+        },
+        {
+          singer: "Hank The Tank",
+          title: "Summer Girls",
+          artist: "LFO"
+        },
       ]
     };
   },
@@ -140,7 +277,8 @@ const App = React.createClass({
         handleToggle: this.handleToggle,
         handleClose: this.handleClose,
         requestChange: this.requestChange,
-        songs: this.state.songs
+        songs: this.state.songs,
+        requests: this.state.requests
       })}
       <footer id="footer"></footer>
     </main>;
