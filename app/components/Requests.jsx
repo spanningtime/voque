@@ -21,6 +21,7 @@ const Requests = React.createClass({
                    onTouchTap={this.props.removeRequest}
                 >clear</i>
 
+                <div className="container-for-border">
                 <div className="request-item-container">
                   <span>{request.singer}</span>
                 </div>
@@ -31,6 +32,7 @@ const Requests = React.createClass({
 
                 <div className="request-item-container">
                   <span>by {request.artist}</span>
+                </div>
                 </div>
               </div>
             </li>

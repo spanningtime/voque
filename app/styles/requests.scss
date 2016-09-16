@@ -6,7 +6,7 @@
 }
 
 .requests-container {
-  background: $LightGrey;
+  // background: $LightGrey;
   border-radius: 5px;
   max-height: 730px;
   overflow: scroll;
@@ -20,13 +20,19 @@
   margin-top: 5px;
   margin-bottom: 5px;
   .request-item-container {
-    border-bottom: 1px solid $Grey;
+  //   border-bottom: 1px solid $Grey;
     display: flex;
     width: 150px;
     justify-content: flex-start;
-    &:nth-child(3) {
+    &:nth-child(2) {
       width: 200px;
     }
+  }
+  .container-for-border {
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+    box-shadow: rgba(0, 0, 0, 0.117467) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
   }
   span {
     font-family: $main;

@@ -249,7 +249,14 @@ const App = React.createClass({
   },
 
   removeRequest(event) {
-    console.log(event.target.parent)
+    this.setState = this.state.requests.filter((event) => {
+      if (event.target) {
+        // console.log(request);
+        console.log(event.target);
+        return false;
+        
+      }
+    })
   },
 
   handleToggle() {
