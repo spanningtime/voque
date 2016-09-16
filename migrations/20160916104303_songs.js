@@ -16,6 +16,7 @@ exports.up = function(knex) {
       .defaultTo('');
     table.string('software_id')
       .unique();
+    table.timestamps(true, true)
   })
 };
 
