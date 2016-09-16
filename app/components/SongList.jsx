@@ -1,11 +1,19 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
+import weakKey from 'weak-key';
 
 const SongList = React.createClass({
   getInitialState() {
     return {
-      selected: "artist"
+      selected: "artist",
+      searchText: "",
+      filterSearch: false
     }
+  },
+
+  handleChange(event) {
+    this.setState({ searchText: event.target.value });
+    console.log(this.state.searchText)
   },
 
   handleToggleTab(newSelected) {
@@ -24,6 +32,13 @@ const SongList = React.createClass({
     const styleTabSelected = {
       opacity: 1.0
     };
+
+    const songsArray = this.props.songs.filter((song) => {
+      if (this.state.searchText.length === 0) {
+        return true;
+      }
+      return song[this.state.selected].toLowerCase().startsWith(this.state.searchText.toLowerCase());
+    })
 
     return <div className="content-container">
       <div className="header-container">
@@ -48,6 +63,8 @@ const SongList = React.createClass({
           <div id="artist-tab"><span>Artist</span></div>
           <div id="title-tab"><span>Title</span></div>
             <TextField
+              id="searchInput"
+              onChange={this.handleChange}
               underlineFocusStyle={inputStyle}
             />
             <img className="search-icon"src={'./images/search.svg'} />
@@ -55,118 +72,19 @@ const SongList = React.createClass({
       </div>
       <div className="songs-container">
         <ol>
-          <li>
-            <span className="artist">Whitney Houston</span>
+          {songsArray.map((song) => {
+
+            return <li key={weakKey(song)}>
+              <span
+                className="artist">{song.artist}</span>
+              <span
+                className="song-title">{song.title}</span>
+            </li>
+          })}
+          {/* <li>
+            <span className="artist"></span>
             <span className="song-title">I Wanna Dance...</span>
-          </li>
-          <li>
-            <span className="artist">The Pixies</span>
-            <span className="song-title">Hey</span>
-          </li>
-          <li>
-            <span className="artist">Limp Bizkit</span>
-            <span className="song-title">Nookie</span>
-          </li>
-          <li>
-            <span className="artist">Korn</span>
-            <span className="song-title">Make Me Bad</span>
-          </li>
-          <li>
-            <span className="artist">Whitney Houston</span>
-            <span className="song-title">I Wanna Dance...</span>
-          </li>
-          <li>
-            <span className="artist">The Pixies</span>
-            <span className="song-title">Hey</span>
-          </li>
-          <li>
-            <span className="artist">Limp Bizkit</span>
-            <span className="song-title">Nookie</span>
-          </li>
-          <li>
-            <span className="artist">Korn</span>
-            <span className="song-title">Make Me Bad</span>
-          </li>
-          <li>
-            <span className="artist">Whitney Houston</span>
-            <span className="song-title">I Wanna Dance...</span>
-          </li>
-          <li>
-            <span className="artist">The Pixies</span>
-            <span className="song-title">Hey</span>
-          </li>
-          <li>
-            <span className="artist">Limp Bizkit</span>
-            <span className="song-title">Nookie</span>
-          </li>
-          <li>
-            <span className="artist">Korn</span>
-            <span className="song-title">Make Me Bad</span>
-          </li>
-          <li>
-            <span className="artist">Whitney Houston</span>
-            <span className="song-title">I Wanna Dance...</span>
-          </li>
-          <li>
-            <span className="artist">The Pixies</span>
-            <span className="song-title">Hey</span>
-          </li>
-          <li>
-            <span className="artist">Limp Bizkit</span>
-            <span className="song-title">Nookie</span>
-          </li>
-          <li>
-            <span className="artist">Korn</span>
-            <span className="song-title">Make Me Bad</span>
-          </li>
-          <li>
-            <span className="artist">Whitney Houston</span>
-            <span className="song-title">I Wanna Dance...</span>
-          </li>
-          <li>
-            <span className="artist">The Pixies</span>
-            <span className="song-title">Hey</span>
-          </li>
-          <li>
-            <span className="artist">Limp Bizkit</span>
-            <span className="song-title">Nookie</span>
-          </li>
-          <li>
-            <span className="artist">Korn</span>
-            <span className="song-title">Make Me Bad</span>
-          </li>
-          <li>
-            <span className="artist">Whitney Houston</span>
-            <span className="song-title">I Wanna Dance...</span>
-          </li>
-          <li>
-            <span className="artist">The Pixies</span>
-            <span className="song-title">Hey</span>
-          </li>
-          <li>
-            <span className="artist">Limp Bizkit</span>
-            <span className="song-title">Nookie</span>
-          </li>
-          <li>
-            <span className="artist">Korn</span>
-            <span className="song-title">Make Me Bad</span>
-          </li>
-          <li>
-            <span className="artist">Whitney Houston</span>
-            <span className="song-title">I Wanna Dance...</span>
-          </li>
-          <li>
-            <span className="artist">The Pixies</span>
-            <span className="song-title">Hey</span>
-          </li>
-          <li>
-            <span className="artist">Limp Bizkit</span>
-            <span className="song-title">Nookie</span>
-          </li>
-          <li>
-            <span className="artist">Korn</span>
-            <span className="song-title">Make Me Bad</span>
-          </li>
+          </li> */}
         </ol>
       </div>
     </div>

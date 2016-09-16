@@ -9,7 +9,105 @@ const App = React.createClass({
 
   getInitialState() {
     return {
-      open: false
+      open: false,
+      songs: [
+        {
+          artist: "Whitney Houston",
+          title: "'I Wanna Dance...'"
+        },
+        {
+          artist: "The Pixies",
+          title: "Hey"
+        },
+        {
+          artist: "Limp Bizkit",
+          title: "Nookie"
+        },
+        {
+          artist: "Korn",
+          title: "Make Me Bad"
+        },
+        {
+          artist: "Whitney Houston",
+          title: "I Wanna Dance..."
+        },
+        {
+          artist: "The Pixies",
+          title: "Hey"
+        },
+        {
+          artist: "Limp Bizkit",
+          title: "Nookie"
+        },
+        {
+          artist: "Korn",
+          title: "Make Me Bad"
+        },
+        {
+          artist: "Whitney Houston",
+          title: "I Wanna Dance..."
+        },
+        {
+          artist: "The Pixies",
+          title: "Hey"
+        },
+        {
+          artist: "Limp Bizkit",
+          title: "Nookie"
+        },
+        {
+          artist: "Korn",
+          title: "Make Me Bad"
+        },
+        {
+          artist: "Whitney Houston",
+          title: "I Wanna Dance..."
+        },
+        {
+          artist: "The Pixies",
+          title: "Hey"
+        },
+        {
+          artist: "Limp Bizkit",
+          title: "Nookie"
+        },
+        {
+          artist: "Korn",
+          title: "Make Me Bad"
+        },
+        {
+          artist: "Whitney Houston",
+          title: "I Wanna Dance..."
+        },
+        {
+          artist: "The Pixies",
+          title: "Hey"
+        },
+        {
+          artist: "Limp Bizkit",
+          title: "Nookie"
+        },
+        {
+          artist: "Korn",
+          title: "Make Me Bad"
+        },
+        {
+          artist: "Whitney Houston",
+          title: "I Wanna Dance..."
+        },
+        {
+          artist: "The Pixies",
+          title: "Hey"
+        },
+        {
+          artist: "Limp Bizkit",
+          title: "Nookie"
+        },
+        {
+          artist: "Korn",
+          title: "Make Me Bad"
+        }
+      ]
     };
   },
 
@@ -41,7 +139,8 @@ const App = React.createClass({
         open: this.state.open,
         handleToggle: this.handleToggle,
         handleClose: this.handleClose,
-        requestChange: this.requestChange
+        requestChange: this.requestChange,
+        songs: this.state.songs
       })}
       <footer id="footer"></footer>
     </main>;

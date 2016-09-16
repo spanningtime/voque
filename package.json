@@ -8,7 +8,7 @@
     "type": "git",
     "url": ""
   },
-  "main":"server.js",
+  "main": "server.js",
   "scripts": {
     "lint": "eslint --ext .js,.jsx --ignore-pattern public",
     "start": "brunch watch --server",
@@ -29,7 +29,8 @@
     "react-dom": "^15.3.0",
     "react-router": "^2.8.0",
     "react-tap-event-plugin": "^1.0.0",
-    "sass-brunch": "^2.6.3"
+    "sass-brunch": "^2.6.3",
+    "weak-key": "^1.0.0"
   },
   "devDependencies": {
     "eslint": "^3.2.2",
