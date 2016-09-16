@@ -116,7 +116,7 @@ const App = React.createClass({
         },
         {
           singer: "William",
-          title: "I Wanna Dance With Somebody",
+          title: "I Wanna Dance With So...",
           artist: "Whitney Houston"
         },
         {
@@ -248,6 +248,10 @@ const App = React.createClass({
     };
   },
 
+  removeRequest(event) {
+    console.log(event.target.parent)
+  },
+
   handleToggle() {
     this.setState({ open: !this.state.open })
   },
@@ -278,7 +282,8 @@ const App = React.createClass({
         handleClose: this.handleClose,
         requestChange: this.requestChange,
         songs: this.state.songs,
-        requests: this.state.requests
+        requests: this.state.requests,
+        removeRequest: this.removeRequest
       })}
       <footer id="footer"></footer>
     </main>;
