@@ -24,6 +24,7 @@ const Register = React.createClass({
           />
         </div>
         <div className="input-container">
+        <div>
         <TextField
           type="password"
           style={styleInput}
@@ -36,6 +37,8 @@ const Register = React.createClass({
           hintText="Confirm Password"
           underlineFocusStyle={styleUnderline}
         />
+        </div>
+        <div>
         <TextField
           style={styleInput}
           hintText="First Name"
@@ -46,6 +49,7 @@ const Register = React.createClass({
           hintText="Last Name"
           underlineFocusStyle={styleUnderline}
         />
+        </div>
         </div>
         <div className="button-container">
           <RaisedButton
