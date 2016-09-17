@@ -1,0 +1,13 @@
+.register-container {
+  box-shadow: rgba(0, 0, 0, 0.117467) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
+  height: 260px;
+  margin-top: 40px;
+  width: 600px;
+  .email-input-container {
+    margin-top: 20px;
+  }
+  .input-container {
+    margin-bottom: 25px;
+    margin-right: 20px;
+  }
+}

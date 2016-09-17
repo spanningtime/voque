@@ -7,12 +7,14 @@ import SongList from 'components/SongList';
 import Thanks from 'components/Thanks';
 import Info from 'components/Info';
 import Requests from 'components/Requests';
+import Register from 'components/Register';
 
 const Routes = React.createClass({
   render() {
     return <Router history={browserHistory}>
       <Route component={App} path="/" >
         <IndexRoute component={Landing} />
+        <Route component={Register} path="/register"/>
         <Route component={Access} path="/access" />
         <Route component={SongList} path="/songlist" />
         <Route component={Thanks} path="/thanks" />
