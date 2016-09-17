@@ -7,6 +7,11 @@ import { Link } from 'react-router';
 const DrawerMenu = React.createClass({
 
   render() {
+
+    const styleMenuItem = {
+      textDecoration: 'none'
+    };
+
     return <div>
       <img
         className="menu-icon"src={'./images/menu.svg'}
@@ -19,11 +24,17 @@ const DrawerMenu = React.createClass({
         open={this.props.open}
         onRequestChange={(open) => this.props.requestChange(open)}
       >
-        <Link to="/songlist">
-          <MenuItem onTouchTap={this.props.handleClose}>Home</MenuItem>
+        <Link
+          to="/songlist"
+          style={styleMenuItem}>
+          <MenuItem
+            style={styleMenuItem}
+            onTouchTap={this.props.handleClose}>Home</MenuItem>
         </Link>
-        <Link to="/">
-        <MenuItem onTouchTap={this.props.handleClose}>Logout</MenuItem>
+        <Link
+          to="/"
+          style={styleMenuItem}>
+          <MenuItem onTouchTap={this.props.handleClose}>Logout</MenuItem>
         </Link>
       </Drawer>
     </div>

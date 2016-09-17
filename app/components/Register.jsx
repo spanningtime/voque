@@ -14,7 +14,7 @@ const Register = React.createClass({
     }
 
     return <div className="content-container">
-      <h1 className="main-header requests-title">Register</h1>
+      <h1 className="main-header title">Register</h1>
       <div className="register-container">
         <div className="email-input-container">
           <TextField
