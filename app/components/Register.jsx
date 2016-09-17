@@ -47,9 +47,11 @@ const Register = React.createClass({
           underlineFocusStyle={styleUnderline}
         />
         </div>
-        <RaisedButton
-          label="Submit"
-        />
+        <div className="button-container">
+          <RaisedButton
+            label="Submit"
+          />
+        </div>
       </div>
     </div>
   }

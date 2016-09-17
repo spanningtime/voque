@@ -38,6 +38,13 @@
       width: 250px;
     }
   }
+  .register-container {
+    height: 340px;
+    width: 90%;
+  }
+  .email-input-container {
+    margin-right: 20px;
+  }
 }
 
 @media screen and (min-width: 501px) {
@@ -72,6 +79,10 @@
   .columns-container {
     width: 90%;
   }
+  .register-container {
+    height: 350px;
+    width: 90%;
+  }
 }
 
 @media screen and (max-width: 860px) {
@@ -92,6 +103,10 @@
   .columns-items-container {
     flex-direction: column;
   }
+  .register-container {
+    // height: 55vh;
+    // width: 600px;
+  }
 }
 
 @media screen and (min-width: 861px) {
@@ -103,6 +118,10 @@
   }
   .column-item p {
     width: 250px;
+  }
+  .register-container {
+    height: 270px;
+    width: 600px;
   }
 }
 
@@ -131,5 +150,9 @@
   }
   .header-container {
     width: 58%;
+  }
+  .register-container {
+    height: 270px;
+    width: 600px;
   }
 }
