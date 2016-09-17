@@ -1,5 +1,6 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
+import { Link } from 'react-router';
 
 const Info = React.createClass({
 
@@ -34,7 +35,9 @@ const Info = React.createClass({
           </div>
           </div>
           <div>
-            <RaisedButton label="Register" />
+            <Link to="/register">
+              <RaisedButton label="Register" />
+            </Link>
           </div>
       </div>
     </div>

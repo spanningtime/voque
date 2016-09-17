@@ -28,8 +28,11 @@ const Landing = React.createClass({
 
         <div className="buttons-container">
           <div>
-            <Link to="#">
-              <RaisedButton label="Singers" className="button" />
+            <Link to="/register">
+              <RaisedButton
+                label="Singers"
+                className="button"
+              />
             </Link>
           </div>
           <div>
