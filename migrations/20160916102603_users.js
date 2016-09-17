@@ -10,7 +10,7 @@ exports.up = function(knex) {
       .notNullable()
       .defaultTo('');
     table.string('email')
-      .uniquie()
+      .unique()
       .notNullable()
       .defaultTo('');
     table.specificType('hashed_password', 'char(60)')
