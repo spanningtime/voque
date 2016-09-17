@@ -1,6 +1,7 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
+import { Link } from 'react-router';
 
 const Login = React.createClass({
 
@@ -35,6 +36,8 @@ const Login = React.createClass({
           />
         </div>
       </div>
+      <p className="register-message">Don't have an account? <Link to="/register">Register</Link>
+      </p>
     </div>
   }
 })

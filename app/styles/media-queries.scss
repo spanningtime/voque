@@ -19,7 +19,7 @@
   .second-header{
     font-size: 20px;
   }
-  .content-container p {
+  .content-container .login-message {
     display: block;
     margin-top: -40px;
   }
@@ -41,6 +41,9 @@
   .register-container {
     height: 340px;
     width: 90%;
+  }
+  .register-message {
+    margin-top: 10px;
   }
   .email-input-container {
     margin-right: 20px;

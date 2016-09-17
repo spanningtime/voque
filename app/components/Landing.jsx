@@ -43,7 +43,7 @@ const Landing = React.createClass({
           </div>
         </div>
 
-        <p>Already have an account? <a href="#">Login</a></p>
+        <p className="login-message">Already have an account? <Link to="/login">Login</Link></p>
       </div>
     </div>
   }
