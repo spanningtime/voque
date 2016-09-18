@@ -2,6 +2,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import React from 'react';
 import { withRouter } from 'react-router';
 import NavBar from 'components/NavBar';
+import axios from 'axios';
 
 
 
@@ -10,6 +11,7 @@ const App = React.createClass({
   getInitialState() {
     return {
       open: false,
+      user: {},
       songs: [
         {
           artist: "Whitney Houston",
@@ -248,13 +250,29 @@ const App = React.createClass({
     };
   },
 
+  // getUser() {
+  //
+  // }
+
+  register(user) {
+    console.log(user)
+    axios.post('/api/users', user)
+      .then((res) => {
+        this.getUser();
+        return this.props.router.push('/access');
+      })
+      .catch((err) => {
+        console.log('post user error');
+      });
+  },
+
   removeRequest(event) {
     this.setState = this.state.requests.filter((event) => {
       if (event.target) {
         // console.log(request);
         console.log(event.target);
         return false;
-        
+
       }
     })
   },
@@ -289,8 +307,10 @@ const App = React.createClass({
         handleClose: this.handleClose,
         requestChange: this.requestChange,
         songs: this.state.songs,
+        register: this.register,
         requests: this.state.requests,
-        removeRequest: this.removeRequest
+        removeRequest: this.removeRequest,
+        user: this.state.user
       })}
       <footer id="footer"></footer>
     </main>;

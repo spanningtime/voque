@@ -1,8 +1,31 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
+import Joi from 'joi';
 
 const Register = React.createClass({
+
+  getInitialState() {
+    return {
+      user: {
+        email: '',
+        password: '',
+        firstName: '',
+        lastName: ''
+      }
+    };
+  },
+
+  handleChange(event) {
+    const { name, value } = event.target;
+    const nextUser = Object.assign({},
+      this.state.user, { [name]: value });
+      this.setState({ user: nextUser });
+  },
+
+  handleTouchTap() {
+    this.props.register(this.state.user);
+  },
 
   render() {
     const styleInput = {
@@ -11,49 +34,66 @@ const Register = React.createClass({
 
     const styleUnderline = {
       borderColor: '#F4AF1D'
-    }
+    };
+
+    const { user } = this.state;
 
     return <div className="content-container">
       <h1 className="main-header title">Register</h1>
       <div className="register-container">
         <div className="email-input-container">
           <TextField
-            style={styleInput}
             hintText="Email"
+            name="email"
+            onChange={this.handleChange}
+            style={styleInput}
             underlineFocusStyle={styleUnderline}
+            value={user.email}
           />
         </div>
         <div className="input-container">
         <div>
         <TextField
-          type="password"
-          style={styleInput}
           hintText="Password"
+          name="password"
+          onChange={this.handleChange}
+          style={styleInput}
+          type="password"
           underlineFocusStyle={styleUnderline}
+          value={user.password}
         />
         <TextField
-          type="password"
-          style={styleInput}
           hintText="Confirm Password"
+          name="confirmPassword"
+          style={styleInput}
+          type="password"
           underlineFocusStyle={styleUnderline}
+          value={user.confirmPassword}
         />
         </div>
         <div>
         <TextField
-          style={styleInput}
+          name="firstName"
           hintText="First Name"
+          onChange={this.handleChange}
+          style={styleInput}
           underlineFocusStyle={styleUnderline}
+          value={user.firstName}
         />
         <TextField
-          style={styleInput}
+          name="lastName"
           hintText="Last Name"
+          onChange={this.handleChange}
+          style={styleInput}
           underlineFocusStyle={styleUnderline}
+          value={user.lastName}
         />
         </div>
         </div>
         <div className="button-container">
           <RaisedButton
             label="Submit"
+            onTouchTap={this.handleTouchTap}
           />
         </div>
       </div>
