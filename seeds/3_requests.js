@@ -6,8 +6,9 @@ exports.seed = function(knex) {
       return knex('requests').insert([
         {
           id: 1,
-          user_id: 2,
-          song_id: 2,
+          admin_id: 1,
+          singer_id: 2,
+          song_id: 1,
       }]);
     })
     .then(() => {
