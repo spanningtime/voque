@@ -9,7 +9,7 @@ const { camelizeKeys, decamelizeKeys } = require('humps');
 const jwt = require('jsonwebtoken');
 const knex = require('../knex');
 const ev = require('express-validation');
-const validation = require('../validations/users');
+// const validation = require('../validations/users');
 
 router.post('/api/users', (req, res, next) => {
   const { email, password } = req.body;
@@ -28,7 +28,7 @@ router.post('/api/users', (req, res, next) => {
     .then((hashedPassword) => {
       const { firstName, lastName } = req.body;
       const user = { firstName, lastName, email, hashedPassword };
-      const row = decamelizedKeys(user);
+      const row = decamelizeKeys(user);
 
       return knex('users').insert(row, '*');
     })
@@ -87,3 +87,5 @@ router.get('/api/users/:userId', (req, res, next) => {
       next(boom.wrap(err));
     });
 });
+
+module.exports = router;

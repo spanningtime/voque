@@ -3,6 +3,8 @@ import React from 'react';
 import { withRouter } from 'react-router';
 import NavBar from 'components/NavBar';
 import axios from 'axios';
+import cookie from 'react-cookie';
+import Snackbar from 'material-ui/Snackbar';
 
 
 
@@ -250,9 +252,35 @@ const App = React.createClass({
     };
   },
 
-  // getUser() {
-  //
-  // }
+  getUser() {
+    const userId = cookie.load('userId');
+
+    axios.get(`/api/users/${userId}`)
+      .then((res) => {
+        this.setState({ user: res.data });
+        console.log(this.state.user);
+      })
+      .catch((err) => {
+        console.error(err);
+      })
+  },
+
+  login(credentials) {
+    axios.post('/api/token', credentials)
+      .then((res) => {
+        this.getUser();
+
+        return this.props.router.push('/access');
+      })
+      .catch((err) => {
+        if (err.response.status === 401) {
+          this.setState({ loginSnackbarOpen: true });
+        }
+        else {
+          console.log('this is an error')
+        }
+      });
+  },
 
   register(user) {
     console.log(user)
@@ -262,17 +290,14 @@ const App = React.createClass({
         return this.props.router.push('/access');
       })
       .catch((err) => {
-        console.log('post user error');
+        console.error(err);
       });
   },
 
   removeRequest(event) {
     this.setState = this.state.requests.filter((event) => {
       if (event.target) {
-        // console.log(request);
-        console.log(event.target);
         return false;
-
       }
     })
   },
@@ -310,7 +335,8 @@ const App = React.createClass({
         register: this.register,
         requests: this.state.requests,
         removeRequest: this.removeRequest,
-        user: this.state.user
+        user: this.state.user,
+        login: this.login
       })}
       <footer id="footer"></footer>
     </main>;
