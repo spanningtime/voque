@@ -2,6 +2,7 @@ import React from 'react';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import Joi from 'joi';
+import Checkbox from 'material-ui/Checkbox';
 
 const Register = React.createClass({
 
@@ -36,10 +37,22 @@ const Register = React.createClass({
       borderColor: '#F4AF1D'
     };
 
+    const styleCheckbox = {
+      color: '#F4AF1D'
+      // width: 100%
+    };
+
     const { user } = this.state;
 
     return <div className="content-container">
       <h1 className="main-header title">Register</h1>
+      <div className="checkbox-container">
+        <Checkbox
+          label="Click this box if you are registering as a Karaoke DJ"
+          inputStyle={styleCheckbox}
+          labelPosition="left"
+        />
+      </div>
       <div className="register-container">
         <div className="email-input-container">
           <TextField
