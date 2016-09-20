@@ -14,6 +14,8 @@ const App = React.createClass({
     return {
       open: false,
       user: {},
+      requestArtist: '',
+      requestSong: '',
       songs: [
         {
           artist: "Whitney Houston",
@@ -252,6 +254,16 @@ const App = React.createClass({
     };
   },
 
+  requestSong(event) {
+    console.log('hello')
+    const requestSong = event.target.parentElement.firstChild.firstChild.innerHTML;
+    const requestArtist = event.target.parentElement.firstChild.childNodes[1].innerHTML;
+    this.setState({
+      requestSong,
+      requestArtist
+    })
+  },
+
   getUser() {
     const userId = cookie.load('userId');
 
@@ -336,7 +348,9 @@ const App = React.createClass({
         requests: this.state.requests,
         removeRequest: this.removeRequest,
         user: this.state.user,
-        login: this.login
+        login: this.login,
+        requestArtist: this.state.artist,
+        requestSong: this.requestSong
       })}
       <footer id="footer"></footer>
     </main>;

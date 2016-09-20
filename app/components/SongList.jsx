@@ -12,6 +12,12 @@ const SongList = React.createClass({
     }
   },
 
+  handleTouchTap(event) {
+    console.log(event.target.parentElement.firstChild.firstChild.innerHTML)
+    this.props.requestSong(event);
+  },
+
+
   handleToggleSubmitBtn(event) {
     const slideContainer = event.target.parentElement.parentElement
 
@@ -124,6 +130,7 @@ const SongList = React.createClass({
                   </div>
                   <div
                     name="request-submit"
+                    onTouchTap={this.handleTouchTap}
                     className="request-submit"
                     style={styleSubmitButton}>submit</div>
                 </div>
