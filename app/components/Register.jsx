@@ -12,9 +12,20 @@ const Register = React.createClass({
         email: '',
         password: '',
         firstName: '',
-        lastName: ''
+        lastName: '',
+        kj: false
       }
     };
+  },
+
+  handleCheckbox() {
+    if (!this.state.kj)
+    this.setState({
+      kj: true
+    })
+    else {
+      this.setState({ kj: false })
+    }
   },
 
   handleChange(event) {
@@ -48,9 +59,11 @@ const Register = React.createClass({
       <h1 className="main-header title">Register</h1>
       <div className="checkbox-container">
         <Checkbox
+          onCheck={this.handleCheckbox}
           label="Click this box if you are registering as a Karaoke DJ"
           inputStyle={styleCheckbox}
           labelPosition="left"
+          checked={this.state.kj}
         />
       </div>
       <div className="register-container">
