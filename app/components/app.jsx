@@ -17,7 +17,7 @@ const App = React.createClass({
       songs: [
         {
           artist: "Whitney Houston",
-          title: "'I Wanna Dance...'"
+          title: "'I Wanna Dance With Somebody'"
         },
         {
           artist: "The Pixies",

@@ -31,6 +31,9 @@
     height: 55vh;
     overflow: scroll;
   }
+  .song-container {
+    width: 100%;
+  }
   .columns-container {
     width: 95%;
     height: 100vh;
@@ -75,6 +78,9 @@
     width: 80%;
     height: 55vh;
     overflow: scroll;
+  }
+  .song-container {
+    width: 100%;
   }
   .header-container {
     width: 78%;
@@ -126,6 +132,9 @@
     height: 270px;
     width: 600px;
   }
+  .song-container {
+    width: 650px;
+  }
 }
 
 // full screen
@@ -157,5 +166,8 @@
   .register-container {
     height: 270px;
     width: 600px;
+  }
+  .song-container {
+    width: 650px;
   }
 }

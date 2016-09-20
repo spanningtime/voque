@@ -81,10 +81,16 @@ const SongList = React.createClass({
           {songsArray.map((song) => {
 
             return <li key={weakKey(song)}>
-              <span
-                className="artist">{song.artist}</span>
-              <span
-                className="song-title">{song.title}</span>
+              <div className="song-container">
+              <i className="material-icons"
+              >done</i>
+                <div className="border-container">
+                  <div
+                    className="title-container">{song.title}</div>
+                    <div
+                    className="artist-container">{song.artist}</div>
+                </div>
+              </div>
             </li>
           })}
         </ol>
