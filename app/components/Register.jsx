@@ -18,6 +18,9 @@ const Register = React.createClass({
     };
   },
 
+// dom traversal to access checkbox
+// document.getElementsByClassName('checkbox-container')[0].childNodes[0].lastChild.childNodes[1].childNodes[0].childNodes
+
   handleCheckbox() {
     if (!this.state.kj)
     this.setState({

@@ -15,9 +15,9 @@ exports.up = function(knex) {
       .defaultTo('');
     table.specificType('hashed_password', 'char(60)')
       .notNullable();
-    table.string('role')
+    table.boolean('kj')
       .notNullable()
-      .defaultTo('singer');
+      .defaultTo(false);
     table.string('code').defaultTo('');
     table.timestamps(true, true);
   });

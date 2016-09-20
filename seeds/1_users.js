@@ -10,7 +10,7 @@ exports.seed = function(knex) {
         last_name: 'Dank',
         email: 'waynedank@gmail.com',
         hashed_password: '$2a$12$Q3fh1jeJZ2Q19Yr12aVOxO54a/IvBhS01qWCqxNAZc0ABRxq0NnYq',
-        role: 'admin',
+        kj: true,
         code: 'danksongs'
       },
       {
@@ -19,7 +19,7 @@ exports.seed = function(knex) {
         last_name: 'Singsong',
         email: 'ilovekaraoke@gmail.com',
         hashed_password: '$2a$12$Q3fh1jeJZ2Q19Yr12aVOxO54a/IvBhS01qWCqxNAZc0ABRxq0NnYq',
-        role: 'singer',
+        kj: false,
         code: null
       }])
     })

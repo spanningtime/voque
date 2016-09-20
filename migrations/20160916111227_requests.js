@@ -6,7 +6,6 @@ exports.up = function(knex) {
     table.integer('admin_id')
       .references('id')
       .inTable('users')
-      .notNullable();
     table.integer('singer_id')
       .references('id')
       .inTable('users')
