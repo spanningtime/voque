@@ -82,13 +82,16 @@ const SongList = React.createClass({
 
             return <li key={weakKey(song)}>
               <div className="song-container">
-              <i className="material-icons"
-              >done</i>
-                <div className="border-container">
-                  <div
-                    className="title-container">{song.title}</div>
+              {/* <i className="material-icons"
+              >done</i> */}
+                <div className="slidein-container">
+                  <div className="border-container">
                     <div
-                    className="artist-container">{song.artist}</div>
+                      className="title-container">{song.title}</div>
+                      <div
+                      className="artist-container">{song.artist}</div>
+                  </div>
+                  <div className="request-submit">submit</div>
                 </div>
               </div>
             </li>
