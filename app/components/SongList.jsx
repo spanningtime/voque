@@ -7,8 +7,27 @@ const SongList = React.createClass({
     return {
       selected: "artist",
       searchText: "",
-      filterSearch: false
+      filterSearch: false,
+      toggleSubmitBtn: "inline-block",
     }
+  },
+
+  handleToggleSubmitBtn(event) {
+    const slideContainer = event.target.parentElement.parentElement
+
+    if (this.state.toggleSubmitBtn === "none") {
+      this.setState({ toggleSubmitBtn: "inlineBlock"})
+    }
+
+
+    this.setState({ toggleSubmitBtn: btnDisplay });
+    console.log(btnDisplay)
+
+
+    // const slideContainer = event.target.parentElement.parentElement;
+    // const submitBtn = slideContainer.lastElementChild;
+    // if (submitBtn.style.display === "none")
+    // submitBtn.style.display="inline-block";
   },
 
   handleChange(event) {
@@ -31,6 +50,14 @@ const SongList = React.createClass({
 
     const styleTabSelected = {
       opacity: 1.0
+    };
+
+    const styleSubmitButton = {
+      display: this.state.toggleSubmitBtn
+    };
+
+    const styleHideSubmitButton = {
+      display: 'hidden'
     };
 
     const songsArray = this.props.songs.filter((song) => {
@@ -80,18 +107,25 @@ const SongList = React.createClass({
         <ol>
           {songsArray.map((song) => {
 
-            return <li key={weakKey(song)}>
+            return <li
+              key={weakKey(song)}>
               <div className="song-container">
               {/* <i className="material-icons"
               >done</i> */}
                 <div className="slidein-container">
-                  <div className="border-container">
+                  <div
+                    className="border-container"
+                    onTouchTap={this.handleToggleSubmitBtn}
+                  >
                     <div
                       className="title-container">{song.title}</div>
                       <div
                       className="artist-container">{song.artist}</div>
                   </div>
-                  <div className="request-submit">submit</div>
+                  <div
+                    name="request-submit"
+                    className="request-submit"
+                    style={styleSubmitButton}>submit</div>
                 </div>
               </div>
             </li>
