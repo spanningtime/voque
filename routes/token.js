@@ -20,7 +20,7 @@ router.post('/api/token', (req, res, next) => {
         throw boom.create(401, 'User could not be logged in');
       }
 
-      user = camelize(row);
+      user = camelizeKeys(row);
 
       return bcrypt.compare(req.body.password, user.hashedPassword);
     })
@@ -52,7 +52,7 @@ router.post('/api/token', (req, res, next) => {
     })
     .catch((err) => {
       next(err);
-    }); 
+    });
 });
 
 router.delete('/api/token', (req, res) => {

@@ -261,11 +261,17 @@ const App = React.createClass({
     this.setState({
       requestSong,
       requestArtist
-    })
+    });
+
+    axios.post(`/api/requests/1`, req)
+      .then((req) => {
+
+      })
   },
 
   getUser() {
     const userId = cookie.load('userId');
+    console.log(userId);
 
     axios.get(`/api/users/${userId}`)
       .then((res) => {
@@ -280,7 +286,7 @@ const App = React.createClass({
   login(credentials) {
     axios.post('/api/token', credentials)
       .then((res) => {
-        // this.getUser();
+        this.getUser();
 
         return this.props.router.push('/access');
       })
@@ -291,6 +297,17 @@ const App = React.createClass({
         else {
           console.log('this is an error')
         }
+      });
+  },
+
+  logout() {
+    axios.delete('/api/token')
+      .then(() => {
+        this.handleClose();
+        this.props.router.push('/');
+      })
+      .catch((err) => {
+        console.error(err);
       });
   },
 
@@ -334,6 +351,7 @@ const App = React.createClass({
         open={this.state.open}
         requestChange={this.requestChange}
         handleClose={this.handleClose}
+        logout={this.logout}
       />
         <div className="app-container">
       </div>
@@ -350,7 +368,8 @@ const App = React.createClass({
         user: this.state.user,
         login: this.login,
         requestArtist: this.state.artist,
-        requestSong: this.requestSong
+        requestSong: this.requestSong,
+        logout: this.logout
       })}
       <footer id="footer"></footer>
     </main>;

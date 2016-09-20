@@ -9,6 +9,8 @@ exports.seed = function(knex) {
           admin_id: 1,
           singer_id: 2,
           song_id: 1,
+          artist_name: 'The Pixies',
+          song_title: 'Hey'
       }]);
     })
     .then(() => {

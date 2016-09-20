@@ -14,6 +14,8 @@ exports.up = function(knex) {
       .references('id')
       .inTable('songs')
       .notNullable();
+    table.string('artist_name');
+    table.string('song_title')
     table.timestamps(true, true)
   })
 };

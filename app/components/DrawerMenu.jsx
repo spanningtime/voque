@@ -32,9 +32,8 @@ const DrawerMenu = React.createClass({
             onTouchTap={this.props.handleClose}>Home</MenuItem>
         </Link>
         <Link
-          to="/"
           style={styleMenuItem}>
-          <MenuItem onTouchTap={this.props.handleClose}>Logout</MenuItem>
+          <MenuItem onTouchTap={this.props.logout}>Logout</MenuItem>
         </Link>
       </Drawer>
     </div>
