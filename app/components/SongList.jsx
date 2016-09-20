@@ -8,32 +8,18 @@ const SongList = React.createClass({
       selected: "artist",
       searchText: "",
       filterSearch: false,
-      toggleSubmitBtn: "inline-block",
+      selectedSong: null,
     }
   },
 
   handleTouchTap(event) {
-    console.log(event.target.parentElement.firstChild.firstChild.innerHTML)
     this.props.requestSong(event);
   },
 
-
-  handleToggleSubmitBtn(event) {
-    const slideContainer = event.target.parentElement.parentElement
-
-    if (this.state.toggleSubmitBtn === "none") {
-      this.setState({ toggleSubmitBtn: "inlineBlock"})
-    }
-
-
-    this.setState({ toggleSubmitBtn: btnDisplay });
-    console.log(btnDisplay)
-
-
-    // const slideContainer = event.target.parentElement.parentElement;
-    // const submitBtn = slideContainer.lastElementChild;
-    // if (submitBtn.style.display === "none")
-    // submitBtn.style.display="inline-block";
+  handleToggleSubmitBtn(song) {
+    this.setState({
+      selectedSong: song
+    })
   },
 
   handleChange(event) {
@@ -59,11 +45,11 @@ const SongList = React.createClass({
     };
 
     const styleSubmitButton = {
-      display: this.state.toggleSubmitBtn
+      display: 'inline-block'
     };
 
     const styleHideSubmitButton = {
-      display: 'hidden'
+      display: 'none'
     };
 
     const songsArray = this.props.songs.filter((song) => {
@@ -121,7 +107,7 @@ const SongList = React.createClass({
                 <div className="slidein-container">
                   <div
                     className="border-container"
-                    onTouchTap={this.handleToggleSubmitBtn}
+                    onTouchTap={((event) => this.handleToggleSubmitBtn(song)).bind(this)}
                   >
                     <div
                       className="title-container">{song.title}</div>
@@ -132,7 +118,7 @@ const SongList = React.createClass({
                     name="request-submit"
                     onTouchTap={this.handleTouchTap}
                     className="request-submit"
-                    style={styleSubmitButton}>submit</div>
+                    style={song === this.state.selectedSong ? styleSubmitButton : styleHideSubmitButton}>submit</div>
                 </div>
               </div>
             </li>
