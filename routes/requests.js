@@ -11,7 +11,7 @@ const validations = require('../validations/users');
 const jwt = require('jsonwebtoken');
 const knex = require('../knex');
 
-router.post('/api/requests/', (req, res, next) => {
+router.post('/api/requests/:adminId', (req, res, next) => {
 
   knex('requests')
     .then((rows) => {

@@ -11,6 +11,7 @@ const router = express.Router();
 
 router.post('/api/token', (req, res, next) => {
   let user;
+  let adminId;
 
   knex('users')
     .where('email', req.body.email)
@@ -21,6 +22,11 @@ router.post('/api/token', (req, res, next) => {
       }
 
       user = camelizeKeys(row);
+
+      if (user.role === 'admin') {
+        adminId = user.id;
+        console.log(adminId)
+      }
 
       return bcrypt.compare(req.body.password, user.hashedPassword);
     })
@@ -41,6 +47,11 @@ router.post('/api/token', (req, res, next) => {
       });
 
       res.cookie('userId', user.id, {
+        expires: expiry,
+        secure: router.get('env') === 'production'
+      });
+
+      res.cookie('adminId', adminId, {
         expires: expiry,
         secure: router.get('env') === 'production'
       });

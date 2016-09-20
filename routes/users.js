@@ -27,7 +27,7 @@ router.post('/api/users', (req, res, next) => {
     })
     .then((hashedPassword) => {
       const { firstName, lastName } = req.body;
-      const user = { firstName, lastName, email, hashedPassword };
+      const user = { firstName, lastName, email, hashedPassword, role };
       const row = decamelizeKeys(user);
 
       return knex('users').insert(row, '*');

@@ -254,13 +254,11 @@ const App = React.createClass({
     };
   },
 
-  requestSong(event) {
-    console.log('hello')
-    const requestSong = event.target.parentElement.firstChild.firstChild.innerHTML;
-    const requestArtist = event.target.parentElement.firstChild.childNodes[1].innerHTML;
+  requestSong(requestedSong) {
+    console.log(requestedSong)
     this.setState({
-      requestSong,
-      requestArtist
+      requestSong: requestedSong.title,
+      requestArtist: requestedSong.artist
     });
 
     axios.post(`/api/requests/1`, req)

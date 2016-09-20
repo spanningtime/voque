@@ -13,7 +13,7 @@ const SongList = React.createClass({
   },
 
   handleTouchTap(event) {
-    this.props.requestSong(event);
+    this.props.requestSong(this.state.selectedSong);
   },
 
   handleToggleSubmitBtn(song) {
