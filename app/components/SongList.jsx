@@ -1,6 +1,7 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
 import weakKey from 'weak-key';
+import { withRouter } from 'react-router';
 
 const SongList = React.createClass({
   getInitialState() {
@@ -14,6 +15,7 @@ const SongList = React.createClass({
 
   handleTouchTap(event) {
     this.props.requestSong(this.state.selectedSong);
+    this.props.router.push('/thanks')
   },
 
   handleToggleSubmitBtn(song) {
@@ -119,7 +121,8 @@ const SongList = React.createClass({
                     name="request-submit"
                     onTouchTap={this.handleTouchTap}
                     className="request-submit"
-                    style={song === this.state.selectedSong ? styleSubmitButton : styleHideSubmitButton}>submit</div>
+                    style={song === this.state.selectedSong ? styleSubmitButton : styleHideSubmitButton}>submit
+                  </div>
                 </div>
               </div>
             </li>
@@ -130,4 +133,4 @@ const SongList = React.createClass({
   }
 })
 
-export default SongList;
+export default withRouter(SongList);
