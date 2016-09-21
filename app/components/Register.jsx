@@ -22,13 +22,11 @@ const Register = React.createClass({
 // document.getElementsByClassName('checkbox-container')[0].childNodes[0].lastChild.childNodes[1].childNodes[0].childNodes
 
   handleCheckbox() {
-    if (!this.state.kj)
+    const nextUser = Object.assign(this.state.user, {kj: !this.state.user.kj})
+
     this.setState({
-      kj: true
+      user: nextUser
     })
-    else {
-      this.setState({ kj: false })
-    }
   },
 
   handleChange(event) {
@@ -39,6 +37,7 @@ const Register = React.createClass({
   },
 
   handleTouchTap() {
+    console.log(this.state.user);
     this.props.register(this.state.user);
   },
 
@@ -53,7 +52,6 @@ const Register = React.createClass({
 
     const styleCheckbox = {
       color: '#F4AF1D'
-      // width: 100%
     };
 
     const { user } = this.state;
@@ -66,7 +64,7 @@ const Register = React.createClass({
           label="Click this box if you are registering as a Karaoke DJ"
           inputStyle={styleCheckbox}
           labelPosition="left"
-          checked={this.state.kj}
+          checked={this.state.user.kj}
         />
       </div>
       <div className="register-container">

@@ -15,6 +15,7 @@ const Access = React.createClass({
       <div>
         <TextField className='song-input' underlineFocusStyle={inputStyle}/>
         <FlatButton
+          onTouchTap={this.props.getSongs}
           className='flat-btn'
           label="View songs"
           />

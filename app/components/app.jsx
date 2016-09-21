@@ -281,6 +281,12 @@ const App = React.createClass({
       })
   },
 
+  getSongs() {
+    const adminId = cookie.load('adminId');
+    console.log(adminId)
+
+  },
+
   login(credentials) {
     axios.post('/api/token', credentials)
       .then((res) => {
@@ -367,7 +373,8 @@ const App = React.createClass({
         login: this.login,
         requestArtist: this.state.artist,
         requestSong: this.requestSong,
-        logout: this.logout
+        logout: this.logout,
+        getSongs: this.getSongs
       })}
       <footer id="footer"></footer>
     </main>;
