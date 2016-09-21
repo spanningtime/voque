@@ -3,7 +3,7 @@
 exports.up = function(knex) {
   return knex.schema.createTable('songs', (table) => {
     table.increments();
-    table.integer('user_id')
+    table.integer('admin_id')
       .notNullable()
       .references('id')
       .inTable('users')

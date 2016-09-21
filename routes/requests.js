@@ -14,6 +14,7 @@ const knex = require('../knex');
 router.post('/api/requests/:adminId', (req, res, next) => {
 
   knex('requests')
+    .where(admin_id, adminId)
     .then((rows) => {
       const { adminId, singerId, songId } = req.body;
       const request = { adminId, singerId, songId};
