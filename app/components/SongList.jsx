@@ -98,6 +98,7 @@ const SongList = React.createClass({
       <div className="songs-container">
         <ol>
           {songsArray.map((song) => {
+            console.log(song)
 
             return <li
               key={weakKey(song)}>
@@ -112,7 +113,7 @@ const SongList = React.createClass({
                     <div
                       className="title-container">{song.title}</div>
                       <div
-                      className="artist-container">{song.artist}</div>
+                      className="artist-container">{song.artistName}</div>
                   </div>
                   <div
                     name="request-submit"

@@ -16,104 +16,7 @@ const App = React.createClass({
       user: {},
       requestArtist: '',
       requestSong: '',
-      songs: [
-        {
-          artist: "Whitney Houston",
-          title: "'I Wanna Dance With Somebody'"
-        },
-        {
-          artist: "The Pixies",
-          title: "Hey"
-        },
-        {
-          artist: "Limp Bizkit",
-          title: "Nookie"
-        },
-        {
-          artist: "Korn",
-          title: "Make Me Bad"
-        },
-        {
-          artist: "Whitney Houston",
-          title: "I Wanna Dance..."
-        },
-        {
-          artist: "The Pixies",
-          title: "Hey"
-        },
-        {
-          artist: "Limp Bizkit",
-          title: "Nookie"
-        },
-        {
-          artist: "Korn",
-          title: "Make Me Bad"
-        },
-        {
-          artist: "Whitney Houston",
-          title: "I Wanna Dance..."
-        },
-        {
-          artist: "The Pixies",
-          title: "Hey"
-        },
-        {
-          artist: "Limp Bizkit",
-          title: "Nookie"
-        },
-        {
-          artist: "Korn",
-          title: "Make Me Bad"
-        },
-        {
-          artist: "Whitney Houston",
-          title: "I Wanna Dance..."
-        },
-        {
-          artist: "The Pixies",
-          title: "Hey"
-        },
-        {
-          artist: "Limp Bizkit",
-          title: "Nookie"
-        },
-        {
-          artist: "Korn",
-          title: "Make Me Bad"
-        },
-        {
-          artist: "Whitney Houston",
-          title: "I Wanna Dance..."
-        },
-        {
-          artist: "The Pixies",
-          title: "Hey"
-        },
-        {
-          artist: "Limp Bizkit",
-          title: "Nookie"
-        },
-        {
-          artist: "Korn",
-          title: "Make Me Bad"
-        },
-        {
-          artist: "Whitney Houston",
-          title: "I Wanna Dance..."
-        },
-        {
-          artist: "The Pixies",
-          title: "Hey"
-        },
-        {
-          artist: "Limp Bizkit",
-          title: "Nookie"
-        },
-        {
-          artist: "Korn",
-          title: "Make Me Bad"
-        }
-      ],
+      songs: [],
       requests: [
         {
           singer: "Donna",
@@ -282,8 +185,17 @@ const App = React.createClass({
   },
 
   getSongs() {
-    const adminId = cookie.load('adminId');
-    console.log(adminId)
+    axios.get('/api/songs/1')
+      .then((res) => {
+        this.setState({
+          songs: res.data
+        })
+        return this.props.router.push('/songlist');
+        console.log(this.state.songs);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
 
   },
 
