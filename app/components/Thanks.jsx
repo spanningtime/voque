@@ -2,6 +2,7 @@ import React from 'react';
 
 const Thanks = React.createClass({
   render() {
+    console.log(this.props.requestedSong)
 
     return <div className="content-container">
       <div className="thanks-container">
@@ -10,7 +11,7 @@ const Thanks = React.createClass({
         </h1>
         <h2 className="second-header">
             While you wait, take a look at the lyrics for <br/>
-             <span className="lyrics-title">"I Wanna Dance With Somebody"</span>.
+             <span className="lyrics-title">{this.props.requestedSong.songTitle}</span>
         </h2>
       </div>
       <div className="lyrics-container">

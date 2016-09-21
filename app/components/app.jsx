@@ -157,9 +157,9 @@ const App = React.createClass({
   },
 
   requestSong(requestedSong) {
-    // this.setState({
-    //   requestedSong
-    // });
+    this.setState({
+      requestedSong
+    });
     axios.post(`/api/requests/1`, requestedSong)
       .then(() => {
 
@@ -282,7 +282,8 @@ const App = React.createClass({
         requestArtist: this.state.artist,
         requestSong: this.requestSong,
         logout: this.logout,
-        getSongs: this.getSongs
+        getSongs: this.getSongs,
+        requestedSong: this.state.requestedSong
       })}
       <footer id="footer"></footer>
     </main>;
