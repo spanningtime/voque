@@ -17,6 +17,7 @@ const SongList = React.createClass({
   },
 
   handleToggleSubmitBtn(song) {
+    console.log(song)
     this.setState({
       selectedSong: song
     })
@@ -98,7 +99,6 @@ const SongList = React.createClass({
       <div className="songs-container">
         <ol>
           {songsArray.map((song) => {
-            console.log(song)
 
             return <li
               key={weakKey(song)}>
@@ -111,7 +111,7 @@ const SongList = React.createClass({
                     onTouchTap={((event) => this.handleToggleSubmitBtn(song)).bind(this)}
                   >
                     <div
-                      className="title-container">{song.title}</div>
+                      className="title-container">{song.songTitle}</div>
                       <div
                       className="artist-container">{song.artistName}</div>
                   </div>

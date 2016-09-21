@@ -35,12 +35,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 // REQUIRE IN ROUTERS
 const users = require('./routes/users');
 const token = require('./routes/token');
-const songs = require('./routes/songs')
+const songs = require('./routes/songs');
+const requests = require('./routes/requests');
 
 //ROUTE HANDLERS
 app.use(users);
 app.use(token);
 app.use(songs);
+app.use(requests);
 
 app.use((_req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));

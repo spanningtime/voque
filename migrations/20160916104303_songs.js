@@ -9,7 +9,7 @@ exports.up = function(knex) {
       .inTable('users')
       .onDelete('CASCADE')
       .index();
-    table.text('title')
+    table.text('song_title')
       .notNullable()
       .defaultTo('');
     table.string('artist_name')

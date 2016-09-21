@@ -14,8 +14,7 @@ const App = React.createClass({
     return {
       open: false,
       user: {},
-      requestArtist: '',
-      requestSong: '',
+      requestedSong: {},
       songs: [],
       requests: [
         {
@@ -158,26 +157,25 @@ const App = React.createClass({
   },
 
   requestSong(requestedSong) {
-    console.log(requestedSong)
-    this.setState({
-      requestSong: requestedSong.title,
-      requestArtist: requestedSong.artist
-    });
+    // this.setState({
+    //   requestedSong
+    // });
+    axios.post(`/api/requests/1`, requestedSong)
+      .then(() => {
 
-    axios.post(`/api/requests/1`, req)
-      .then((req) => {
-
+      })
+      .catch((err) => {
+        console.error(err);
       })
   },
 
   getUser() {
     const userId = cookie.load('userId');
-    console.log(userId);
+
 
     axios.get(`/api/users/${userId}`)
       .then((res) => {
         this.setState({ user: res.data });
-        console.log(this.state.user);
       })
       .catch((err) => {
         console.error(err);
@@ -228,7 +226,6 @@ const App = React.createClass({
   },
 
   register(user) {
-    console.log(user)
     axios.post('/api/users', user)
       .then((res) => {
         this.getUser();
@@ -252,7 +249,6 @@ const App = React.createClass({
   },
 
   handleClose() {
-    console.log('close')
     this.setState({ open: false});
   },
 

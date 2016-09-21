@@ -17,12 +17,10 @@ router.get('/api/songs/:adminId', (req, res, next) => {
   knex('songs')
     .where('admin_id', adminId)
     .then((rows) => {
-      console.log(rows)
       if (!rows) {
         return next();
       }
       const song = camelizeKeys(rows);
-      console.log(song);
       res.send(song);
     })
     .catch((err) => {
