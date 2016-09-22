@@ -19,6 +19,14 @@
   .second-header{
     font-size: 20px;
   }
+  .back-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 10px;
+    .back-arrow {
+      height: 30px;
+    }
+  }
   .content-container .login-message {
     display: block;
     margin-top: -40px;
@@ -68,6 +76,9 @@
   .app-container {
     margin-left: 2%;
     margin-right: 2%;
+  }
+  .back-container {
+    display: none;
   }
   .main-header {
     font-size: 35px;
