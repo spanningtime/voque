@@ -1,8 +1,13 @@
 import React from 'react';
 
+// EXAMPLE API call for track id
+//'http://api.musixmatch.com/ws/1.1/track.search?apikey=14685231d67e7ec9fe1bc89da7b6105b&q_artist=queen&q_track=we%20are%20the%20champions&format=json&page_size=1&f_has_lyrics=1'
+
+//
+//'http://api.musixmatch.com/ws/1.1/track.lyrics.get?apikey=14685231d67e7ec9fe1bc89da7b6105b&track_id=85217814'
+
 const Thanks = React.createClass({
   render() {
-    console.log(this.props.requestedSong)
 
     return <div className="content-container">
       <div className="thanks-container">

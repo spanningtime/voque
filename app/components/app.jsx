@@ -15,6 +15,7 @@ const App = React.createClass({
       open: false,
       user: {},
       requestedSong: {},
+      lyrics: '',
       songs: [],
       requests: [
         {
@@ -156,13 +157,34 @@ const App = React.createClass({
     };
   },
 
+  getLyrics() {
+    const apiKey = '14685231d67e7ec9fe1bc89da7b6105b';
+    const artist = this.state.requestedSong.artistName;
+    const title = this.state.requestedSong.songTitle;
+    axios.get(`https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.search?apikey=${apiKey}&q_artist=${artist}&q_track=${title}&format=json&page_size=1&f_has_lyrics=1`)
+      .then((trackData) => {
+        const trackId = trackData.data.message.body.track_list[0].track.track_id;
+        console.log(trackId)
+        return axios.get(`http://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.lyrics.get?apikey=${apiKey}&track_id=${trackId}`)
+          .then((lyricsData) => {
+            const lyrics = lyricsData.data.message.body.lyrics.lyrics_body;
+            this.setState({
+              lyrics
+            })
+          })
+      })
+      .catch((err) => {
+        console.error(err)
+      });
+  },
+
   requestSong(requestedSong) {
     this.setState({
       requestedSong
     });
     axios.post(`/api/requests/1`, requestedSong)
       .then(() => {
-
+        this.getLyrics();
       })
       .catch((err) => {
         console.error(err);
@@ -283,7 +305,8 @@ const App = React.createClass({
         requestSong: this.requestSong,
         logout: this.logout,
         getSongs: this.getSongs,
-        requestedSong: this.state.requestedSong
+        requestedSong: this.state.requestedSong,
+        getLyrics: this.getLyrics
       })}
       <footer id="footer"></footer>
     </main>;
