@@ -26,9 +26,14 @@
   .content-container {
     min-height: 100vh;
   }
-  .songs-container, .lyrics-container {
+  .songs-container {
     width: 95%;
     height: 55vh;
+    overflow: scroll;
+  }
+  .lyrics-container {
+    width: 95%;
+    max-height: 55vh;
     overflow: scroll;
   }
   .song-container {

@@ -164,10 +164,13 @@ const App = React.createClass({
     axios.get(`https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.search?apikey=${apiKey}&q_artist=${artist}&q_track=${title}&format=json&page_size=1&f_has_lyrics=1`)
       .then((trackData) => {
         const trackId = trackData.data.message.body.track_list[0].track.track_id;
-        console.log(trackId)
         return axios.get(`http://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.lyrics.get?apikey=${apiKey}&track_id=${trackId}`)
           .then((lyricsData) => {
-            const lyrics = lyricsData.data.message.body.lyrics.lyrics_body;
+            const lyricsUnfiltered = lyricsData.data.message.body.lyrics.lyrics_body;
+            console.log(lyricsUnfiltered)
+            const lyrics = lyricsUnfiltered.substring(0, lyricsUnfiltered.length - 58);
+            console.log(lyrics)
+            // console.log(lyrics.substring(0,lyrics.length - 58))
             this.setState({
               lyrics
             })
@@ -306,7 +309,8 @@ const App = React.createClass({
         logout: this.logout,
         getSongs: this.getSongs,
         requestedSong: this.state.requestedSong,
-        getLyrics: this.getLyrics
+        getLyrics: this.getLyrics,
+        lyrics: this.state.lyrics
       })}
       <footer id="footer"></footer>
     </main>;
