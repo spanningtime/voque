@@ -9,6 +9,7 @@ import Info from 'components/Info';
 import Requests from 'components/Requests';
 import Register from 'components/Register';
 import Login from 'components/Login';
+import Dashboard from 'components/Dashboard';
 
 const Routes = React.createClass({
   render() {
@@ -22,6 +23,7 @@ const Routes = React.createClass({
         <Route component={Thanks} path="/thanks" />
         <Route component={Info} path="/info" />
         <Route component={Requests} path="/requests" />
+        <Route component={Dashboard} path="/dashboard" />
       </Route>
     </Router>;
   }

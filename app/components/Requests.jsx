@@ -10,9 +10,10 @@ const Requests = React.createClass({
       <div className="requests-container">
         <ol>
           {this.props.requests.map((request, index) => {
-            if (request.title.length > 21) {
+            console.log(request);
+            if (request.songTitle.length > 21) {
               console.log(index);
-              request.title = request.title.substring(0, 21) + '...';
+              request.songTitle = request.songTitle.substring(0, 21) + '...';
             }
             return <li key={weakKey(request)}>
               <div className="song-request-container">
@@ -23,15 +24,15 @@ const Requests = React.createClass({
 
                 <div className="container-for-border">
                 <div className="request-item-container">
-                  <span>{request.singer}</span>
+                  <span>William</span>
                 </div>
 
                 <div className="request-item-container">
-                  <span>{request.title}</span>
+                  <span>{request.songTitle}</span>
                 </div>
 
                 <div className="request-item-container">
-                  <span>by {request.artist}</span>
+                  <span>by {request.artistName}</span>
                 </div>
                 </div>
               </div>

@@ -12,13 +12,9 @@ const jwt = require('jsonwebtoken');
 const knex = require('../knex');
 
 router.post('/api/requests/:adminId', (req, res, next) => {
-  console.log(req.body);
   const songId = req.body.id;
   const adminId = req.params.adminId;
-  console.log(adminId)
   const singerId = 2;
-  console.log(singerId);
-
 
   knex('songs')
     // .select(knex.raw('1=1'))
@@ -26,7 +22,6 @@ router.post('/api/requests/:adminId', (req, res, next) => {
     .first()
     .then((song) => {
       song = camelizeKeys(song);
-      console.log(song.songTitle);
       const { artistName, songTitle } = song;
       const request = { adminId, singerId, artistName, songTitle, songId }
       const row = decamelizeKeys(request);
@@ -40,8 +35,21 @@ router.post('/api/requests/:adminId', (req, res, next) => {
     .catch((err) => {
       next(err);
     });
+});
 
+router.get('/api/requests/:adminId', (req, res, next) => {
+  const adminId = req.params.adminId;
 
+  knex('requests')
+    .where('admin_id', adminId)
+    .then((rows) => {
+      const requests = camelizeKeys(rows)
+      console.log(requests)
+      res.send(requests);
+    })
+    .catch((err) => {
+      next(err);
+    });
 });
 
 module.exports = router;

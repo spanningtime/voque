@@ -17,144 +17,18 @@ const App = React.createClass({
       requestedSong: {},
       lyrics: '',
       songs: [],
-      requests: [
-        {
-          singer: "Donna",
-          title: "Hey",
-          artist: "The Pixies"
-        },
-        {
-          singer: "William",
-          title: "I Wanna Dance With So...",
-          artist: "Whitney Houston"
-        },
-        {
-          singer: "Hank The Tank",
-          title: "Summer Girls",
-          artist: "LFO"
-        },
-        {
-          singer: "Donna",
-          title: "Hey",
-          artist: "The Pixies"
-        },
-        {
-          singer: "William",
-          title: "I Wanna Dance With Somebody",
-          artist: "Whitney Houston"
-        },
-        {
-          singer: "Hank The Tank",
-          title: "Summer Girls",
-          artist: "LFO"
-        },
-        {
-          singer: "Donna",
-          title: "Hey",
-          artist: "The Pixies"
-        },
-        {
-          singer: "William",
-          title: "I Wanna Dance With Somebody",
-          artist: "Whitney Houston"
-        },
-        {
-          singer: "Hank The Tank",
-          title: "Summer Girls",
-          artist: "LFO"
-        },
-        {
-          singer: "Donna",
-          title: "Hey",
-          artist: "The Pixies"
-        },
-        {
-          singer: "William",
-          title: "I Wanna Dance With Somebody",
-          artist: "Whitney Houston"
-        },
-        {
-          singer: "Hank The Tank",
-          title: "Summer Girls",
-          artist: "LFO"
-        },
-        {
-          singer: "Donna",
-          title: "Hey",
-          artist: "The Pixies"
-        },
-        {
-          singer: "William",
-          title: "I Wanna Dance With Somebody",
-          artist: "Whitney Houston"
-        },
-        {
-          singer: "Hank The Tank",
-          title: "Summer Girls",
-          artist: "LFO"
-        },
-        {
-          singer: "Donna",
-          title: "Hey",
-          artist: "The Pixies"
-        },
-        {
-          singer: "William",
-          title: "I Wanna Dance With Somebody",
-          artist: "Whitney Houston"
-        },
-        {
-          singer: "Hank The Tank",
-          title: "Summer Girls",
-          artist: "LFO"
-        },
-        {
-          singer: "Donna",
-          title: "Hey",
-          artist: "The Pixies"
-        },
-        {
-          singer: "William",
-          title: "I Wanna Dance With Somebody",
-          artist: "Whitney Houston"
-        },
-        {
-          singer: "Hank The Tank",
-          title: "Summer Girls",
-          artist: "LFO"
-        },
-        {
-          singer: "Donna",
-          title: "Hey",
-          artist: "The Pixies"
-        },
-        {
-          singer: "William",
-          title: "I Wanna Dance With Somebody",
-          artist: "Whitney Houston"
-        },
-        {
-          singer: "Hank The Tank",
-          title: "Summer Girls",
-          artist: "LFO"
-        },
-        {
-          singer: "Donna",
-          title: "Hey",
-          artist: "The Pixies"
-        },
-        {
-          singer: "William",
-          title: "I Wanna Dance With Somebody",
-          artist: "Whitney Houston"
-        },
-        {
-          singer: "Hank The Tank",
-          title: "Summer Girls",
-          artist: "LFO"
-        },
-      ]
+      requests: []
     };
+  },
+
+  getRequests() {
+    axios.get('/api/requests/1')
+      .then((response) => {
+        console.log(response.data)
+        this.setState({
+          requests: response.data
+        })
+      });
   },
 
   getLyrics() {
@@ -310,7 +184,8 @@ const App = React.createClass({
         getSongs: this.getSongs,
         requestedSong: this.state.requestedSong,
         getLyrics: this.getLyrics,
-        lyrics: this.state.lyrics
+        lyrics: this.state.lyrics,
+        getRequests: this.getRequests
       })}
       <footer id="footer"></footer>
     </main>;
