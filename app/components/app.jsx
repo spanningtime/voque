@@ -135,14 +135,6 @@ const App = React.createClass({
       });
   },
 
-  removeRequest(event) {
-    this.setState = this.state.requests.filter((event) => {
-      if (event.target) {
-        return false;
-      }
-    })
-  },
-
   handleToggle() {
     this.setState({ open: !this.state.open })
   },

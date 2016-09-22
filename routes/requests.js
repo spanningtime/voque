@@ -44,12 +44,28 @@ router.get('/api/requests/:adminId', (req, res, next) => {
     .where('admin_id', adminId)
     .then((rows) => {
       const requests = camelizeKeys(rows)
-      console.log(requests)
       res.send(requests);
     })
     .catch((err) => {
       next(err);
     });
 });
+
+router.delete('/api/requests/:adminId/:requestId', (req, res) => {
+  const adminId = req.params.adminId;
+  const requestId = req.params.requestId;
+
+  knex('requests')
+    .where('admin_id', adminId)
+    .andWhere('id', requestId)
+    .del()
+    .then(() => {
+      res.sendStatus(200);
+    })
+    .catch((err) => {
+      console.error(err)
+    })
+});
+
 
 module.exports = router;

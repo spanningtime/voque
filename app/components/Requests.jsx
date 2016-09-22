@@ -1,7 +1,18 @@
 import React from 'react';
 import weakKey from 'weak-key';
+import axios from 'axios';
 
 const Requests = React.createClass({
+
+  removeRequest(request) {
+    axios.delete(`/api/requests/${request.adminId}/${request.id}`)
+    .then(() => {
+      this.props.getRequests();
+    })
+    .catch((err) => {
+      console.error(err)
+    })
+  },
 
   render() {
 
@@ -19,7 +30,8 @@ const Requests = React.createClass({
               <div className="song-request-container">
 
                 <i className="material-icons"
-                   onTouchTap={this.props.removeRequest}
+                   onTouchTap={((event) =>
+                     this.removeRequest(request)).bind(this)}
                 >clear</i>
 
                 <div className="container-for-border">
