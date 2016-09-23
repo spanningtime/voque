@@ -6,7 +6,7 @@ import { withRouter } from 'react-router';
 const SongList = React.createClass({
   getInitialState() {
     return {
-      selected: "artist",
+      selected: "artistName",
       searchText: "",
       filterSearch: false,
       selectedSong: null,
@@ -55,12 +55,15 @@ const SongList = React.createClass({
       display: 'none'
     };
 
+    console.log(this.props.songs);
     const songsArray = this.props.songs.filter((song) => {
       if (this.state.searchText.length === 0) {
         return true;
       }
       return song[this.state.selected].toLowerCase().startsWith(this.state.searchText.toLowerCase());
-    })
+    });
+
+    console.log(this.state.selected);
 
     return <div className="content-container">
       <div className="header-container">
@@ -71,23 +74,23 @@ const SongList = React.createClass({
           className="mobile-search-container">
           <div
             id="mobile-artist-tab"
-            onTouchTap={() =>  this.handleToggleTab("artist")}
-            style={this.state.selected === "artist" ? styleTabSelected : styleTabDeselected} >
+            onTouchTap={() =>  this.handleToggleTab("artistName")}
+            style={this.state.selected === "artistName" ? styleTabSelected : styleTabDeselected} >
             <span>Artist</span>
           </div>
           <div
             id="mobile-title-tab"
-            onTouchTap={() => this.handleToggleTab("title")}
-            style={this.state.selected === "title" ? styleTabSelected : styleTabDeselected} >
+            onTouchTap={() => this.handleToggleTab("songTitle")}
+            style={this.state.selected === "songTitle" ? styleTabSelected : styleTabDeselected} >
           <span>Title</span></div>
         </div>
         <div className="search-container">
           <div id="artist-tab"
-               onTouchTap={() => this.handleToggleTab("artist")}
-               style={this.state.selected === "artist" ? styleTabSelected : styleTabDeselected} >
+               onTouchTap={() => this.handleToggleTab("artistName")}
+               style={this.state.selected === "artistName" ? styleTabSelected : styleTabDeselected} >
             <span>Artist</span></div>
           <div id="title-tab"
-                onTouchTap={() => this.handleToggleTab("title")}
+                onTouchTap={() => this.handleToggleTab("songTitle")}
                 >
               <span>Title</span></div>
             <TextField
