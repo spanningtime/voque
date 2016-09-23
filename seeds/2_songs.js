@@ -98,8 +98,8 @@ exports.seed = function(knex) {
         {
           id: 14,
           admin_id: 1,
-          song_title: 'Fortunate Son',
-          artist_name: 'Creedence Clearwater Revival',
+          song_title: 'Thriller',
+          artist_name: 'Michael Jackson',
           software_id: 'uwksfc837'
         }
       ]);
