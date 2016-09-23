@@ -2,7 +2,7 @@
 
 // mobile screen
 @media screen and (max-width: 500px) {
-  .nav-login-container, .nav-logout-container, .logout {
+  .nav-login-container, .nav-logout-container, .logout, .divider {
     display: none;
   }
   .title-logo, .login {

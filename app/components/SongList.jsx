@@ -68,7 +68,7 @@ const SongList = React.createClass({
     return <div className="content-container">
       <div className="header-container">
         <h1 className="kj-name">
-          Donnie's Songs
+          Wayne's Songs
         </h1>
         <div
           className="mobile-search-container">
