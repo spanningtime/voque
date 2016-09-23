@@ -28,7 +28,7 @@ exports.seed = function(knex) {
         {
           id: 4,
           admin_id: 1,
-          song_title: "Gangstar's Paradise",
+          song_title: "Gangster's Paradise",
           artist_name: 'Coolio',
           software_id: 'akeid233'
         },
@@ -98,8 +98,8 @@ exports.seed = function(knex) {
         {
           id: 14,
           admin_id: 1,
-          song_title: '3 AM',
-          artist_name: 'Matchbox 20',
+          song_title: 'Fortunate Son',
+          artist_name: 'Creedence Clearwater Revival',
           software_id: 'uwksfc837'
         }
       ]);
