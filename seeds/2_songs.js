@@ -98,8 +98,8 @@ exports.seed = function(knex) {
         {
           id: 14,
           admin_id: 1,
-          song_title: 'Thriller',
-          artist_name: 'Michael Jackson',
+          song_title: 'Ignition',
+          artist_name: 'R Kelly',
           software_id: 'uwksfc837'
         }
       ]);
