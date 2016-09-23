@@ -70,6 +70,7 @@ router.delete('/api/token', (req, res) => {
   res.clearCookie('accessToken');
   res.clearCookie('loggedIn');
   res.clearCookie('userId');
+  res.clearCookie('adminId');
   res.sendStatus(200);
 });
 

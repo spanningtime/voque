@@ -2,6 +2,9 @@
 
 // mobile screen
 @media screen and (max-width: 500px) {
+  .nav-login-container, .nav-logout-container, .logout {
+    display: none;
+  }
   .title-logo, .login {
     display: none;
   }
@@ -69,6 +72,9 @@
 @media screen and (min-width: 501px) {
   #footer {
     position: absolute;
+  }
+  .nav-login-container, .nav-logout-container {
+    // display: flex;
   }
   .menu-icon {
     display: none

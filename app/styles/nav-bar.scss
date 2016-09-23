@@ -1,3 +1,5 @@
+@import 'variables';
+
 // NavBar
 .nav-container {
   display:flex;
@@ -13,6 +15,11 @@
     width: 100%;
     background-color: black;
   }
+  .divider {
+    height: 70%;
+    width: 2px;
+    background: $Yellow;
+  }
   .title-logo {
     color: white;
     font-size: 4em;
@@ -26,14 +33,19 @@
   }
   .link-container {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
     align-content: flex-start;
     height: 100%;
     width: 100%;
   }
-  .login {
+  .nav-login-container, .nav-logout-container {
+    height: 70%;
+    align-items: center;
+  }
+  .login, .logout {
+    line-height: 50px;
     margin-right: 20px;
     margin-left: 20px;
     text-decoration: none;
