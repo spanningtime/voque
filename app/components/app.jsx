@@ -81,19 +81,22 @@ const App = React.createClass({
       })
   },
 
-  getSongs() {
-    axios.get('/api/songs/1')
-      .then((res) => {
+  getSongs(code) {
+    console.log(code)
+    axios.get(`/api/users/code/${code}`)
+      .then((response) => {
+        console.log(response)
+        const array = response.data.filter((user) => {
+          return user.code === this.state.code;
+        })
+        console.log(array)
         this.setState({
-          songs: res.data
+          songs: array
         })
         return this.props.router.push('/songlist');
-        console.log(this.state.songs);
       })
       .catch((err) => {
-        console.error(err);
       });
-
   },
 
   login(credentials) {

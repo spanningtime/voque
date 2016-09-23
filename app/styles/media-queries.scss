@@ -95,6 +95,9 @@
     height: 55vh;
     overflow: scroll;
   }
+  .songs-container ol {
+    width: inherit;
+  }
   .song-container {
     width: 100%;
   }
@@ -166,6 +169,7 @@
     height: 55vh;
     overflow: scroll;
   }
+
   .columns-container {
     width: 80%;
     height: 55vh;

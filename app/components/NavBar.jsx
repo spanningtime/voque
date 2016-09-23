@@ -2,9 +2,6 @@ import React from 'react';
 import DrawerMenu from 'components/DrawerMenu';
 import { Link } from 'react-router';
 
-
-
-
 const NavBar = React.createClass({
 
   render() {

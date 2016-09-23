@@ -1,8 +1,27 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
+import axios from 'axios';
 
 const Access = React.createClass({
+
+  getInitialState() {
+    return {
+      code: ''
+    }
+  },
+
+  handleTouchTap() {
+    this.props.getSongs(this.state.code)
+    console.log(this.state.code);
+  },
+
+  handleChange(event) {
+    this.setState({
+      code: event.target.value
+    })
+  },
+
   render() {
 
     const inputStyle = {
@@ -13,9 +32,15 @@ const Access = React.createClass({
       <h1 className="main-header">Enter the unique code to access your KJ's song list.
       </h1>
       <div>
-        <TextField className='song-input' underlineFocusStyle={inputStyle}/>
+        <TextField
+          name="code"
+          className='song-input'
+          underlineFocusStyle={inputStyle}
+          onChange={this.handleChange}
+        />
+
         <FlatButton
-          onTouchTap={this.props.getSongs}
+          onTouchTap={this.handleTouchTap}
           className='flat-btn'
           label="View songs"
           />

@@ -3,13 +3,27 @@ import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import { withRouter } from 'react-router';
 import { Link } from 'react-router';
+import cookie from 'react-cookie';
 
 const DrawerMenu = React.createClass({
 
   render() {
 
-    const styleMenuItem = {
+    const styleMenuLogin = {
+      display: 'none'
+    };
+
+    const styleMenuLink = {
       textDecoration: 'none'
+    };
+
+    const styleMenuItem = {
+      display: 'block'
+    };
+
+    if (!cookie.load('loggedIn')) {
+      styleMenuLogin.display = 'inline-block',
+      styleMenuItem.display = 'none'
     };
 
     return <div>
@@ -24,6 +38,13 @@ const DrawerMenu = React.createClass({
         open={this.props.open}
         onRequestChange={(open) => this.props.requestChange(open)}
       >
+      <Link
+        to="/login"
+        style={styleMenuLink}>
+        <MenuItem
+          style={styleMenuLogin}
+          onTouchTap={this.props.handleClose}>Login</MenuItem>
+      </Link>
         <Link
           to="/songlist"
           style={styleMenuItem}>
