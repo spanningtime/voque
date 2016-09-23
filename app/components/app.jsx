@@ -175,7 +175,7 @@ const App = React.createClass({
 
       <Snackbar
         bodyStyle={styleSnackbar}
-        message="INVALID CODE! Ask your KJ for his access code"
+        message="INVALID CODE! Ask your KJ for their access code"
         open={this.state.codeSnackbarOpen}
       />
 
