@@ -6,12 +6,11 @@ import axios from 'axios';
 import cookie from 'react-cookie';
 import Snackbar from 'material-ui/Snackbar';
 
-
-
 const App = React.createClass({
 
   getInitialState() {
     return {
+      codeSnackbarOpen: false,
       open: false,
       user: {},
       requestedSong: {},
@@ -96,6 +95,11 @@ const App = React.createClass({
         return this.props.router.push('/songlist');
       })
       .catch((err) => {
+        if (err.response.status !== 200) {
+          console.log('hey');
+          this.setState({ codeSnackbarOpen: true });
+          setTimeout(function() { this.setState({ codeSnackbarOpen: false }); }.bind(this), 4000);
+        }
       });
   },
 
@@ -151,6 +155,13 @@ const App = React.createClass({
   },
 
   render() {
+
+    const styleSnackbar = {
+      backgroundColor: '#F4AF1D',
+      textAlign: 'center',
+      height: '55px'
+    };
+
     return <main>
       <NavBar
         handleToggle={this.handleToggle}
@@ -161,6 +172,12 @@ const App = React.createClass({
       />
         <div className="app-container">
       </div>
+
+      <Snackbar
+        bodyStyle={styleSnackbar}
+        message="INVALID CODE! Ask your KJ for his access code"
+        open={this.state.codeSnackbarOpen}
+      />
 
       {React.cloneElement(this.props.children, {
         open: this.state.open,
