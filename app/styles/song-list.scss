@@ -58,9 +58,9 @@
       background: $Yellow;
       height: 100%;
       top: 0;
-      left: 82%;
+      left: 80%;
       line-height: 50px;
-      width:25%;
+      width: 78px;
       overflow: hidden;
       box-shadow: rgba(0, 0, 0, 0.117467) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
     }
@@ -71,7 +71,7 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: nowrap;
-  margin-top: 10px;
+  margin: 10px;
   .kj-name {
     font-family: $main;
     font-size: 2em;
