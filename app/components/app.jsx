@@ -26,7 +26,6 @@ const App = React.createClass({
   getRequests() {
     axios.get('/api/requests/1')
       .then((response) => {
-        console.log(response.data)
         this.setState({
           requests: response.data
         })
@@ -43,9 +42,7 @@ const App = React.createClass({
         return axios.get(`http://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.lyrics.get?apikey=${apiKey}&track_id=${trackId}`)
           .then((lyricsData) => {
             const lyricsUnfiltered = lyricsData.data.message.body.lyrics.lyrics_body;
-            console.log(lyricsUnfiltered)
             const lyrics = lyricsUnfiltered.substring(0, lyricsUnfiltered.length - 58);
-            console.log(lyrics)
             // console.log(lyrics.substring(0,lyrics.length - 58))
             this.setState({
               lyrics
@@ -73,7 +70,6 @@ const App = React.createClass({
   getUser() {
     const userId = cookie.load('userId');
 
-
     axios.get(`/api/users/${userId}`)
       .then((res) => {
         this.setState({ user: res.data });
@@ -84,14 +80,11 @@ const App = React.createClass({
   },
 
   getSongs(code) {
-    console.log(code)
     axios.get(`/api/users/code/${code}`)
       .then((response) => {
-        console.log(response)
         const array = response.data.filter((user) => {
           return user.code === this.state.code;
         })
-        console.log(array)
         this.setState({
           songs: array
         })
@@ -99,7 +92,6 @@ const App = React.createClass({
       })
       .catch((err) => {
         if (err.response.status !== 200) {
-          console.log('hey');
           this.setState({ codeSnackbarOpen: true });
           setTimeout(function() { this.setState({ codeSnackbarOpen: false }); }.bind(this), 4000);
         }
@@ -109,7 +101,6 @@ const App = React.createClass({
   login(credentials) {
     axios.post('/api/token', credentials)
       .then((res) => {
-        console.log(res)
         this.getUser();
         this.props.router.push('/access');
         this.setState({ loginSuccessSnackbarOpen: true });
@@ -155,6 +146,7 @@ const App = React.createClass({
   },
 
   handleClose() {
+    console.log('close')
     this.setState({ open: false});
   },
 
@@ -183,6 +175,8 @@ const App = React.createClass({
         requestChange={this.requestChange}
         handleClose={this.handleClose}
         logout={this.logout}
+        songs={this.state.songs}
+        getSongs={this.props.getSongs}
       />
         <div className="app-container">
       </div>

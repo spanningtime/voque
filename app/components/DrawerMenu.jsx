@@ -7,6 +7,16 @@ import cookie from 'react-cookie';
 
 const DrawerMenu = React.createClass({
 
+  handleTouchTap() {
+    this.props.handleClose();
+    if (this.props.songs.length !== 0) {
+      this.props.router.push('/songlist');
+    }
+    else {
+      return this.props.router.push('/access')
+    }
+  },
+
   render() {
 
     const styleMenuLogin = {
@@ -37,6 +47,7 @@ const DrawerMenu = React.createClass({
         width={200}
         open={this.props.open}
         onRequestChange={(open) => this.props.requestChange(open)}
+        getSongs={this.props.getSongs}
       >
       <Link
         to="/login"
@@ -45,13 +56,9 @@ const DrawerMenu = React.createClass({
           style={styleMenuLogin}
           onTouchTap={this.props.handleClose}>Login</MenuItem>
       </Link>
-        <Link
-          to="/songlist"
-          style={styleMenuItem}>
           <MenuItem
             style={styleMenuItem}
-            onTouchTap={this.props.handleClose}>Home</MenuItem>
-        </Link>
+            onTouchTap={this.handleTouchTap}>Home</MenuItem>
         <Link
           style={styleMenuItem}>
           <MenuItem onTouchTap={this.props.logout}>Logout</MenuItem>
@@ -61,4 +68,4 @@ const DrawerMenu = React.createClass({
   }
 })
 
-export default DrawerMenu;
+export default withRouter(DrawerMenu);

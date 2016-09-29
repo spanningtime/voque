@@ -58,6 +58,8 @@ const NavBar = React.createClass({
             requestChange={this.props.requestChange}
             handleClose={this.props.handleClose}
             logout={this.props.logout}
+            songs={this.props.songs}
+            getSongs={this.props.getSongs}
            />
         </div>
       </div>
