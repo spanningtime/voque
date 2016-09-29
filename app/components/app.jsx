@@ -11,6 +11,8 @@ const App = React.createClass({
   getInitialState() {
     return {
       codeSnackbarOpen: false,
+      loginSuccessSnackbarOpen: false,
+      loginFailSnackbarOpen: false,
       open: false,
       user: {},
       requestedSong: {},
@@ -106,13 +108,16 @@ const App = React.createClass({
   login(credentials) {
     axios.post('/api/token', credentials)
       .then((res) => {
+        console.log(res)
         this.getUser();
-
-        return this.props.router.push('/access');
+        this.props.router.push('/access');
+        this.setState({ loginSuccessSnackbarOpen: true });
+        setTimeout(function() { this.setState({ loginSuccessSnackbarOpen: false }); }.bind(this), 4000);
       })
       .catch((err) => {
         if (err.response.status === 401) {
-          this.setState({ loginSnackbarOpen: true });
+          this.setState({ loginFailSnackbarOpen: true });
+        setTimeout(function() { this.setState({ loginFailSnackbarOpen: false }); }.bind(this), 4000);
         }
         else {
           console.log('this is an error')
@@ -157,10 +162,22 @@ const App = React.createClass({
   render() {
 
     const styleSnackbar = {
-      backgroundColor: '#F4AF1D',
+      backgroundColor: '#df2329',
       textAlign: 'center',
       height: '55px'
     };
+
+    const styleLoginSuccessSnackbar = {
+      backgroundColor: '#f4af1d',
+      textAlign: 'center',
+      height: '55px'
+    };
+
+    const styleLoginFailSnackbar = {
+      backgroundColor: '#df2329',
+      textAlign: 'center',
+      height: '55px'
+    }
 
     return <main>
       <NavBar
@@ -177,6 +194,18 @@ const App = React.createClass({
         bodyStyle={styleSnackbar}
         message="INVALID CODE! Ask your KJ for their access code"
         open={this.state.codeSnackbarOpen}
+      />
+
+      <Snackbar
+        bodyStyle={styleLoginSuccessSnackbar}
+        message={`Welcome, ${this.state.user.firstName}!`}
+        open={this.state.loginSuccessSnackbarOpen}
+      />
+
+      <Snackbar
+        bodyStyle={styleLoginFailSnackbar}
+        message={"Login unsuccessful"}
+        open={this.state.loginFailSnackbarOpen}
       />
 
       {React.cloneElement(this.props.children, {
