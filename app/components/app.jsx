@@ -161,23 +161,17 @@ const App = React.createClass({
 
   render() {
 
-    const styleSnackbar = {
+    const styleFailSnackbar = {
       backgroundColor: '#df2329',
       textAlign: 'center',
       height: '55px'
     };
 
-    const styleLoginSuccessSnackbar = {
+    const styleSuccessSnackbar = {
       backgroundColor: '#f4af1d',
       textAlign: 'center',
       height: '55px'
     };
-
-    const styleLoginFailSnackbar = {
-      backgroundColor: '#df2329',
-      textAlign: 'center',
-      height: '55px'
-    }
 
     return <main>
       <NavBar
@@ -191,19 +185,19 @@ const App = React.createClass({
       </div>
 
       <Snackbar
-        bodyStyle={styleSnackbar}
+        bodyStyle={styleFailSnackbar}
         message="INVALID CODE! Ask your KJ for their access code"
         open={this.state.codeSnackbarOpen}
       />
 
       <Snackbar
-        bodyStyle={styleLoginSuccessSnackbar}
+        bodyStyle={styleSuccessSnackbar}
         message={`Welcome, ${this.state.user.firstName}!`}
         open={this.state.loginSuccessSnackbarOpen}
       />
 
       <Snackbar
-        bodyStyle={styleLoginFailSnackbar}
+        bodyStyle={styleFailSnackbar}
         message={"Login unsuccessful"}
         open={this.state.loginFailSnackbarOpen}
       />
