@@ -12,6 +12,7 @@ const App = React.createClass({
     return {
       codeSnackbarOpen: false,
       loginSuccessSnackbarOpen: false,
+      logoutSuccessSnackbarOpen: false,
       loginFailSnackbarOpen: false,
       open: false,
       user: {},
@@ -130,6 +131,8 @@ const App = React.createClass({
       .then(() => {
         this.handleClose();
         this.props.router.push('/');
+        this.setState({ logoutSuccessSnackbarOpen: true });
+        setTimeout(function() { this.setState({ logoutSuccessSnackbarOpen: false }); }.bind(this), 4000);
       })
       .catch((err) => {
         console.error(err);
@@ -198,9 +201,16 @@ const App = React.createClass({
 
       <Snackbar
         bodyStyle={styleFailSnackbar}
-        message={"Login unsuccessful"}
+        message="Login unsuccessful"
         open={this.state.loginFailSnackbarOpen}
       />
+
+      <Snackbar
+        bodyStyle={styleSuccessSnackbar}
+        message="You have been successfully logged out"
+        open={this.state.logoutSuccessSnackbarOpen}
+      />
+
 
       {React.cloneElement(this.props.children, {
         open: this.state.open,
