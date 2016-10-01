@@ -110,11 +110,13 @@ router.get('/api/users/code/:code', (req, res, next) => {
     });
 });
 
-router.patch('/api/users/:userId/:accept', (req, res, next) => {
-  const { userId, accept } = req.params;
+router.patch('/api/users/:id/:accept', (req, res, next) => {
+  console.log(req.params)
+  const { id, accept } = req.params;
+  console.log(id)
 
-  knex('users')
-    .where('userId', userId)
+  knex('users') 
+    .where('id', id)
     .update({ accept })
     .then((rows) => {
       const user = rows[0];
