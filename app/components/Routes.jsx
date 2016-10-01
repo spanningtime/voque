@@ -13,7 +13,8 @@ import Dashboard from 'components/Dashboard';
 
 const Routes = React.createClass({
   render() {
-    return <Router history={browserHistory}>
+    return <Router history={browserHistory}
+        onUpdate={() => window.scrollTo(0, 0)}>
       <Route component={App} path="/" >
         <IndexRoute component={Landing} />
         <Route component={Register} path="/register" />

@@ -61,7 +61,7 @@ const Register = React.createClass({
       <div className="checkbox-container">
         <Checkbox
           onCheck={this.handleCheckbox}
-          label="Click this box to register as a Karaoke DJ"
+          label="Click box to register as Karaoke DJ"
           inputStyle={styleCheckbox}
           labelPosition="left"
           checked={this.state.user.kj}

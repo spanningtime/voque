@@ -9,18 +9,20 @@ exports.seed = function(knex) {
         first_name: 'Wayne',
         last_name: 'Dank',
         email: 'waynedank@gmail.com',
-        hashed_password: '$2a$12$Q3fh1jeJZ2Q19Yr12aVOxO54a/IvBhS01qWCqxNAZc0ABRxq0NnYq',
+        hashed_password: '$2a$12$4cd6LDwjFXVv3dZ4W4B5JexkgeLzdhgvVbmlORDOXsjKJtCzNZeyq',
         kj: true,
-        code: 'danksongs'
+        code: 'danksongs',
+        accept: false
       },
       {
         id: 2,
         first_name: 'Chantal',
         last_name: 'Singsong',
         email: 'ilovekaraoke@gmail.com',
-        hashed_password: '$2a$12$Q3fh1jeJZ2Q19Yr12aVOxO54a/IvBhS01qWCqxNAZc0ABRxq0NnYq',
+        hashed_password: '$2a$12$4cd6LDwjFXVv3dZ4W4B5JexkgeLzdhgvVbmlORDOXsjKJtCzNZeyq',
         kj: false,
-        code: null
+        code: null,
+        accept: false
       }])
     })
     .then(() => {

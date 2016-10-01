@@ -19,8 +19,13 @@ const App = React.createClass({
       requestedSong: {},
       lyrics: '',
       songs: [],
-      requests: []
+      requests: [],
+      acceptRequests: false
     };
+  },
+
+  acceptRequests() {
+    // patch to users where adminId matches to change accept_requests.
   },
 
   getRequests() {
@@ -42,11 +47,8 @@ const App = React.createClass({
         return axios.get(`http://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.lyrics.get?apikey=${apiKey}&track_id=${trackId}`)
           .then((lyricsData) => {
             const lyricsUnfiltered = lyricsData.data.message.body.lyrics.lyrics_body;
-            const lyrics = lyricsUnfiltered.substring(0, lyricsUnfiltered.length - 58);
-            // console.log(lyrics.substring(0,lyrics.length - 58))
-            this.setState({
-              lyrics
-            })
+            const lyrics = lyricsUnfiltered.substring(0, lyricsUnfiltered.length - 69);
+            this.setState({ lyrics })
           })
       })
       .catch((err) => {
@@ -102,7 +104,13 @@ const App = React.createClass({
     axios.post('/api/token', credentials)
       .then((res) => {
         this.getUser();
-        this.props.router.push('/access');
+        console.log(this.state.user)
+        if (this.state.user.kj === 'true') {
+          this.props.router.push('/dashboard')
+        }
+        else {
+          this.props.router.push('/access');
+        }
         this.setState({ loginSuccessSnackbarOpen: true });
         setTimeout(function() { this.setState({ loginSuccessSnackbarOpen: false }); }.bind(this), 4000);
       })

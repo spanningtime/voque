@@ -19,6 +19,7 @@ exports.up = function(knex) {
       .notNullable()
       .defaultTo(false);
     table.string('code').defaultTo('');
+    table.boolean('accept').defaultTo('false');
     table.timestamps(true, true);
   });
 };

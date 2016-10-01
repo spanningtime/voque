@@ -61,7 +61,7 @@ const Login = React.createClass({
         />
         <div className="button-container">
           <RaisedButton
-            label="Submit"
+            label="Login"
             onTouchTap={this.handleTouchTap}
           />
         </div>

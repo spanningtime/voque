@@ -27,7 +27,7 @@ router.post('/api/users', (req, res, next) => {
     })
     .then((hashedPassword) => {
       const { firstName, lastName, kj  } = req.body;
-      const user = { firstName, lastName, email, hashedPassword, kj };
+      const user = { firstName, lastName, email, hashedPassword, kj, code };
       const row = decamelizeKeys(user);
 
       return knex('users').insert(row, '*');
@@ -107,7 +107,22 @@ router.get('/api/users/code/:code', (req, res, next) => {
     })
     .catch((err) => {
       next(boom.wrap(err));
+    });
+});
+
+router.patch('/api/users/:userId/:accept', (req, res, next) => {
+  const { userId, accept } = req.params;
+
+  knex('users')
+    .where('userId', userId)
+    .update({ accept })
+    .then((rows) => {
+      const user = rows[0];
+      res.send(user);
     })
-})
+    .catch((err) => {
+      next(err);
+    });
+});
 
 module.exports = router;
