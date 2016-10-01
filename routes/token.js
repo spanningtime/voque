@@ -23,7 +23,7 @@ router.post('/api/token', (req, res, next) => {
 
       user = camelizeKeys(row);
 
-      if (user.role === 'admin') {
+      if (user.kj === 'true') {
         adminId = user.id;
         console.log(adminId)
       }

@@ -90,6 +90,7 @@ router.get('/api/users/:userId', (req, res, next) => {
 
 router.get('/api/users/code/:code', (req, res, next) => {
   const { code } = req.params;
+  const data = {};
 
   knex('users')
     .where('code', code)
@@ -98,12 +99,14 @@ router.get('/api/users/code/:code', (req, res, next) => {
         throw boom.badRequest('Invalid KJ Code')
       }
       const user = rows[0];
+      data.kjName = user.first_name
+      console.log(res.adminId)
       return knex('songs')
         .where('admin_id', user.id)
     })
     .then((rows) => {
-      const songs = camelizeKeys(rows);
-      res.send(songs);
+      data.songs = camelizeKeys(rows);
+      res.send(data);
     })
     .catch((err) => {
       next(boom.wrap(err));
@@ -115,7 +118,7 @@ router.patch('/api/users/:id/:accept', (req, res, next) => {
   const { id, accept } = req.params;
   console.log(id)
 
-  knex('users') 
+  knex('users')
     .where('id', id)
     .update({ accept })
     .then((rows) => {

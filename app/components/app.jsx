@@ -10,6 +10,7 @@ const App = React.createClass({
 
   getInitialState() {
     return {
+      kjName: '',
       codeSnackbarOpen: false,
       loginSuccessSnackbarOpen: false,
       logoutSuccessSnackbarOpen: false,
@@ -26,6 +27,7 @@ const App = React.createClass({
 
   acceptRequests() {
     // patch to users where adminId matches to change accept_requests.
+    axios.patch('/api/users/')
   },
 
   getRequests() {
@@ -84,11 +86,14 @@ const App = React.createClass({
   getSongs(code) {
     axios.get(`/api/users/code/${code}`)
       .then((response) => {
-        const array = response.data.filter((user) => {
+        console.log(response)
+        const array = response.data.songs.filter((user) => {
           return user.code === this.state.code;
         })
+        const kjName = response.data.kjName;
         this.setState({
-          songs: array
+          songs: array,
+          kjName
         })
         return this.props.router.push('/songlist');
       })
@@ -232,7 +237,8 @@ const App = React.createClass({
         requestedSong: this.state.requestedSong,
         getLyrics: this.getLyrics,
         lyrics: this.state.lyrics,
-        getRequests: this.getRequests
+        getRequests: this.getRequests,
+        kjName: this.state.kjName
       })}
       <footer id="footer"></footer>
     </main>;
