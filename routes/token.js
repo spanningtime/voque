@@ -22,10 +22,15 @@ router.post('/api/token', (req, res, next) => {
       }
 
       user = camelizeKeys(row);
+      console.log(user.kj)
 
-      if (user.kj === 'true') {
+      if (user.kj === true) {
+        console.log('kj')
         adminId = user.id;
         console.log(adminId)
+      }
+      else {
+        adminId = null
       }
 
       return bcrypt.compare(req.body.password, user.hashedPassword);
@@ -51,7 +56,7 @@ router.post('/api/token', (req, res, next) => {
         secure: router.get('env') === 'production'
       });
 
-      res.cookie('adminId', adminId, {
+      res.cookie('adminId', user.id, {
         expires: expiry,
         secure: router.get('env') === 'production'
       });

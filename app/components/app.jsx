@@ -77,6 +77,13 @@ const App = React.createClass({
     axios.get(`/api/users/${userId}`)
       .then((res) => {
         this.setState({ user: res.data });
+        console.log(this.state.user.kj)
+        if (this.state.user.kj === true) {
+          this.props.router.push('/dashboard')
+        }
+        else {
+          this.props.router.push('/access')
+        }
       })
       .catch((err) => {
         console.error(err);
@@ -86,7 +93,6 @@ const App = React.createClass({
   getSongs(code) {
     axios.get(`/api/users/code/${code}`)
       .then((response) => {
-        console.log(response)
         const array = response.data.songs.filter((user) => {
           return user.code === this.state.code;
         })
@@ -109,13 +115,12 @@ const App = React.createClass({
     axios.post('/api/token', credentials)
       .then((res) => {
         this.getUser();
-        console.log(this.state.user)
-        if (this.state.user.kj === 'true') {
-          this.props.router.push('/dashboard')
-        }
-        else {
-          this.props.router.push('/access');
-        }
+        // if (this.state.user.kj === 'true') {
+        //   this.props.router.push('/dashboard')
+        // }
+        // else {
+        //   this.props.router.push('/access');
+        // }
         this.setState({ loginSuccessSnackbarOpen: true });
         setTimeout(function() { this.setState({ loginSuccessSnackbarOpen: false }); }.bind(this), 4000);
       })
@@ -159,7 +164,6 @@ const App = React.createClass({
   },
 
   handleClose() {
-    console.log('close')
     this.setState({ open: false});
   },
 
