@@ -68,7 +68,7 @@ const SongList = React.createClass({
     return <div className="content-container">
       <div className="header-container">
         <h1 className="kj-name title">
-          {`${this.props.kjName}'s Songs'`}
+          {`${this.props.kjName}'s Songs`}
         </h1>
         <div
           className="mobile-search-container">
