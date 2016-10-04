@@ -21,9 +21,7 @@ const Requests = React.createClass({
       <div className="requests-container">
         <ol>
           {this.props.requests.map((request, index) => {
-            console.log(request);
             if (request.songTitle.length > 21) {
-              console.log(index);
               request.songTitle = request.songTitle.substring(0, 21) + '...';
             }
             return <li key={weakKey(request)}>

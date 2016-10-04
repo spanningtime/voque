@@ -11,6 +11,7 @@ const App = React.createClass({
   getInitialState() {
     return {
       kjName: '',
+      kjId: null,
       codeSnackbarOpen: false,
       loginSuccessSnackbarOpen: false,
       logoutSuccessSnackbarOpen: false,
@@ -21,13 +22,29 @@ const App = React.createClass({
       lyrics: '',
       songs: [],
       requests: [],
-      acceptRequests: false
+      accept: false
     };
   },
 
+  changeAccept() {
+    console.log(this.state.accept)
+    axios.patch(`/api/users/${this.state.kjId}/${this.state.accept}`)
+  },
+
+// add callback to this.setState to file changeAccept after state is set
   acceptRequests() {
-    // patch to users where adminId matches to change accept_requests.
-    axios.patch('/api/users/')
+    console.log(this.state.accept)
+    if (this.state.accept === false) {
+      console.log(this.state.accept)
+      this.setState({ accept: true })
+      console.log(this.state.accept)
+      this.changeAccept();
+    }
+    if (this.state.accept === true) {
+      this.setState({ accept: false })
+      console.log(this.state.accept)
+      this.changeAccept();
+    }
   },
 
   getRequests() {
@@ -79,6 +96,8 @@ const App = React.createClass({
         this.setState({ user: res.data });
         console.log(this.state.user.kj)
         if (this.state.user.kj === true) {
+          this.state.kjId = this.state.user.id;
+          console.log(this.state.kjId)
           this.props.router.push('/dashboard')
         }
         else {
@@ -112,6 +131,7 @@ const App = React.createClass({
   },
 
   login(credentials) {
+    console.log(this.state.accept)
     axios.post('/api/token', credentials)
       .then((res) => {
         this.getUser();
@@ -242,7 +262,9 @@ const App = React.createClass({
         getLyrics: this.getLyrics,
         lyrics: this.state.lyrics,
         getRequests: this.getRequests,
-        kjName: this.state.kjName
+        kjName: this.state.kjName,
+        acceptRequests: this.acceptRequests,
+        accept: this.state.accept
       })}
       <footer id="footer"></footer>
     </main>;

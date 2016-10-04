@@ -100,7 +100,6 @@ router.get('/api/users/code/:code', (req, res, next) => {
       }
       const user = rows[0];
       data.kjName = user.first_name
-      console.log(res.adminId)
       return knex('songs')
         .where('admin_id', user.id)
     })
@@ -114,7 +113,7 @@ router.get('/api/users/code/:code', (req, res, next) => {
 });
 
 router.patch('/api/users/:id/:accept', (req, res, next) => {
-  console.log(req.params)
+  console.log('hey')
   const { id, accept } = req.params;
   console.log(id)
 
