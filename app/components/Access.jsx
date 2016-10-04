@@ -25,6 +25,7 @@ const Access = React.createClass({
       borderColor: '#F4AF1D'
     };
 
+    /* eslint-disable max-len */
     return <div className="content-container">
       <h1 className="main-header">Enter the unique code to access your KJ's song list.
       </h1>
@@ -43,6 +44,8 @@ const Access = React.createClass({
         />
       </div>
     </div>;
+
+    /* eslint-enable max-len */
   }
 });
 
