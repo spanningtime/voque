@@ -1,29 +1,26 @@
+import FlatButton from 'material-ui/FlatButton';
 import React from 'react';
 import TextField from 'material-ui/TextField';
-import FlatButton from 'material-ui/FlatButton';
-import axios from 'axios';
 
 const Access = React.createClass({
 
   getInitialState() {
     return {
       code: ''
-    }
+    };
   },
 
   handleTouchTap() {
-    this.props.getSongs(this.state.code)
-    console.log(this.state.code);
+    this.props.getSongs(this.state.code);
   },
 
   handleChange(event) {
     this.setState({
       code: event.target.value
-    })
+    });
   },
 
   render() {
-
     const inputStyle = {
       borderColor: '#F4AF1D'
     };
@@ -33,20 +30,20 @@ const Access = React.createClass({
       </h1>
       <div>
         <TextField
+          className="song-input"
           name="code"
-          className='song-input'
-          underlineFocusStyle={inputStyle}
           onChange={this.handleChange}
+          underlineFocusStyle={inputStyle}
         />
 
         <FlatButton
-          onTouchTap={this.handleTouchTap}
-          className='flat-btn'
+          className="flat-btn"
           label="View songs"
-          />
+          onTouchTap={this.handleTouchTap}
+        />
       </div>
-    </div>
+    </div>;
   }
-})
+});
 
 export default Access;

@@ -1,10 +1,10 @@
-import RaisedButton from 'material-ui/RaisedButton';
-import React from 'react';
-import { withRouter } from 'react-router';
-import NavBar from 'components/NavBar';
 import axios from 'axios';
 import cookie from 'react-cookie';
+import NavBar from 'components/NavBar';
+import RaisedButton from 'material-ui/RaisedButton';
+import React from 'react';
 import Snackbar from 'material-ui/Snackbar';
+import { withRouter } from 'react-router';
 
 const App = React.createClass({
 
@@ -22,24 +22,21 @@ const App = React.createClass({
       lyrics: '',
       songs: [],
       requests: [],
-      accept: false,
+      accept: false
     };
   },
 
   changeAccept() {
-    console.log(this.state.accept)
-    axios.patch(`/api/users/${this.state.kjId}/${this.state.accept}`)
+    axios.patch(`/api/users/${this.state.kjId}/${this.state.accept}`);
   },
 
 // add callback to this.setState to file changeAccept after state is set
   acceptRequests() {
-    console.log(this.state.accept)
     if (this.state.accept === false) {
-      console.log(this.state.accept)
-      this.setState({ accept: true}, this.changeAccept())
+      this.setState({ accept: true }, this.changeAccept());
     }
     if (this.state.accept === true) {
-      this.setState({ accept: false }, this.changeAccept())
+      this.setState({ accept: false }, this.changeAccept());
     }
   },
 
@@ -48,7 +45,7 @@ const App = React.createClass({
       .then((response) => {
         this.setState({
           requests: response.data
-        })
+        });
       });
   },
 
@@ -59,6 +56,7 @@ const App = React.createClass({
     axios.get(`https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.search?apikey=${apiKey}&q_artist=${artist}&q_track=${title}&format=json&page_size=1&f_has_lyrics=1`)
       .then((trackData) => {
         const trackId = trackData.data.message.body.track_list[0].track.track_id;
+
         return axios.get(`http://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.lyrics.get?apikey=${apiKey}&track_id=${trackId}`)
           .then((lyricsData) => {
             const lyricsUnfiltered = lyricsData.data.message.body.lyrics.lyrics_body;
