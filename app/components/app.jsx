@@ -22,7 +22,7 @@ const App = React.createClass({
       lyrics: '',
       songs: [],
       requests: [],
-      accept: false
+      accept: true
     };
   },
 
