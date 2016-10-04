@@ -57,7 +57,7 @@ const App = React.createClass({
       .then((trackData) => {
         const trackId = trackData.data.message.body.track_list[0].track.track_id;
 
-        return axios.get(`http://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.lyrics.get?apikey=${apiKey}&track_id=${trackId}`)
+        return axios.get(`https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.lyrics.get?apikey=${apiKey}&track_id=${trackId}`)
           .then((lyricsData) => {
             const lyricsUnfiltered = lyricsData.data.message.body.lyrics.lyrics_body;
             const lyrics = lyricsUnfiltered.substring(0, lyricsUnfiltered.length - 69);
