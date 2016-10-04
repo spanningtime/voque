@@ -22,7 +22,7 @@ const App = React.createClass({
       lyrics: '',
       songs: [],
       requests: [],
-      accept: false
+      accept: false,
     };
   },
 
@@ -36,14 +36,10 @@ const App = React.createClass({
     console.log(this.state.accept)
     if (this.state.accept === false) {
       console.log(this.state.accept)
-      this.setState({ accept: true })
-      console.log(this.state.accept)
-      this.changeAccept();
+      this.setState({ accept: true}, this.changeAccept())
     }
     if (this.state.accept === true) {
-      this.setState({ accept: false })
-      console.log(this.state.accept)
-      this.changeAccept();
+      this.setState({ accept: false }, this.changeAccept())
     }
   },
 
@@ -94,10 +90,8 @@ const App = React.createClass({
     axios.get(`/api/users/${userId}`)
       .then((res) => {
         this.setState({ user: res.data });
-        console.log(this.state.user.kj)
         if (this.state.user.kj === true) {
           this.state.kjId = this.state.user.id;
-          console.log(this.state.kjId)
           this.props.router.push('/dashboard')
         }
         else {
@@ -113,7 +107,7 @@ const App = React.createClass({
     axios.get(`/api/users/code/${code}`)
       .then((response) => {
         const array = response.data.songs.filter((user) => {
-          return user.code === this.state.code;
+          return true;
         })
         const kjName = response.data.kjName;
         this.setState({

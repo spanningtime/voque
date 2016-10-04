@@ -40,9 +40,12 @@ const Dashboard = React.createClass({
           onToggle={this.handleChange}
         />
       </div>
+
       <RaisedButton
         onTouchTap={this.handleTouchTap}
         label="View Requests"/>
+
+      <h5 id="current-code">Current code: <span id="code-name">{this.props.user.code}</span></h5>
     </div>
   }
 });
