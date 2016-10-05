@@ -1,8 +1,7 @@
+import Checkbox from 'material-ui/Checkbox';
+import RaisedButton from 'material-ui/RaisedButton';
 import React from 'react';
 import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
-import Joi from 'joi';
-import Checkbox from 'material-ui/Checkbox';
 
 const Register = React.createClass({
 
@@ -18,32 +17,34 @@ const Register = React.createClass({
     };
   },
 
-// dom traversal to access checkbox
-// document.getElementsByClassName('checkbox-container')[0].childNodes[0].lastChild.childNodes[1].childNodes[0].childNodes
-
   handleCheckbox() {
-    const nextUser = Object.assign(this.state.user, {kj: !this.state.user.kj})
+    const nextUser = Object.assign(
+      this.state.user, { kj: !this.state.user.kj }
+    );
 
     this.setState({
       user: nextUser
-    })
+    });
   },
 
   handleChange(event) {
     const { name, value } = event.target;
-    const nextUser = Object.assign({},
-      this.state.user, { [name]: value });
-      this.setState({ user: nextUser });
+    const nextUser = Object.assign(
+      {},
+      this.state.user,
+      { [name]: value }
+    );
+
+    this.setState({ user: nextUser });
   },
 
   handleTouchTap() {
-    console.log(this.state.user);
     this.props.register(this.state.user);
   },
 
   render() {
     const styleInput = {
-      marginLeft: '20px',
+      marginLeft: '20px'
     };
 
     const styleUnderline = {
@@ -60,11 +61,11 @@ const Register = React.createClass({
       <h1 className="main-header title">Register</h1>
       <div className="checkbox-container">
         <Checkbox
-          onCheck={this.handleCheckbox}
-          label="Click box to register as Karaoke DJ"
-          inputStyle={styleCheckbox}
-          labelPosition="left"
           checked={this.state.user.kj}
+          inputStyle={styleCheckbox}
+          label="Click box to register as Karaoke DJ"
+          labelPosition="left"
+          onCheck={this.handleCheckbox}
         />
       </div>
       <div className="register-container">
@@ -79,43 +80,43 @@ const Register = React.createClass({
           />
         </div>
         <div className="input-container">
-        <div>
-        <TextField
-          hintText="Password"
-          name="password"
-          onChange={this.handleChange}
-          style={styleInput}
-          type="password"
-          underlineFocusStyle={styleUnderline}
-          value={user.password}
-        />
-        <TextField
-          hintText="Confirm Password"
-          name="confirmPassword"
-          style={styleInput}
-          type="password"
-          underlineFocusStyle={styleUnderline}
-          value={user.confirmPassword}
-        />
-        </div>
-        <div>
-        <TextField
-          name="firstName"
-          hintText="First Name"
-          onChange={this.handleChange}
-          style={styleInput}
-          underlineFocusStyle={styleUnderline}
-          value={user.firstName}
-        />
-        <TextField
-          name="lastName"
-          hintText="Last Name"
-          onChange={this.handleChange}
-          style={styleInput}
-          underlineFocusStyle={styleUnderline}
-          value={user.lastName}
-        />
-        </div>
+          <div>
+            <TextField
+              hintText="Password"
+              name="password"
+              onChange={this.handleChange}
+              style={styleInput}
+              type="password"
+              underlineFocusStyle={styleUnderline}
+              value={user.password}
+            />
+            <TextField
+              hintText="Confirm Password"
+              name="confirmPassword"
+              style={styleInput}
+              type="password"
+              underlineFocusStyle={styleUnderline}
+              value={user.confirmPassword}
+            />
+          </div>
+          <div>
+            <TextField
+              hintText="First Name"
+              name="firstName"
+              onChange={this.handleChange}
+              style={styleInput}
+              underlineFocusStyle={styleUnderline}
+              value={user.firstName}
+            />
+            <TextField
+              hintText="Last Name"
+              name="lastName"
+              onChange={this.handleChange}
+              style={styleInput}
+              underlineFocusStyle={styleUnderline}
+              value={user.lastName}
+            />
+          </div>
         </div>
         <div className="button-container">
           <RaisedButton
@@ -124,8 +125,8 @@ const Register = React.createClass({
           />
         </div>
       </div>
-    </div>
+    </div>;
   }
-})
+});
 
 export default Register;
