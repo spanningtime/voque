@@ -1,7 +1,7 @@
+import { Link } from 'react-router';
+import RaisedButton from 'material-ui/RaisedButton';
 import React from 'react';
 import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
-import { Link } from 'react-router';
 
 const Login = React.createClass({
   getInitialState() {
@@ -28,7 +28,7 @@ const Login = React.createClass({
 
   render() {
     const styleInput = {
-      marginLeft: '20px',
+      marginLeft: '20px'
     };
 
     const styleUnderline = {
@@ -43,19 +43,19 @@ const Login = React.createClass({
       </h1>
       <div className="login-container">
         <TextField
+          hintText="Email"
           name="email"
           onChange={this.handleChange}
           style={styleInput}
-          hintText="Email"
           underlineFocusStyle={styleUnderline}
           value={credentials.email}
         />
         <TextField
+          hintText="Password"
           name="password"
           onChange={this.handleChange}
           style={styleInput}
           type="password"
-          hintText="Password"
           underlineFocusStyle={styleUnderline}
           value={credentials.password}
         />
@@ -66,10 +66,14 @@ const Login = React.createClass({
           />
         </div>
       </div>
-      <p className="register-message">Don't have an account? <Link to="/register">Register</Link>
+      <p className="register-message">
+        Don't have an account?
+        <Link to="/register">
+          Register
+        </Link>
       </p>
-    </div>
+    </div>;
   }
-})
+});
 
 export default Login;
