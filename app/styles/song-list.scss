@@ -74,7 +74,7 @@
   margin: 10px;
   .kj-name {
     font-family: $main;
-    font-size: 2em;
+    font-size: 1.9em;
     margin-top: 10px;
   }
   .search-container {
@@ -98,12 +98,10 @@
     font-family: $main;
   }
   #title-tab {
-    // opacity: 1;
     margin-right: 10px;
   }
   #mobile-artist-tab, #mobile-title-tab {
     background-color: $Yellow;
-    // opacity: 0.5;
     height: 40px;
     line-height: 40px;
     width: 100px;
