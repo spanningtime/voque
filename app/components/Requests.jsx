@@ -1,6 +1,6 @@
+import axios from 'axios';
 import React from 'react';
 import weakKey from 'weak-key';
-import axios from 'axios';
 
 const Requests = React.createClass({
 
@@ -10,12 +10,11 @@ const Requests = React.createClass({
       this.props.getRequests();
     })
     .catch((err) => {
-      console.error(err)
-    })
+      console.error(err);
+    });
   },
 
   render() {
-
     return <div className="content-container">
       <h1 className="main-header title">Requests</h1>
       <div className="requests-container">
@@ -24,34 +23,36 @@ const Requests = React.createClass({
             if (request.songTitle.length > 21) {
               request.songTitle = request.songTitle.substring(0, 21) + '...';
             }
+
             return <li key={weakKey(request)}>
               <div className="song-request-container">
-
-                <i className="material-icons"
-                   onTouchTap={((event) =>
+                <i
+                  className="material-icons"
+                  onTouchTap={(() =>
                      this.removeRequest(request)).bind(this)}
-                >clear</i>
-
+                >
+                  clear
+                </i>
                 <div className="container-for-border">
-                <div className="request-item-container">
-                  <span>{this.props.singerName}</span>
-                </div>
+                  <div className="request-item-container">
+                    <span>{this.props.singerName}</span>
+                  </div>
 
-                <div className="request-item-container">
-                  <span>{request.songTitle}</span>
-                </div>
+                  <div className="request-item-container">
+                    <span>{request.songTitle}</span>
+                  </div>
 
-                <div className="request-item-container">
-                  <span>by {request.artistName}</span>
-                </div>
+                  <div className="request-item-container">
+                    <span>by {request.artistName}</span>
+                  </div>
                 </div>
               </div>
-            </li>
+            </li>;
           })}
         </ol>
       </div>
-    </div>
+    </div>;
   }
-})
+});
 
 export default Requests;
