@@ -13,10 +13,12 @@ const knex = require('../knex');
 
 router.get('/api/songs/:adminId', (req, res, next) => {
   const adminId = Number.parseInt(req.params.adminId);
-  
+
   knex('songs')
     .where('admin_id', adminId)
+    .orderBy('artist_name', 'asc')
     .then((rows) => {
+      console.log(rows)
       if (!rows) {
         return next();
       }

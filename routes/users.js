@@ -102,6 +102,7 @@ router.get('/api/users/code/:code', (req, res, next) => {
       data.kjName = user.first_name
       return knex('songs')
         .where('admin_id', user.id)
+        .orderBy('artist_name')
     })
     .then((rows) => {
       data.songs = camelizeKeys(rows);
