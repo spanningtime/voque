@@ -1,7 +1,6 @@
 import axios from 'axios';
 import cookie from 'react-cookie';
 import NavBar from 'components/NavBar';
-import RaisedButton from 'material-ui/RaisedButton';
 import React from 'react';
 import Snackbar from 'material-ui/Snackbar';
 import { withRouter } from 'react-router';
@@ -94,16 +93,13 @@ const App = React.createClass({
     axios.get(`/api/users/${userId}`)
       .then((res) => {
         this.setState({ user: res.data });
-        console.log(this.state.user.firstName)
         if (this.state.user.kj === true) {
           this.setState({ kjId: userId });
           this.props.router.push('/dashboard');
         }
         else {
-          console.log('else')
           this.props.router.push('/access');
-          console.log(this.state.user.firstName)
-          this.setState({ singerName: this.state.user.firstName })
+          this.setState({ singerName: this.state.user.firstName });
         }
       })
       .catch((err) => {
@@ -111,17 +107,20 @@ const App = React.createClass({
       });
   },
 
+  /* eslint-disable max-len */
   getSongs(code) {
     axios.get(`/api/users/code/${code}`)
       .then((response) => {
         const array = response.data.songs.filter(() => {
           return true;
-        })
+        });
         const kjName = response.data.kjName;
+
         this.setState({
           songs: array,
           kjName
-        })
+        });
+
         return this.props.router.push('/songlist');
       })
       .catch((err) => {
@@ -133,29 +132,24 @@ const App = React.createClass({
   },
 
   login(credentials) {
-    console.log(this.state.accept)
     axios.post('/api/token', credentials)
-      .then((res) => {
+      .then(() => {
         this.getUser();
-        // if (this.state.user.kj === 'true') {
-        //   this.props.router.push('/dashboard')
-        // }
-        // else {
-        //   this.props.router.push('/access');
-        // }
         this.setState({ loginSuccessSnackbarOpen: true });
         setTimeout(function() { this.setState({ loginSuccessSnackbarOpen: false }); }.bind(this), 4000);
       })
       .catch((err) => {
         if (err.response.status === 401) {
           this.setState({ loginFailSnackbarOpen: true });
-        setTimeout(function() { this.setState({ loginFailSnackbarOpen: false }); }.bind(this), 4000);
+          setTimeout(function() { this.setState({ loginFailSnackbarOpen: false }); }.bind(this), 4000);
         }
         else {
-          console.log('this is an error')
+          console.log('this is an error');
         }
       });
   },
+
+  /* eslint-enable max-len */
 
   logout() {
     axios.delete('/api/token')
@@ -172,8 +166,9 @@ const App = React.createClass({
 
   register(user) {
     axios.post('/api/users', user)
-      .then((res) => {
+      .then(() => {
         this.getUser();
+
         return this.props.router.push('/access');
       })
       .catch((err) => {
@@ -182,19 +177,18 @@ const App = React.createClass({
   },
 
   handleToggle() {
-    this.setState({ open: !this.state.open })
+    this.setState({ open: !this.state.open });
   },
 
   handleClose() {
-    this.setState({ open: false});
+    this.setState({ open: false });
   },
 
   requestChange(open) {
-    this.setState({ open })
+    this.setState({ open });
   },
 
   render() {
-
     const styleFailSnackbar = {
       backgroundColor: '#df2329',
       textAlign: 'center',
@@ -209,16 +203,15 @@ const App = React.createClass({
 
     return <main>
       <NavBar
+        getSongs={this.props.getSongs}
+        handleClose={this.handleClose}
         handleToggle={this.handleToggle}
+        logout={this.logout}
         open={this.state.open}
         requestChange={this.requestChange}
-        handleClose={this.handleClose}
-        logout={this.logout}
         songs={this.state.songs}
-        getSongs={this.props.getSongs}
       />
-        <div className="app-container">
-      </div>
+      <div className="app-container" />
 
       <Snackbar
         bodyStyle={styleFailSnackbar}
@@ -244,7 +237,6 @@ const App = React.createClass({
         open={this.state.logoutSuccessSnackbarOpen}
       />
 
-
       {React.cloneElement(this.props.children, {
         open: this.state.open,
         handleToggle: this.handleToggle,
@@ -269,7 +261,7 @@ const App = React.createClass({
         accept: this.state.accept,
         singerName: this.state.singerName
       })}
-      <footer id="footer"></footer>
+      <footer id="footer" />
     </main>;
   }
 });
