@@ -1,20 +1,22 @@
-import { IndexRoute, browserHistory, Route, Router } from 'react-router';
-import App from 'components/app';
-import Landing from 'components/Landing';
-import React from 'react';
+import { browserHistory, IndexRoute, Route, Router } from 'react-router';
 import Access from 'components/Access';
+import App from 'components/app';
+import Dashboard from 'components/Dashboard';
+import Info from 'components/Info';
+import Landing from 'components/Landing';
+import Login from 'components/Login';
+import React from 'react';
+import Register from 'components/Register';
+import Requests from 'components/Requests';
 import SongList from 'components/SongList';
 import Thanks from 'components/Thanks';
-import Info from 'components/Info';
-import Requests from 'components/Requests';
-import Register from 'components/Register';
-import Login from 'components/Login';
-import Dashboard from 'components/Dashboard';
 
 const Routes = React.createClass({
   render() {
-    return <Router history={browserHistory}
-        onUpdate={() => window.scrollTo(0, 0)}>
+    return <Router
+      history={browserHistory}
+      onUpdate={() => window.scrollTo(0, 0)}
+    >
       <Route component={App} path="/" >
         <IndexRoute component={Landing} />
         <Route component={Register} path="/register" />
