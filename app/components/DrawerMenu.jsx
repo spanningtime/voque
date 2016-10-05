@@ -1,9 +1,8 @@
-import React from 'react';
+import { Link, withRouter } from 'react-router';
+import cookie from 'react-cookie';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
-import { withRouter } from 'react-router';
-import { Link } from 'react-router';
-import cookie from 'react-cookie';
+import React from 'react';
 
 const DrawerMenu = React.createClass({
 
@@ -13,12 +12,11 @@ const DrawerMenu = React.createClass({
       this.props.router.push('/songlist');
     }
     else {
-      return this.props.router.push('/access')
+      return this.props.router.push('/access');
     }
   },
 
   render() {
-
     const styleMenuLogin = {
       display: 'none'
     };
@@ -32,40 +30,51 @@ const DrawerMenu = React.createClass({
     };
 
     if (!cookie.load('loggedIn')) {
-      styleMenuLogin.display = 'inline-block',
-      styleMenuItem.display = 'none'
-    };
+      styleMenuLogin.display = 'inline-block';
+      styleMenuItem.display = 'none';
+    }
 
     return <div>
       <img
-        className="menu-icon"src={'./images/menu.svg'}
+        className="menu-icon"
         onTouchTap={this.props.handleToggle}
+        src={'./images/menu.svg'}
       />
       <Drawer
         docked={false}
+        getSongs={this.props.getSongs}
+        onRequestChange={(open) => this.props.requestChange(open)}
+        open={this.props.open}
         openSecondary={true}
         width={200}
-        open={this.props.open}
-        onRequestChange={(open) => this.props.requestChange(open)}
-        getSongs={this.props.getSongs}
       >
-      <Link
-        to="/login"
-        style={styleMenuLink}>
-        <MenuItem
-          style={styleMenuLogin}
-          onTouchTap={this.props.handleClose}>Login</MenuItem>
-      </Link>
-          <MenuItem
-            style={styleMenuItem}
-            onTouchTap={this.handleTouchTap}>Home</MenuItem>
         <Link
-          style={styleMenuItem}>
-          <MenuItem onTouchTap={this.props.logout}>Logout</MenuItem>
+          style={styleMenuLink}
+          to="/login"
+        >
+          <MenuItem
+            onTouchTap={this.props.handleClose}
+            style={styleMenuLogin}
+          >
+            Login
+          </MenuItem>
+        </Link>
+        <MenuItem
+          onTouchTap={this.handleTouchTap}
+          style={styleMenuItem}
+        >
+          Home
+        </MenuItem>
+        <Link
+          style={styleMenuItem}
+        >
+          <MenuItem onTouchTap={this.props.logout}>
+            Logout
+          </MenuItem>
         </Link>
       </Drawer>
-    </div>
+    </div>;
   }
-})
+});
 
 export default withRouter(DrawerMenu);
