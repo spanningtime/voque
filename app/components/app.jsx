@@ -11,6 +11,7 @@ const App = React.createClass({
   getInitialState() {
     return {
       kjName: '',
+      singerName: '',
       kjId: null,
       codeSnackbarOpen: false,
       loginSuccessSnackbarOpen: false,
@@ -49,10 +50,12 @@ const App = React.createClass({
       });
   },
 
+  /* eslint-disable max-len */
   getLyrics() {
     const apiKey = '14685231d67e7ec9fe1bc89da7b6105b';
     const artist = this.state.requestedSong.artistName;
     const title = this.state.requestedSong.songTitle;
+
     axios.get(`https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.search?apikey=${apiKey}&q_artist=${artist}&q_track=${title}&format=json&page_size=1&f_has_lyrics=1`)
       .then((trackData) => {
         const trackId = trackData.data.message.body.track_list[0].track.track_id;
@@ -61,25 +64,28 @@ const App = React.createClass({
           .then((lyricsData) => {
             const lyricsUnfiltered = lyricsData.data.message.body.lyrics.lyrics_body;
             const lyrics = lyricsUnfiltered.substring(0, lyricsUnfiltered.length - 69);
-            this.setState({ lyrics })
-          })
+
+            this.setState({ lyrics });
+          });
       })
       .catch((err) => {
-        console.error(err)
+        console.error(err);
       });
   },
+
+  /* eslint-enable max-len */
 
   requestSong(requestedSong) {
     this.setState({
       requestedSong
     });
-    axios.post(`/api/requests/1`, requestedSong)
+    axios.post('/api/requests/1', requestedSong)
       .then(() => {
         this.getLyrics();
       })
       .catch((err) => {
         console.error(err);
-      })
+      });
   },
 
   getUser() {
@@ -88,23 +94,27 @@ const App = React.createClass({
     axios.get(`/api/users/${userId}`)
       .then((res) => {
         this.setState({ user: res.data });
+        console.log(this.state.user.firstName)
         if (this.state.user.kj === true) {
-          this.state.kjId = this.state.user.id;
-          this.props.router.push('/dashboard')
+          this.setState({ kjId: userId });
+          this.props.router.push('/dashboard');
         }
         else {
-          this.props.router.push('/access')
+          console.log('else')
+          this.props.router.push('/access');
+          console.log(this.state.user.firstName)
+          this.setState({ singerName: this.state.user.firstName })
         }
       })
       .catch((err) => {
         console.error(err);
-      })
+      });
   },
 
   getSongs(code) {
     axios.get(`/api/users/code/${code}`)
       .then((response) => {
-        const array = response.data.songs.filter((user) => {
+        const array = response.data.songs.filter(() => {
           return true;
         })
         const kjName = response.data.kjName;
@@ -256,7 +266,8 @@ const App = React.createClass({
         getRequests: this.getRequests,
         kjName: this.state.kjName,
         acceptRequests: this.acceptRequests,
-        accept: this.state.accept
+        accept: this.state.accept,
+        singerName: this.state.singerName
       })}
       <footer id="footer"></footer>
     </main>;

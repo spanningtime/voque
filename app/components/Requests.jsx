@@ -34,7 +34,7 @@ const Requests = React.createClass({
 
                 <div className="container-for-border">
                 <div className="request-item-container">
-                  <span>William</span>
+                  <span>{this.props.singerName}</span>
                 </div>
 
                 <div className="request-item-container">
