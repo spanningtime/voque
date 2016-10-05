@@ -6,37 +6,35 @@ import { withRouter } from 'react-router';
 const SongList = React.createClass({
   getInitialState() {
     return {
-      selected: "artistName",
-      searchText: "",
+      selected: 'artistName',
+      searchText: '',
       filterSearch: false,
-      selectedSong: null,
-    }
+      selectedSong: null
+    };
   },
 
-  handleTouchTap(event) {
+  handleTouchTap() {
     this.props.requestSong(this.state.selectedSong);
-    this.props.router.push('/thanks')
+    this.props.router.push('/thanks');
   },
 
   handleToggleSubmitBtn(song) {
-    console.log(song)
     this.setState({
       selectedSong: song
-    })
+    });
   },
 
   handleChange(event) {
     this.setState({ searchText: event.target.value });
-    console.log(this.state.searchText)
   },
 
   handleToggleTab(newSelected) {
-    this.setState({ selected: newSelected})
+    this.setState({ selected: newSelected });
   },
 
   render() {
     const inputStyle = {
-      borderColor: '#F4AF1D',
+      borderColor: '#F4AF1D'
     };
 
     const styleTabDeselected = {
@@ -55,15 +53,13 @@ const SongList = React.createClass({
       display: 'none'
     };
 
-    console.log(this.props.songs);
     const songsArray = this.props.songs.filter((song) => {
       if (this.state.searchText.length === 0) {
         return true;
       }
+
       return song[this.state.selected].toLowerCase().startsWith(this.state.searchText.toLowerCase());
     });
-
-    console.log(this.state.selected);
 
     return <div className="content-container">
       <div className="header-container">
@@ -71,69 +67,81 @@ const SongList = React.createClass({
           {`${this.props.kjName}'s Songs`}
         </h1>
         <div
-          className="mobile-search-container">
+          className="mobile-search-container"
+        >
           <div
             id="mobile-artist-tab"
-            onTouchTap={() =>  this.handleToggleTab("artistName")}
-            style={this.state.selected === "artistName" ? styleTabSelected : styleTabDeselected} >
+            onTouchTap={() => this.handleToggleTab('artistName')}
+            style={this.state.selected === 'artistName' ? styleTabSelected : styleTabDeselected}
+          >
             <span>Artist</span>
           </div>
           <div
             id="mobile-title-tab"
             onTouchTap={() => this.handleToggleTab("songTitle")}
-            style={this.state.selected === "songTitle" ? styleTabSelected : styleTabDeselected} >
-          <span>Title</span></div>
+            style={this.state.selected === "songTitle" ? styleTabSelected : styleTabDeselected}
+          >
+            <span>Title</span>
+          </div>
         </div>
         <div className="search-container">
-          <div id="artist-tab"
-               onTouchTap={() => this.handleToggleTab("artistName")}
-               style={this.state.selected === "artistName" ? styleTabSelected : styleTabDeselected} >
+          <div
+            id="artist-tab"
+            onTouchTap={() => this.handleToggleTab('artistName')}
+            style={this.state.selected === 'artistName' ? styleTabSelected : styleTabDeselected}
+          >
             <span>Artist</span></div>
-          <div id="title-tab"
-                onTouchTap={() => this.handleToggleTab("songTitle")}
-                >
-              <span>Title</span></div>
-            <TextField
-              id="searchInput"
-              onChange={this.handleChange}
-              underlineFocusStyle={inputStyle}
-            />
-            <img className="search-icon"src={'./images/search.svg'} />
+          <div
+            id="title-tab"
+            onTouchTap={() => this.handleToggleTab('songTitle')}
+          >
+            <span>Title</span>
+          </div>
+          <TextField
+            id="searchInput"
+            onChange={this.handleChange}
+            underlineFocusStyle={inputStyle}
+          />
+          <img className="search-icon"src={'./images/search.svg'} />
         </div>
       </div>
       <div className="songs-container">
         <ol>
           {songsArray.map((song) => {
-
             return <li
-              key={weakKey(song)}>
+              key={weakKey(song)}
+            >
               <div className="song-container">
-              {/* <i className="material-icons"
-              >done</i> */}
                 <div className="slidein-container">
                   <div
                     className="border-container"
-                    onTouchTap={((event) => this.handleToggleSubmitBtn(song)).bind(this)}
+                    onTouchTap={(() => this.handleToggleSubmitBtn(song)).bind(this)}
                   >
                     <div
-                      className="title-container">{song.songTitle}</div>
-                      <div
-                      className="artist-container">{song.artistName}</div>
+                      className="title-container"
+                    >
+                      {song.songTitle}
+                    </div>
+                    <div
+                      className="artist-container"
+                    >
+                      {song.artistName}
+                    </div>
                   </div>
                   <div
+                    className="request-submit"
                     name="request-submit"
                     onTouchTap={this.handleTouchTap}
-                    className="request-submit"
                     style={song === this.state.selectedSong ? styleSubmitButton : styleHideSubmitButton}>submit
                   </div>
                 </div>
               </div>
-            </li>
+            </li>;
           })}
         </ol>
       </div>
-    </div>
+    </div>;
   }
-})
+});
 
 export default withRouter(SongList);
