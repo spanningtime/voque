@@ -1,7 +1,7 @@
-import React from 'react';
+import cookie from 'react-cookie';
 import DrawerMenu from 'components/DrawerMenu';
 import { Link } from 'react-router';
-import cookie from 'react-cookie';
+import React from 'react';
 
 const NavBar = React.createClass({
 
@@ -17,17 +17,17 @@ const NavBar = React.createClass({
 
     const styleLogoutLink = {
       display: 'none'
-    }
+    };
 
     if (cookie.load('loggedIn')) {
-      styleLoginLink.display = 'none',
-      styleLogoutLink.display = 'inline-block'
-    };
+      styleLoginLink.display = 'none';
+      styleLogoutLink.display = 'inline-block';
+    }
 
     return <div className="nav-container">
       <div className="nav-bar">
         <header className="title-logo">
-          <Link to="/songlist" style={styleLink}>
+          <Link style={styleLink} to="/songlist" >
             VOQUE
           </Link>
         </header>
@@ -35,36 +35,38 @@ const NavBar = React.createClass({
           <img className="mic" src={'./images/mic.svg'} />
         </Link>
         <div className="link-container">
-        <div className="divider"></div>
+          <div className="divider" />
           <div className="nav-login-container">
             <Link
               className="login"
+              style={styleLoginLink}
               to="/login"
-              style={styleLoginLink}>
-                Login
+            >
+              Login
             </Link>
           </div>
           <div className="nav-logout-container">
             <Link
-              onTouchTap={this.props.logout}
               className="logout"
-              style={styleLogoutLink}>
-                Logout
+              onTouchTap={this.props.logout}
+              style={styleLogoutLink}
+            >
+              Logout
             </Link>
           </div>
           <DrawerMenu
+            getSongs={this.props.getSongs}
+            handleClose={this.props.handleClose}
             handleToggle={this.props.handleToggle}
+            logout={this.props.logout}
             open={this.props.open}
             requestChange={this.props.requestChange}
-            handleClose={this.props.handleClose}
-            logout={this.props.logout}
             songs={this.props.songs}
-            getSongs={this.props.getSongs}
-           />
+          />
         </div>
       </div>
-    </div>
+    </div>;
   }
-})
+});
 
 export default NavBar;
