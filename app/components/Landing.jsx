@@ -1,20 +1,18 @@
-import React from 'react';
-import RaisedButton from 'material-ui/RaisedButton';
 import { Link } from 'react-router';
-import cookie from 'react-cookie';
-
+import RaisedButton from 'material-ui/RaisedButton';
+import React from 'react';
 
 const Landing = React.createClass({
 
-
   render() {
-
     return <div className="content-container">
       <div>
 
+        {/* eslint-disable max-len */}
         <h1 className="main-header">
           Ditch those <span>huge</span> and <span>unorganized</span> karaoke songbooks
         </h1>
+        {/* eslint-enable max-len */}
 
         <h2 className="second-header">
           Search and request songs from your phone
@@ -32,23 +30,30 @@ const Landing = React.createClass({
           <div>
             <Link to="/register">
               <RaisedButton
-                label="Singers"
                 className="button"
+                label="Singers"
               />
             </Link>
           </div>
           <div>
             <Link to="/info">
-              <RaisedButton label="Karaoke DJs"
-                className="button" />
+              <RaisedButton
+                className="button"
+                label="Karaoke DJs"
+              />
             </Link>
           </div>
         </div>
 
-        <p className="login-message">Already have an account? <Link to="/login">Login</Link></p>
+        <p className="login-message">
+          Already have an account?
+          <Link to="/login">
+            Login
+          </Link>
+        </p>
       </div>
-    </div>
+    </div>;
   }
-})
+});
 
 export default Landing;
