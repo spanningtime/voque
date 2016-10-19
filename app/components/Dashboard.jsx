@@ -53,6 +53,21 @@ const Dashboard = React.createClass({
       {/* eslint-disable max-len */}
       <h5 id="current-code">Current code: <span id="code-name">{this.props.user.code}</span></h5>
       {/* eslint-enable max-len*/}
+      <div id="upload-form-container">
+        <form
+          id="uploadForm"
+          enctype="multipart/form-data"
+          method="post"
+          action="/upload"
+        >
+          <input type="file" name="songlist" />
+          <input
+            type="submit"
+            value="UploadFile"
+            name="submit"
+          />
+        </form>
+      </div>
     </div>;
   }
 });

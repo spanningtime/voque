@@ -54,6 +54,7 @@ const SongList = React.createClass({
     };
 
     const songsArray = this.props.songs.filter((song) => {
+      console.log(song)
       if (this.state.searchText.length === 0) {
         return true;
       }
