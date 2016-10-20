@@ -11,7 +11,9 @@ const { camelizeKeys, decamelizeKeys} = require('humps');
 const jwt = require('jsonwebtoken');
 const knex = require('../knex');
 const multer = require('multer');
-const parseString = require('xml2js').parseString
+const storage = multer({inMemory: true});
+const upload = multer({storage});
+const parseString = require('xml2js').parseString;
 
 router.get('/api/songs/:adminId', (req, res, next) => {
   const adminId = Number.parseInt(req.params.adminId);
@@ -32,17 +34,17 @@ router.get('/api/songs/:adminId', (req, res, next) => {
     });
 });
 
-router.post('/api/songs/:adminId/', (req, res, next) => {
-  const adminId = Number.parseInt(req.params.adminId);
-  const artistName = req.body.artistName;
-  const songTitle = req.body.songTitle;
+router.post('/upload', upload.single('songlist'), (req, res, next) => {
+  console.log(req.file);
+  // const adminId = Number.parseInt(req.params.adminId);
+  // const artistName = req.body.artistName;
+  // const songTitle = req.body.songTitle;
 
   knex('songs')
-    .where('admin_id', adminId)
+    // .where('admin_id', adminId)
     .first()
     .then((songs) => {
       songs = camelizeKeys(songs);
-      console.log(songs);
     })
     .catch((err) => {
       next(err);

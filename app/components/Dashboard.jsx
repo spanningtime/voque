@@ -2,8 +2,19 @@ import RaisedButton from 'material-ui/RaisedButton';
 import React from 'react';
 import Toggle from 'material-ui/Toggle';
 import { withRouter } from 'react-router';
+import axios from 'axios';
+const multer = require('multer');
+const storage = multer({inMemory: true});
+const upload = multer({storage});
+const parseString = require('xml2js').parseString;
 
 const Dashboard = React.createClass({
+  getInitialState() {
+    return {
+      file: null
+    };
+  },
+
 
   handleTouchTap() {
     this.props.getRequests();
@@ -12,6 +23,20 @@ const Dashboard = React.createClass({
 
   handleChange() {
     this.props.acceptRequests();
+  },
+
+  handleFile(event) {
+    this.setState({ file: event.target.value })
+    console.log(event.target.value)
+  },
+
+  handleSubmit(event) {
+    console.log('hey');
+    event.preventDefault();
+    // this.props.postSongs(this.state.file);
+    axios.post('/upload', upload.single('songlist'), (req,res) => {
+      console.log(req.file)
+    })
   },
 
   render() {
@@ -56,11 +81,17 @@ const Dashboard = React.createClass({
       <div id="upload-form-container">
         <form
           id="uploadForm"
-          enctype="multipart/form-data"
+          ref="form"
+          encType="multipart/form-data"
           method="post"
           action="/upload"
+          onSubmit={this.handleSubmit}
         >
-          <input type="file" name="songlist" />
+          <input
+            type="file"
+            name="songlist"
+            onChange={this.handleFile}
+          />
           <input
             type="submit"
             value="UploadFile"

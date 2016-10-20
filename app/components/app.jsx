@@ -107,6 +107,16 @@ const App = React.createClass({
       });
   },
 
+  postSongs(file) {
+    axios.post('/upload', file)
+      .then(() => {
+        
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  },
+
   /* eslint-disable max-len */
   getSongs(code) {
     axios.get(`/api/users/code/${code}`)
@@ -259,7 +269,8 @@ const App = React.createClass({
         kjName: this.state.kjName,
         acceptRequests: this.acceptRequests,
         accept: this.state.accept,
-        singerName: this.state.singerName
+        singerName: this.state.singerName,
+        postSongs: this.postSongs
       })}
       <footer id="footer" />
     </main>;
