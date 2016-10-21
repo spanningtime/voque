@@ -6,12 +6,12 @@ exports.seed = function(knex) {
       return knex('users').insert([
       {
         id: 1,
-        first_name: 'Wayne',
-        last_name: 'Dank',
-        email: 'waynedank@gmail.com',
+        first_name: 'Ryan',
+        last_name: 'sobol',
+        email: 'ryan@gmail.com',
         hashed_password: '$2a$12$4cd6LDwjFXVv3dZ4W4B5JexkgeLzdhgvVbmlORDOXsjKJtCzNZeyq',
         kj: true,
-        code: 'danksongs',
+        code: 'pleasehirewilliam',
         accept: false
       },
       {
