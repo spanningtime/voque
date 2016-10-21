@@ -108,9 +108,9 @@ const App = React.createClass({
   },
 
   postSongs(file) {
-    axios.post('/upload', file)
+    axios.post("/upload", file)
       .then(() => {
-        
+        console.log('success')
       })
       .catch((err) => {
         console.error(err);

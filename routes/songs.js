@@ -11,8 +11,7 @@ const { camelizeKeys, decamelizeKeys} = require('humps');
 const jwt = require('jsonwebtoken');
 const knex = require('../knex');
 const multer = require('multer');
-const storage = multer({inMemory: true});
-const upload = multer({storage});
+const upload = multer({inMemory: true});
 const parseString = require('xml2js').parseString;
 
 router.get('/api/songs/:adminId', (req, res, next) => {

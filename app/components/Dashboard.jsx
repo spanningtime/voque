@@ -2,11 +2,6 @@ import RaisedButton from 'material-ui/RaisedButton';
 import React from 'react';
 import Toggle from 'material-ui/Toggle';
 import { withRouter } from 'react-router';
-import axios from 'axios';
-const multer = require('multer');
-const storage = multer({inMemory: true});
-const upload = multer({storage});
-const parseString = require('xml2js').parseString;
 
 const Dashboard = React.createClass({
   getInitialState() {
@@ -14,7 +9,6 @@ const Dashboard = React.createClass({
       file: null
     };
   },
-
 
   handleTouchTap() {
     this.props.getRequests();
@@ -33,10 +27,7 @@ const Dashboard = React.createClass({
   handleSubmit(event) {
     console.log('hey');
     event.preventDefault();
-    // this.props.postSongs(this.state.file);
-    axios.post('/upload', upload.single('songlist'), (req,res) => {
-      console.log(req.file)
-    })
+    this.props.postSongs(this.state.file);
   },
 
   render() {
