@@ -1,6 +1,7 @@
 import RaisedButton from 'material-ui/RaisedButton';
 import React from 'react';
 import Toggle from 'material-ui/Toggle';
+import TextField from 'material-ui/TextField'
 import { withRouter } from 'react-router';
 
 const Dashboard = React.createClass({
@@ -27,7 +28,7 @@ const Dashboard = React.createClass({
   handleSubmit(event) {
     console.log('hey');
     event.preventDefault();
-    this.props.postSongs(this.state.file);
+    this.props.postSongs();
   },
 
   render() {
@@ -67,7 +68,21 @@ const Dashboard = React.createClass({
       />
 
       {/* eslint-disable max-len */}
-      <h5 id="current-code">Current code: <span id="code-name">{this.props.user.code}</span></h5>
+      <div id="code-container">
+        <h5 id="current-code">Current code:
+          <span id="code-name">{this.props.user.code}</span>
+          <span id="code-input">
+            <TextField
+              id="text-field-default"
+              defaultValue={this.props.user.code}
+            />
+          </span>
+        </h5>
+        <img
+          className="search-icon"
+          src={'./images/edit.svg'}
+        />
+      </div>
       {/* eslint-enable max-len*/}
       <div id="upload-form-container">
         <form

@@ -34,10 +34,22 @@ router.get('/api/songs/:adminId', (req, res, next) => {
 });
 
 router.post('/upload', upload.single('songlist'), (req, res, next) => {
-  console.log(req.file);
-  // const adminId = Number.parseInt(req.params.adminId);
-  // const artistName = req.body.artistName;
-  // const songTitle = req.body.songTitle;
+  const buf = req.file.buffer;
+  const str = buf.toString('utf8');
+  const tracksArray = [];
+  parseString(str, (err, result) => {
+    const tracks = result.plist.dict[0].dict[0].dict;
+    console.log(tracks);
+    tracks.map((track) => {
+      const trackObj = {}
+
+      trackObj.title = track.string[0]
+      trackObj.artist = track.string[1];
+      tracksArray.push(trackObj);
+    });
+
+    console.log(tracksArray);
+  });
 
   knex('songs')
     // .where('admin_id', adminId)
