@@ -21,7 +21,6 @@ router.get('/api/songs/:adminId', (req, res, next) => {
     .where('admin_id', adminId)
     .orderBy('artist_name', 'asc')
     .then((rows) => {
-      console.log(rows)
       if (!rows) {
         return next();
       }
@@ -33,29 +32,29 @@ router.get('/api/songs/:adminId', (req, res, next) => {
     });
 });
 
-router.post('/upload', upload.single('songlist'), (req, res, next) => {
+router.post('/upload/songs/:adminId', upload.single('songlist'), (req, res, next) => {
+  const adminId = Number.parseInt(req.params.adminId);
   const buf = req.file.buffer;
   const str = buf.toString('utf8');
-  const tracksArray = [];
-  parseString(str, (err, result) => {
-    const tracks = result.plist.dict[0].dict[0].dict;
-    console.log(tracks);
-    tracks.map((track) => {
-      const trackObj = {}
+  let tracksArray = [];
 
-      trackObj.title = track.string[0]
-      trackObj.artist = track.string[1];
-      tracksArray.push(trackObj);
-    });
-
-    console.log(tracksArray);
-  });
 
   knex('songs')
-    // .where('admin_id', adminId)
-    .first()
-    .then((songs) => {
-      songs = camelizeKeys(songs);
+    .then(() => {
+      parseString(str, (err, result) => {
+        const tracks = result.plist.dict[0].dict[0].dict;
+        tracks.map((track) => {
+          const trackObj = {}
+
+          trackObj.adminId = adminId;
+          trackObj.songTitle = track.string[0];
+          trackObj.artistName = track.string[1];
+          tracksArray.push(trackObj);
+        });
+      });
+      const rows = decamelizeKeys(tracksArray)
+      console.log(rows)
+      return knex('songs').insert(rows, '*');
     })
     .catch((err) => {
       next(err);

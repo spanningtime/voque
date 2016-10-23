@@ -90,7 +90,7 @@ const Dashboard = React.createClass({
           ref="form"
           encType="multipart/form-data"
           method="post"
-          action="/upload"
+          action="/upload/songs/:adminId"
           onSubmit={this.handleSubmit}
         >
           <input
