@@ -54,10 +54,10 @@ router.post('/upload/songs/:adminId', upload.single('songlist'), (req, res, next
 
           for (let x = 0; x < exists.length; x++) {
             if (
-              exists[x].song_title === trackObj.songTitle
-              &&
-              exists[x].artist_name === trackObj.artistName
-            ) {
+                exists[x].song_title === trackObj.songTitle
+                &&
+                exists[x].artist_name === trackObj.artistName
+              ) {
               return false;
             }
             else if (x === exists.length - 1) {
