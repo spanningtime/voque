@@ -9,7 +9,9 @@ const Dashboard = React.createClass({
     return {
       file: null,
       inputEdit: 'none',
-      showCode: 'inline-block'
+      showCode: 'inline-block',
+      showCheck: 'none',
+      showEdit: 'inline-block'
     };
   },
 
@@ -37,13 +39,25 @@ const Dashboard = React.createClass({
   handleToEdit() {
     this.setState({
       inputEdit: 'inline-block',
-      showCode: 'none'
+      showCode: 'none',
+      showEdit: 'none',
+      showCheck: 'inline-block'
     })
   },
 
-  handleBlur() {
-    console.log('blur');
+  // handleBlur() {
+  //   console.log('blur');
+  //   this.setState({
+  //     inputEdit: 'none',
+  //     showCode: 'inline-block'
+  //   })
+  // },
+
+//need to create route for updating new code in db
+  handleConfirmEdit() {
     this.setState({
+      showEdit: 'inline-block',
+      showCheck: 'none',
       inputEdit: 'none',
       showCode: 'inline-block'
     })
@@ -69,7 +83,15 @@ const Dashboard = React.createClass({
 
     const styleCode = {
       display: this.state.showCode
-    }
+    };
+
+    const styleCheck = {
+      display: this.state.showCheck
+    };
+
+    const styleEdit = {
+      display: this.state.showEdit
+    };
 
     return <div className="content-container">
       <h1
@@ -116,6 +138,13 @@ const Dashboard = React.createClass({
           className="search-icon"
           src={'./images/edit.svg'}
           onTouchTap={this.handleToEdit}
+          style={styleEdit}
+        />
+        <img
+          className="search-icon"
+          src={'./images/check.svg'}
+          onTouchTap={this.handleConfirmEdit}
+          style={styleCheck}
         />
       </div>
       {/* eslint-enable max-len*/}
