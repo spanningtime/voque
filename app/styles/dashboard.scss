@@ -1,13 +1,20 @@
 @import "variables";
 
-#current-code {
-  font-family: $main;
-  font-size: 20px;
-  margin-top: 40px;
-}
-
-#code-name {
-  color: $Red;
+#code-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  #code-name {
+    color: $Red;
+  }
+  #current-code {
+    font-family: $main;
+    font-size: 20px;
+    margin-top: 40px;
+  }
+  img, #code-name{
+    margin-left: 10px;
+  }
 }
 
 #upload-form-container {

@@ -7,7 +7,9 @@ import { withRouter } from 'react-router';
 const Dashboard = React.createClass({
   getInitialState() {
     return {
-      file: null
+      file: null,
+      inputEdit: 'none',
+      showCode: 'inline-block'
     };
   },
 
@@ -31,6 +33,22 @@ const Dashboard = React.createClass({
     this.props.postSongs();
   },
 
+// do some onblur stuff here to keep the code
+  handleToEdit() {
+    this.setState({
+      inputEdit: 'inline-block',
+      showCode: 'none'
+    })
+  },
+
+  handleBlur() {
+    console.log('blur');
+    this.setState({
+      inputEdit: 'none',
+      showCode: 'inline-block'
+    })
+  },
+
   render() {
     const styleToggle = {
       marginBottom: 16
@@ -44,6 +62,14 @@ const Dashboard = React.createClass({
     const styleH1 = {
       borderBottom: '2px solid #f4af1d'
     };
+
+    const styleTextField = {
+      display: this.state.inputEdit
+    };
+
+    const styleCode = {
+      display: this.state.showCode
+    }
 
     return <div className="content-container">
       <h1
@@ -70,17 +96,26 @@ const Dashboard = React.createClass({
       {/* eslint-disable max-len */}
       <div id="code-container">
         <h5 id="current-code">Current code:
-          <span id="code-name">{this.props.user.code}</span>
+          <span
+            id="code-name"
+            style={styleCode}
+            onTouchTap={this.handleToEdit}
+          >
+            {this.props.user.code}
+          </span>
           <span id="code-input">
             <TextField
               id="text-field-default"
               defaultValue={this.props.user.code}
+              style={styleTextField}
+              onBlur={this.handleBlur}
             />
           </span>
         </h5>
         <img
           className="search-icon"
           src={'./images/edit.svg'}
+          onTouchTap={this.handleToEdit}
         />
       </div>
       {/* eslint-enable max-len*/}
