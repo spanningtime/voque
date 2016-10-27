@@ -21,6 +21,13 @@
   img {
     height: 40px;
   }
+  input {
+    border: 0px solid white;
+    color: $Grey;
+    font-size: 15px;
+    margin-left: 10px;
+    outline: none;
+  }
 }
 
 #upload-form-container {

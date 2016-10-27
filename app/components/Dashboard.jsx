@@ -12,8 +12,7 @@ const Dashboard = React.createClass({
       showCode: 'inline-block',
       showCheck: 'none',
       showEdit: 'inline-block',
-      kjCode: this.props.user.code,
-
+      kjCode: this.props.user.code
     };
   },
 
@@ -124,7 +123,7 @@ const Dashboard = React.createClass({
             {this.state.kjCode}
           </span>
           <span id="code-input">
-            <TextField
+            <input
               id="text-field-default"
               defaultValue={this.state.kjCode}
               style={styleTextField}
