@@ -11,7 +11,9 @@ const Dashboard = React.createClass({
       inputEdit: 'none',
       showCode: 'inline-block',
       showCheck: 'none',
-      showEdit: 'inline-block'
+      showEdit: 'inline-block',
+      kjCode: this.props.user.code,
+
     };
   },
 
@@ -45,13 +47,18 @@ const Dashboard = React.createClass({
   },
 
 // need route to post updated code to db
-  handleConfirmEdit() {
+  handleConfirmEdit(event) {
     this.setState({
       showEdit: 'inline-block',
       showCheck: 'none',
       inputEdit: 'none',
       showCode: 'inline-block'
     })
+    this.props.updateKjCode(this.state.kjCode);
+  },
+
+  handleTextFieldChange(event) {
+    this.setState({ kjCode: event.target.value })
   },
 
   render() {
@@ -114,14 +121,15 @@ const Dashboard = React.createClass({
             style={styleCode}
             onTouchTap={this.handleToEdit}
           >
-            {this.props.user.code}
+            {this.state.kjCode}
           </span>
           <span id="code-input">
             <TextField
               id="text-field-default"
-              defaultValue={this.props.user.code}
+              defaultValue={this.state.kjCode}
               style={styleTextField}
               onBlur={this.handleBlur}
+              onChange={this.handleTextFieldChange}
             />
           </span>
         </h5>

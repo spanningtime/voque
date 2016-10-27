@@ -26,6 +26,10 @@ const App = React.createClass({
     };
   },
 
+  updateKjCode(kjCode) {
+    axios.patch(`/api/users/update-code/${this.state.kjId}/${kjCode}`);
+  },
+
   changeAccept() {
     axios.patch(`/api/users/${this.state.kjId}/${this.state.accept}`);
   },
@@ -271,7 +275,8 @@ const App = React.createClass({
         acceptRequests: this.acceptRequests,
         accept: this.state.accept,
         singerName: this.state.singerName,
-        postSongs: this.postSongs
+        postSongs: this.postSongs,
+        updateKjCode: this.updateKjCode
       })}
       <footer id="footer" />
     </main>;
