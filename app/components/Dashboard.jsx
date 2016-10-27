@@ -35,7 +35,6 @@ const Dashboard = React.createClass({
     this.props.postSongs();
   },
 
-// do some onblur stuff here to keep the code
   handleToEdit() {
     this.setState({
       inputEdit: 'inline-block',
@@ -45,15 +44,7 @@ const Dashboard = React.createClass({
     })
   },
 
-  // handleBlur() {
-  //   console.log('blur');
-  //   this.setState({
-  //     inputEdit: 'none',
-  //     showCode: 'inline-block'
-  //   })
-  // },
-
-//need to create route for updating new code in db
+// need route to post updated code to db
   handleConfirmEdit() {
     this.setState({
       showEdit: 'inline-block',

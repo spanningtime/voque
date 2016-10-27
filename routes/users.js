@@ -130,4 +130,19 @@ router.patch('/api/users/:id/:accept', (req, res, next) => {
     });
 });
 
+router.patch('/api/users/update-code/:id/:code', (req, res, next) => {
+  const { id, code } = req.params;
+
+  knex('users')
+    .where('id', id)
+    .update({ code })
+    .then((rows) => {
+      const user = rows[0];
+      res.send(user);
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
 module.exports = router;
