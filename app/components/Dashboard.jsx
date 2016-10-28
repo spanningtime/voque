@@ -118,14 +118,13 @@ const Dashboard = React.createClass({
           <span
             id="code-name"
             style={styleCode}
-            onTouchTap={this.handleToEdit}
           >
             {this.state.kjCode}
           </span>
           <span id="code-input">
             <input
-              id="text-field-default"
-              defaultValue={this.state.kjCode}
+              id="code-input-field"
+              placeholder="enter a new code"
               style={styleTextField}
               onBlur={this.handleBlur}
               onChange={this.handleTextFieldChange}
