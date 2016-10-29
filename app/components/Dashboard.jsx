@@ -89,6 +89,15 @@ const Dashboard = React.createClass({
       display: this.state.showEdit
     };
 
+    const styleToggleOn = {
+      display: this.props.accept ? 'inline-block' : 'none'
+    };
+
+    const styleToggleOff = {
+      display: this.props.accept ? 'none' : 'inline-block',
+      color: "#df2329"
+    };
+
     return <div className="content-container">
       <h1
         className="main-header"
@@ -96,7 +105,7 @@ const Dashboard = React.createClass({
       >
         Dashboard
       </h1>
-      <div>
+      <div id="toggle-container">
         <Toggle
           iconStyle={styleIcon}
           label="Accept Requests?"
@@ -104,6 +113,8 @@ const Dashboard = React.createClass({
           style={styleToggle}
           toggled={this.props.accept}
         />
+        <h5 id="toggle-on" style={styleToggleOn}>ON</h5>
+        <h5 id="toggle-off" style={styleToggleOff}>OFF</h5>
       </div>
 
       <RaisedButton
