@@ -1,7 +1,6 @@
 import RaisedButton from 'material-ui/RaisedButton';
 import React from 'react';
 import Toggle from 'material-ui/Toggle';
-import TextField from 'material-ui/TextField'
 import { withRouter } from 'react-router';
 
 const Dashboard = React.createClass({
