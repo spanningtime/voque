@@ -49,7 +49,7 @@
 #upload-form-container {
   margin-top: 20px;
 
-  #file-container {
+  #folder-container {
     height: 60px;
     width: 60px;
     border-radius: 50px;
@@ -60,12 +60,12 @@
     align-items: center;
   }
 
-  #file-container input {
+  #folder-container input {
     display: none;
   }
 
-  #upload-icon {
-    height: 40px
+  #upload-icon, #folder-icon {
+    height: 35px;
   }
 
   #filename {

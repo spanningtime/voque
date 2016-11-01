@@ -13,7 +13,10 @@ const Dashboard = React.createClass({
       showEdit: 'inline-block',
       kjCode: this.props.user.code,
       uploadBtnDisplay: 'none',
-      filename: ''
+      filename: '',
+      fileInputDisplay: 'hidden',
+      folderIconDisplay: 'inline-block',
+      uploadIconDisplay: 'inline-block'
     };
   },
 
@@ -117,9 +120,21 @@ const Dashboard = React.createClass({
       color: "#df2329"
     };
 
+    const styleFileInput = {
+      display: this.state.fileInputDisplay
+    }
+
     const styleUploadBtn = {
       display: this.state.uploadBtnDisplay
-    }
+    };
+
+    const styleUploadIcon = {
+      display: this.state.uploadIconDisplay
+    };
+
+    const styleFolderIcon = {
+      display: this.state.folderIconDisplay
+    };
 
     return <div className="content-container">
       <h1
@@ -188,25 +203,32 @@ const Dashboard = React.createClass({
           onSubmit={this.handleSubmit}
         >
           <label>
-            <div id="file-container">
+            <div id="folder-container">
               <img
-                id="upload-icon"
-                src={'./images/uplodad.svg'}
+                id="folder-icon"
+                src={'./images/folder-icon.svg'}
+                style={styleFolderIcon}
               />
               <input
                 type="file"
                 name="songlist"
                 onChange={this.handleFile}
-                />
+              />
             </div>
-            <h6 id="filename">{this.state.filename}</h6>
           </label>
-          <input
-            type="submit"
-            value="UploadFile"
-            name="submit"
-            style={styleUploadBtn}
-          />
+          <div id="file-upload-container">
+            <img
+              id="upload-icon"
+              src={'./images/uplodad.svg'}
+              style={styleUploadIcon}
+            />
+            <input
+              type="submit"
+              name="submit"
+              style={styleUploadBtn}
+            />
+          </div>
+          <h6 id="filename">{this.state.filename}</h6>
         </form>
       </div>
     </div>;
