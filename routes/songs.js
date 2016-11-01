@@ -38,6 +38,7 @@ router.post('/upload/songs/:adminId', upload.single('songlist'), (req, res, next
   const buf = req.file.buffer;
   const str = buf.toString('utf8');
   const tracksArray = [];
+  const fileName = req.file.originalname
 
   knex('songs')
     .where('admin_id', adminId)

@@ -12,7 +12,8 @@ const Dashboard = React.createClass({
       showCheck: 'none',
       showEdit: 'inline-block',
       kjCode: this.props.user.code,
-      uploadBtnDisplay: 'none'
+      uploadBtnDisplay: 'none',
+      filename: ''
     };
   },
 
@@ -26,9 +27,23 @@ const Dashboard = React.createClass({
   },
 
   handleFile(event) {
+    console.log(event.target.value)
+    const path = event.target.value;
+    let filename;
+
+      if (path) {
+        const startIndex = (path.indexOf('\\') >= 0 ? path.lastIndexOf('\\') : path.lastIndexOf('/'));
+        filename = path.substring(startIndex);
+
+        if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
+          filename = filename.substring(1);
+        }
+      }
+
     this.setState({
       file: event.target.value,
-      uploadBtnDisplay: 'inline-block'
+      uploadBtnDisplay: 'inline-block',
+      filename
     });
   },
 
@@ -184,6 +199,7 @@ const Dashboard = React.createClass({
                 onChange={this.handleFile}
                 />
             </div>
+            <h6 id="filename">{this.state.filename}</h6>
           </label>
           <input
             type="submit"
