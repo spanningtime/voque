@@ -12,11 +12,10 @@ const Dashboard = React.createClass({
       showCheck: 'none',
       showEdit: 'inline-block',
       kjCode: this.props.user.code,
-      uploadBtnDisplay: 'none',
       filename: '',
       fileInputDisplay: 'hidden',
-      folderIconDisplay: 'inline-block',
-      uploadIconDisplay: 'inline-block'
+      folderIconDisplay: 'flex',
+      uploadIconDisplay: 'none'
     };
   },
 
@@ -45,7 +44,8 @@ const Dashboard = React.createClass({
 
     this.setState({
       file: event.target.value,
-      uploadBtnDisplay: 'inline-block',
+      uploadIconDisplay: 'flex',
+      folderIconDisplay: 'none',
       filename
     });
   },
@@ -122,10 +122,6 @@ const Dashboard = React.createClass({
 
     const styleFileInput = {
       display: this.state.fileInputDisplay
-    }
-
-    const styleUploadBtn = {
-      display: this.state.uploadBtnDisplay
     };
 
     const styleUploadIcon = {
@@ -203,11 +199,13 @@ const Dashboard = React.createClass({
           onSubmit={this.handleSubmit}
         >
           <label>
-            <div id="folder-container">
+            <div
+              id="folder-container"
+              style={styleFolderIcon}
+            >
               <img
                 id="folder-icon"
                 src={'./images/folder-icon.svg'}
-                style={styleFolderIcon}
               />
               <input
                 type="file"
@@ -216,18 +214,21 @@ const Dashboard = React.createClass({
               />
             </div>
           </label>
-          <div id="file-upload-container">
-            <img
-              id="upload-icon"
-              src={'./images/uplodad.svg'}
+          <label>
+            <div
+              id="file-upload-container"
               style={styleUploadIcon}
-            />
-            <input
-              type="submit"
-              name="submit"
-              style={styleUploadBtn}
-            />
-          </div>
+            >
+              <img
+                id="upload-icon"
+                src={'./images/uplodad.svg'}
+              />
+              <input
+                type="submit"
+                name="submit"
+              />
+            </div>
+          </label>
           <h6 id="filename">{this.state.filename}</h6>
         </form>
       </div>
