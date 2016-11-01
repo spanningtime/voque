@@ -11,7 +11,8 @@ const Dashboard = React.createClass({
       showCode: 'inline-block',
       showCheck: 'none',
       showEdit: 'inline-block',
-      kjCode: this.props.user.code
+      kjCode: this.props.user.code,
+      uploadBtnDisplay: 'none'
     };
   },
 
@@ -25,8 +26,10 @@ const Dashboard = React.createClass({
   },
 
   handleFile(event) {
-    this.setState({ file: event.target.value })
-    console.log(event.target.value)
+    this.setState({
+      file: event.target.value,
+      uploadBtnDisplay: 'inline-block'
+    });
   },
 
   handleSubmit(event) {
@@ -60,6 +63,7 @@ const Dashboard = React.createClass({
   },
 
   render() {
+
     const styleToggle = {
       marginBottom: 16
     };
@@ -97,6 +101,10 @@ const Dashboard = React.createClass({
       display: this.props.accept ? 'none' : 'inline-block',
       color: "#df2329"
     };
+
+    const styleUploadBtn = {
+      display: this.state.uploadBtnDisplay
+    }
 
     return <div className="content-container">
       <h1
@@ -164,15 +172,24 @@ const Dashboard = React.createClass({
           action="/upload/songs/:adminId"
           onSubmit={this.handleSubmit}
         >
-          <input
-            type="file"
-            name="songlist"
-            onChange={this.handleFile}
-          />
+          <label>
+            <div id="file-container">
+              <img
+                id="upload-icon"
+                src={'./images/uplodad.svg'}
+              />
+              <input
+                type="file"
+                name="songlist"
+                onChange={this.handleFile}
+                />
+            </div>
+          </label>
           <input
             type="submit"
             value="UploadFile"
             name="submit"
+            style={styleUploadBtn}
           />
         </form>
       </div>

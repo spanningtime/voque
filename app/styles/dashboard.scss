@@ -48,4 +48,23 @@
 
 #upload-form-container {
   margin-top: 20px;
+
+  #file-container {
+    height: 60px;
+    width: 60px;
+    border-radius: 50px;
+    background-color: $Yellow;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #file-container input {
+    display: none;
+  }
+
+  #upload-icon {
+    height: 40px
+  }
 }
