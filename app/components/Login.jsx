@@ -17,6 +17,13 @@ const Login = React.createClass({
     this.props.login(this.state.credentials);
   },
 
+  handleKeyDown(event) {
+    if (event.keyCode == 13) {
+      console.log('enter')
+      this.handleTouchTap();
+    }
+  },
+
   handleChange(event) {
     const { name, value } = event.target;
     const nextCredentials = Object.assign({}, this.state.credentials, {
@@ -49,6 +56,7 @@ const Login = React.createClass({
           style={styleInput}
           underlineFocusStyle={styleUnderline}
           value={credentials.email}
+          onKeyDown={this.handleKeyDown}
         />
         <TextField
           hintText="Password"
@@ -58,6 +66,7 @@ const Login = React.createClass({
           type="password"
           underlineFocusStyle={styleUnderline}
           value={credentials.password}
+          onKeyDown={this.handleKeyDown}
         />
         <div className="button-container">
           <RaisedButton

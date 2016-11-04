@@ -42,6 +42,12 @@ const Register = React.createClass({
     this.props.register(this.state.user);
   },
 
+  handleKeyDown(event) {
+    if (event.keyCode == 13) {
+      this.handleTouchTap();
+    }
+  },
+
   render() {
     const styleInput = {
       marginLeft: '20px'
@@ -115,6 +121,7 @@ const Register = React.createClass({
               style={styleInput}
               underlineFocusStyle={styleUnderline}
               value={user.lastName}
+              onKeyDown={this.handleKeyDown}
             />
           </div>
         </div>
