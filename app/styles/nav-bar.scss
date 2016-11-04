@@ -29,7 +29,15 @@
     font-weight: lighter;
   }
   .mic {
-    height: 4em;
+    animation: mic 0.5s 0.5s 1 forwards;
+  }
+  @-webkit-keyframes mic {
+    from {
+      height: .5em
+    }
+    to {
+      height: 4em;
+    }
   }
   .link-container {
     display: flex;
