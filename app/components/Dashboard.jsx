@@ -15,7 +15,8 @@ const Dashboard = React.createClass({
       filename: '',
       fileInputDisplay: 'hidden',
       folderIconDisplay: 'flex',
-      uploadIconDisplay: 'none'
+      uploadIconDisplay: 'none',
+      folderIconColor: '#f4af1d'
     };
   },
 
@@ -35,6 +36,7 @@ const Dashboard = React.createClass({
 
       if (path) {
         if (path.slice(path.length - 3) !== "xml") {
+          this.setState({ folderIconColor: "#df2329"})
           console.log("must be an xml file");
           return;
         }
@@ -133,7 +135,8 @@ const Dashboard = React.createClass({
     };
 
     const styleFolderIcon = {
-      display: this.state.folderIconDisplay
+      display: this.state.folderIconDisplay,
+      backgroundColor: this.state.folderIconColor
     };
 
     return <div className="content-container">
