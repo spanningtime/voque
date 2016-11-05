@@ -44,6 +44,12 @@ const Dashboard = React.createClass({
           console.log("must be an xml file");
           return;
         }
+        else {
+          this.setState({
+            folderIconColor: "#f4af1d",
+            fileTypeErrorDisplay: 'none'
+          })
+        }
         const startIndex = (path.indexOf('\\') >= 0 ? path.lastIndexOf('\\') : path.lastIndexOf('/'));
         filename = path.substring(startIndex);
 
