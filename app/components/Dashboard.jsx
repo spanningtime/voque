@@ -206,7 +206,7 @@ const Dashboard = React.createClass({
       {/* eslint-enable max-len*/}
       <div id="upload-form-container">
         <form
-          id="uploadForm"
+          id="upload-form"
           ref="form"
           encType="multipart/form-data"
           method="post"
@@ -249,7 +249,7 @@ const Dashboard = React.createClass({
             id="file-type-error"
             style={styleFileTypeError}
           >
-            Song lists must be in XML format. Please choose another file.
+            Song lists must be in XML format.<br/> Please choose another file.
           </h6>
         </form>
       </div>

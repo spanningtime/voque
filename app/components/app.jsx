@@ -112,7 +112,7 @@ const App = React.createClass({
   },
 
   postSongs(file) {
-    const formData = new FormData(document.getElementById('uploadForm'));
+    const formData = new FormData(document.getElementById('upload-form'));
     axios.post(`/upload/songs/${this.state.kjId}`, formData)
       .then(() => {
         console.log('success')

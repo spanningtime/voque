@@ -55,9 +55,18 @@
     border-radius: 50px;
     background-color: $Yellow;
     cursor: pointer;
+  }
+
+  #folder-container,
+  #file-upload-container,
+  #upload-form {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  #upload-form {
+    flex-direction: column;
   }
 
   #folder-container input,
@@ -74,7 +83,12 @@
   }
 
   #file-type-error {
+    background-color: $Red;
+    border-radius: 10px;
+    color: white;
     font-family: $main;
-    color: $Red;
+    line-height: 20px;
+    margin-top: 10px;
+    padding: 5px
   }
 }
