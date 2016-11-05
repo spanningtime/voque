@@ -16,7 +16,8 @@ const Dashboard = React.createClass({
       fileInputDisplay: 'hidden',
       folderIconDisplay: 'flex',
       uploadIconDisplay: 'none',
-      folderIconColor: '#f4af1d'
+      folderIconColor: '#f4af1d',
+      fileTypeErrorDisplay: 'none'
     };
   },
 
@@ -36,7 +37,10 @@ const Dashboard = React.createClass({
 
       if (path) {
         if (path.slice(path.length - 3) !== "xml") {
-          this.setState({ folderIconColor: "#df2329"})
+          this.setState({
+            folderIconColor: "#df2329",
+            fileTypeErrorDisplay: 'flex'
+         })
           console.log("must be an xml file");
           return;
         }
@@ -139,6 +143,10 @@ const Dashboard = React.createClass({
       backgroundColor: this.state.folderIconColor
     };
 
+    const styleFileTypeError = {
+      display: this.state.fileTypeErrorDisplay
+    };
+
     return <div className="content-container">
       <h1
         className="main-header"
@@ -237,6 +245,12 @@ const Dashboard = React.createClass({
             </div>
           </label>
           <h6 id="filename">{this.state.filename}</h6>
+          <h6
+            id="file-type-error"
+            style={styleFileTypeError}
+          >
+            Song lists must be in XML format. Please choose another file.
+          </h6>
         </form>
       </div>
     </div>;
