@@ -31,7 +31,6 @@ const Dashboard = React.createClass({
   },
 
   handleFile(event) {
-    console.log(event.target.value)
     const path = event.target.value;
     let filename;
 

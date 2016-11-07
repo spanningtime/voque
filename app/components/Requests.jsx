@@ -17,6 +17,7 @@ const Requests = React.createClass({
   render() {
     return <div className="content-container">
       <h1 className="main-header title">Requests</h1>
+      <h6>You have no requests.</h6>
       <div className="requests-container">
         <ol>
           {this.props.requests.map((request, index) => {
