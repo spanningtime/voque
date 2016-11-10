@@ -23,7 +23,8 @@ const App = React.createClass({
       songs: [],
       requests: [],
       accept: true,
-      noRequestsDisplay: 'none'
+      noRequestsDisplay: 'none',
+      displayProgress: 'none',
     };
   },
 
@@ -117,12 +118,16 @@ const App = React.createClass({
 
 // during post songs change something in state to "fetching" and in .then() change the state to false or something
   postSongs(file) {
+    this.setState({ displayProgress: 'inline-block' })
     const formData = new FormData(document.getElementById('upload-form'));
     axios.post(`/upload/songs/${this.state.kjId}`, formData)
       .then(() => {
-        console.log('success')
+        console.log('then')
+        this.setState({ displayProgress: 'none' })
       })
       .catch((err) => {
+        console.log('then')
+        this.setState({ displayProgress: 'none' })
         console.error(err);
       });
   },
@@ -282,7 +287,8 @@ const App = React.createClass({
         singerName: this.state.singerName,
         postSongs: this.postSongs,
         updateKjCode: this.updateKjCode,
-        noRequestsDisplay: this.state.noRequestsDisplay
+        noRequestsDisplay: this.state.noRequestsDisplay,
+        displayProgress: this.state.displayProgress
       })}
       <footer id="footer" />
     </main>;

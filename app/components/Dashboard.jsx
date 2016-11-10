@@ -2,6 +2,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import React from 'react';
 import Toggle from 'material-ui/Toggle';
 import { withRouter } from 'react-router';
+import CircularProgress from 'material-ui/CircularProgress';
 
 const Dashboard = React.createClass({
   getInitialState() {
@@ -17,7 +18,7 @@ const Dashboard = React.createClass({
       folderIconDisplay: 'flex',
       uploadIconDisplay: 'none',
       folderIconColor: '#f4af1d',
-      fileTypeErrorDisplay: 'none'
+      fileTypeErrorDisplay: 'none',
     };
   },
 
@@ -67,6 +68,7 @@ const Dashboard = React.createClass({
 
   handleSubmit(event) {
     console.log('hey');
+    // this.setState({ displayProgress: 'inline-block' })
     event.preventDefault();
     this.props.postSongs();
   },
@@ -150,6 +152,10 @@ const Dashboard = React.createClass({
 
     const styleFileTypeError = {
       display: this.state.fileTypeErrorDisplay
+    };
+
+    const styleProgress = {
+      display: this.props.displayProgress
     };
 
     return <div className="content-container">
@@ -250,6 +256,7 @@ const Dashboard = React.createClass({
             </div>
           </label>
           <h6 id="filename">{this.state.filename}</h6>
+          <CircularProgress style={styleProgress}/>
           <h6
             id="file-type-error"
             style={styleFileTypeError}
