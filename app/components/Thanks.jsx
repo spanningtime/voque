@@ -1,5 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router';
+import CircularProgress from 'material-ui/CircularProgress';
+
 
 const Thanks = React.createClass({
   goBack() {
@@ -30,6 +32,10 @@ const Thanks = React.createClass({
         <h6 className="lyrics">
           {this.props.lyrics}
         </h6>
+        <div>
+          <CircularProgress/>
+          <h6>Loading lyrics...</h6>
+        </div>
       </div>
     </div>;
   }
