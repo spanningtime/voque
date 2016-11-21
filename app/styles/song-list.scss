@@ -79,7 +79,7 @@
   }
   .search-container {
     display: flex;
-    flex-direciton: column;
+    margin-top: 10px;
   }
   .mobile-search-container {
     display: flex;
@@ -88,6 +88,18 @@
     height: 2.2em;
     vertical-align: middle;
     margin-left: 10px;
+  }
+  #alphabet {
+    display: flex;
+    font-family: $main;
+    justify-content: center;
+    margin-top: 15px;
+    ol {
+      display: flex;
+    }
+    li {
+      padding: 2px;
+    }
   }
   #artist-tab, #title-tab {
     background-color: $Yellow;
