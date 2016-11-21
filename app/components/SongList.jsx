@@ -55,7 +55,7 @@ const SongList = React.createClass({
 
     const songsArray = this.props.songs.filter((song) => {
       if (this.state.searchText.length === 0) {
-        return true;
+        return song['artistName'].toLowerCase().startsWith('a')
       }
 
       return song[this.state.selected].toLowerCase().startsWith(this.state.searchText.toLowerCase());
@@ -97,6 +97,7 @@ const SongList = React.createClass({
           >
             <span>Title</span>
           </div>
+          {/* <div>abcdefghijklmnop</div> */}
           <TextField
             id="searchInput"
             onChange={this.handleChange}
