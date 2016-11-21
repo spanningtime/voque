@@ -1,6 +1,8 @@
 
 # DIRECTIONS
-After logging in use the code "pleasehirewilliam". Login to see the admin side of things with email: ryan@gmail.com  password: password
+USER: Sign up and then log in with your information. Use the code "pleasehirewilliam" to access the default songlist that's set up. Search for a song or browse the small list. Click the song and click submit to send a request. You can also login to an admin account to view the request that was just sent.
+
+ADMIN: Login to see the admin side of things with email: ryan@gmail.com  password: "password" Click "view requests" to see those incoming requests.
 
 
 ##What is it?
