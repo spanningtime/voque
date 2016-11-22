@@ -2,23 +2,25 @@
   margin-top: 30px;
   width: 308px;
 }
+
 .register-container {
   display: flex;
   box-shadow: rgba(0, 0, 0, 0.117467) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
   flex-direction: column;
   justify-content: center;
-  // height: 260px;
   margin-top: 20px;
-  // width: 600px;
+
   .button-container {
     margin-bottom: 25px;
   }
+
   .email-input-container {
     display: flex;
     justify-content: center;
     margin-top: 20px;
     margin-right: 20px;
   }
+  
   .input-container {
     display: flex;
     flex-direction: column;

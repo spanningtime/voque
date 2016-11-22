@@ -8,6 +8,7 @@
   justify-content: flex-start;
   align-content: flex-start;
   align-items: center;
+
   .nav-bar {
     display: flex;
     align-items: center;
@@ -15,11 +16,13 @@
     width: 100%;
     background-color: black;
   }
+
   .divider {
     height: 70%;
     width: 2px;
     background: $Yellow;
   }
+
   .title-logo {
     color: white;
     font-size: 4em;
@@ -28,9 +31,11 @@
     margin-left: 15px;
     font-weight: lighter;
   }
+
   .mic {
     animation: mic 0.5s 0.5s 1 forwards;
   }
+
   @-webkit-keyframes mic {
     from {
       height: .5em
@@ -39,6 +44,7 @@
       height: 4em;
     }
   }
+
   .link-container {
     display: flex;
     flex-direction: row;
@@ -48,10 +54,12 @@
     height: 100%;
     width: 100%;
   }
+
   .nav-login-container, .nav-logout-container {
     height: 70%;
     align-items: center;
   }
+
   .login, .logout {
     line-height: 50px;
     margin-right: 20px;
@@ -62,6 +70,7 @@
     font-size: 1.5em;
     cursor: pointer;
   }
+  
   .menu-icon {
     height: 4em;
     margin-right: 15px;

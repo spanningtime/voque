@@ -18,28 +18,34 @@
   display: flex;
   flex-direction: row;
   align-items: flex-end;
+
   #code-name {
     color: $Red;
   }
+
   #current-code {
     font-family: $main;
     font-size: 20px;
     margin-top: 40px;
   }
+
   img, #code-name {
     margin-left: 10px;
     &:hover {
       cursor: pointer;
     }
   }
+
   img {
     height: 40px;
   }
+
   input {
     border: 0px solid white;
     font-size: 15px;
     margin-left: 10px;
     outline: none;
+
     &::selection {
       background: $Yellow;
     }

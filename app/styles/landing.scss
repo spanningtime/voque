@@ -10,13 +10,16 @@
   text-align: center;
   margin-left: 1em;
   margin-right: 1em;
+
   .main-header {
     margin-bottom: 15px;
     font-family: $main;
+
     span {
       color: $Red;
     }
   }
+
   .circle {
     background: black;
     border: 9px solid $Grey;
@@ -25,6 +28,7 @@
     top: 10px;
     width: 180px;
   }
+
   .outer-circle {
     display: flex;
     align-items: center;
@@ -37,13 +41,16 @@
     margin: 0 auto;
     margin-top: 50px;
   }
+
   .phone-icon {
     margin-top: 40px;
     height: 6.5em;
   }
+
   .second-header {
     font-family: $main;
   }
+
   .third-header {
     width: 250px;
     display: inline-block;
@@ -54,24 +61,29 @@
     margin-bottom: 30px;
     border-bottom: 2px solid $Yellow
   }
+
   .singers, .kjs {
     font-size: 1.5em;
     margin-bottom: 15px;
   }
+
   .button {
     width: 130px;
     margin-bottom: 20px;
   }
+
   .buttons-container {
     display: block;
     justify-content: center;
     margin-bottom: 50px;
   }
+
   p {
     font-family: $main;
     flex: 1;
     margin-bottom: 25px;
   }
+  
   p a {
     color: $Yellow;
     text-decoration: none;

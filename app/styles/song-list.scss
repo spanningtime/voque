@@ -2,19 +2,16 @@
 
 .songs-container {
   border-radius: 2%;
-  // background-color: $LightGrey;
   margin-top: 5px;
   display: flex;
+
   ol {
     width: 100%;
   }
+
   li {
-    // align-items: center;
-    // display: flex;
     font-family: $main;
-    // height: 30px;
-    // justify-content: flex-start;
-    // border: 1px solid #cfcecb;
+
     .artist-container {
       margin-left: 10px;
       margin-right: 10px;
@@ -22,11 +19,13 @@
       width: 100%;
       color: grey;
     }
+
     .title-container {
       text-align: left;
       width: 100%;
       margin-left: 10px;
     }
+
     .song-container {
       align-items: center;
       display: flex;
@@ -37,11 +36,13 @@
       width: 88%;
       margin-left: 10px
     }
+
     i {
       margin-right: 10px;
       font-size: 20px;
       color: $Yellow;
     }
+
     .border-container {
       display: flex;
       flex-direction: column;
@@ -49,10 +50,12 @@
       width: 100%;
       box-shadow: rgba(0, 0, 0, 0.117467) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
     }
+
     .slidein-container {
       width: 100%;
       position: relative;
     }
+
     .request-submit {
       position: absolute;
       background: $Yellow;
@@ -72,23 +75,28 @@
   justify-content: space-between;
   flex-wrap: nowrap;
   margin: 10px;
+
   .kj-name {
     font-family: $main;
     font-size: 1.9em;
     margin-top: 10px;
   }
+
   .search-container {
     display: flex;
     margin-top: 10px;
   }
+
   .mobile-search-container {
     display: flex;
   }
+
   .search-icon {
     height: 2.2em;
     vertical-align: middle;
     margin-left: 10px;
   }
+
   #artist-tab, #title-tab {
     background-color: $Yellow;
     opacity: 0.5;
@@ -98,9 +106,11 @@
     vertical-align: bottom;
     font-family: $main;
   }
+
   #title-tab {
     margin-right: 10px;
   }
+
   #mobile-artist-tab, #mobile-title-tab {
     background-color: $Yellow;
     height: 40px;
@@ -109,6 +119,7 @@
     vertical-align: bottom;
     font-family: $main;
   }
+
   #mobile-title-tab {
     opacity: 1;
   }

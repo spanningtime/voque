@@ -3,116 +3,148 @@
 // mobile screen
 @media screen and (max-width: 500px) {
   .nav-login-container, .nav-logout-container, .logout, .divider {
+
     display: none;
   }
+
   .title-logo, .login {
     display: none;
   }
+
   .app-container {
     margin-left: 0;
     margin-right: 0;
   }
+
   .menu-icon {
     display: block;
   }
+
   .main-header {
     font-size: 25px;
     margin-top: 10px;
   }
+
   .second-header{
     font-size: 20px;
   }
+
   .back-container {
     display: flex;
     justify-content: flex-start;
     margin-top: 10px;
+
     .back-arrow {
       height: 30px;
     }
   }
+
   .content-container .login-message {
     display: block;
     margin-top: -40px;
   }
+
   .content-container {
     min-height: 100vh;
   }
+
   .songs-container {
     width: 95%;
     height: 55vh;
     overflow: scroll;
   }
+
   .lyrics-container {
     width: 95%;
     max-height: 55vh;
     overflow: scroll;
   }
+
   .song-container {
     width: 100%;
   }
+
   .columns-container {
     width: 95%;
     height: 100vh;
+
     p {
       width: 250px;
     }
   }
+
   .register-container {
     height: 340px;
     width: 90%;
   }
+
   .register-message {
     margin-top: 10px;
   }
+
   .email-input-container {
     margin-right: 20px;
   }
 }
 
 @media screen and (min-width: 501px) {
+
   #footer {
     position: absolute;
   }
+
   .nav-login-container, .nav-logout-container {
     // display: flex;
   }
+
   .menu-icon {
     display: none
   }
+
   .app-container {
     margin-left: 2%;
     margin-right: 2%;
   }
+
   .back-container {
     display: none;
   }
+
   .main-header {
     font-size: 35px;
     margin-top: 40px;
   }
+
   .second-header {
     font-size: 30px;
   }
+
   .content-container p {
     display: none;
   }
+
   .songs-container, .lyrics-container {
     width: 80%;
     height: 55vh;
     overflow: scroll;
   }
+
   .songs-container ol {
     width: inherit;
   }
+
   .song-container {
     width: 100%;
   }
+
   .header-container {
     width: 78%;
   }
+
   .columns-container {
     width: 90%;
   }
+
   .register-container {
     height: 350px;
     width: 90%;
@@ -120,23 +152,29 @@
 }
 
 @media screen and (max-width: 860px) {
+
   .header-container {
     flex-direction: column;
     align-items: center;
+
     .kj-name {
       margin-bottom: 20px;
       border-bottom: 2px solid $Yellow;
     }
   }
+
   #artist-tab, #title-tab {
     display: none;
   }
+
   #mobile-artist-tab, #mobile-title-tab {
     display: inline-block;
   }
+
   .columns-items-container {
     flex-direction: column;
   }
+
   .register-container {
     // height: 55vh;
     // width: 600px;
@@ -144,19 +182,24 @@
 }
 
 @media screen and (min-width: 861px) {
+
   #artist-tab, #title-tab {
     display: inline;
   }
+
   #mobile-artist-tab, #mobile-title-tab {
     display: none;
   }
+
   .column-item p {
     width: 250px;
   }
+
   .register-container {
     height: 270px;
     width: 600px;
   }
+
   .song-container {
     width: 650px;
   }
@@ -164,12 +207,15 @@
 
 // full screen
 @media screen and (min-width: 1093px) {
+
   .main-header {
     font-size: 60px;
   }
+
   .second-header {
     font-size: 45px;
   }
+
   .songs-container, .lyrics-container {
     width: 60%;
     height: 55vh;
@@ -180,19 +226,24 @@
     width: 80%;
     height: 55vh;
   }
+
   .columns-items-container {
     width: 80%;
+
     p {
       width: 250px;
     }
   }
+
   .header-container {
     width: 58%;
   }
+
   .register-container {
     height: 270px;
     width: 600px;
   }
+  
   .song-container {
     width: 650px;
   }

@@ -5,13 +5,16 @@
   width: 100%;
   flex-direction: column;
   margin-top: 50px;
+
   .columns-items-container {
     display: flex;
     justify-content: space-between;
   }
+
   .column-item {
     display: flex;
     flex-direction: column;
+
     p {
       display: inline-block;
       // width: 250px;
@@ -19,6 +22,7 @@
       margin-top: 20px;
     }
   }
+  
   .money, .phone, .folder {
     height: 8em;
   }
