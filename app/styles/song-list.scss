@@ -89,18 +89,6 @@
     vertical-align: middle;
     margin-left: 10px;
   }
-  #alphabet {
-    display: flex;
-    font-family: $main;
-    justify-content: center;
-    margin-top: 15px;
-    ol {
-      display: flex;
-    }
-    li {
-      padding: 2px;
-    }
-  }
   #artist-tab, #title-tab {
     background-color: $Yellow;
     opacity: 0.5;

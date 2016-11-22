@@ -9,7 +9,7 @@ const SongList = React.createClass({
       selected: 'artistName',
       searchText: '',
       filterSearch: false,
-      selectedSong: null
+      selectedSong: null,
     };
   },
 
@@ -53,6 +53,10 @@ const SongList = React.createClass({
       display: 'none'
     };
 
+    const styleOl = {
+      color: this.state.letterSelected
+    };
+
     const songsArray = this.props.songs.filter((song) => {
       if (this.state.searchText.length === 0) {
         return song['artistName'].toLowerCase().startsWith('a')
@@ -83,36 +87,6 @@ const SongList = React.createClass({
           >
             <span>Title</span>
           </div>
-        </div>
-        <div id="alphabet">
-        <ol>
-        <li>a</li>
-        <li>b</li>
-        <li>c</li>
-        <li>d</li>
-        <li>e</li>
-        <li>f</li>
-        <li>g</li>
-        <li>h</li>
-        <li>i</li>
-        <li>j</li>
-        <li>k</li>
-        <li>l</li>
-        <li>m</li>
-        <li>n</li>
-        <li>o</li>
-        <li>p</li>
-        <li>q</li>
-        <li>r</li>
-        <li>s</li>
-        <li>t</li>
-        <li>u</li>
-        <li>v</li>
-        <li>w</li>
-        <li>x</li>
-        <li>y</li>
-        <li>z</li>
-        </ol>
         </div>
         <div className="search-container">
           <div
