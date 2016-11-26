@@ -24,7 +24,7 @@ const App = React.createClass({
       requests: [],
       accept: true,
       noRequestsDisplay: 'none',
-      displayProgress: 'none',
+      displayProgress: 'inline-block',
     };
   },
 
@@ -73,7 +73,7 @@ const App = React.createClass({
             const lyricsUnfiltered = lyricsData.data.message.body.lyrics.lyrics_body;
             const lyrics = lyricsUnfiltered.substring(0, lyricsUnfiltered.length - 69);
 
-            this.setState({ lyrics });
+            this.setState({ lyrics, displayProgress: 'none' });
           });
       })
       .catch((err) => {

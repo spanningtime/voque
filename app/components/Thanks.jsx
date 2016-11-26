@@ -8,7 +8,13 @@ const Thanks = React.createClass({
     this.props.router.goBack();
   },
 
+
   render() {
+
+    const styleProgress = {
+      display: this.props.displayProgress
+    };
+
     return <div className="content-container">
       <div className="thanks-container">
         <div className="back-container">
@@ -32,7 +38,7 @@ const Thanks = React.createClass({
         <h6 className="lyrics">
           {this.props.lyrics}
         </h6>
-        <div>
+        <div style={styleProgress}>
           <CircularProgress/>
           <h6>Loading lyrics...</h6>
         </div>
