@@ -25,6 +25,24 @@
   margin-top: 5px;
   margin-bottom: 5px;
 
+  .fade-leave {
+    background-color: yellow;
+  }
+
+  .fade-leave.fade-leave-active {
+    background-color: red;
+    transition: background-color 300ms ease-in;
+  }
+
+  // @-webkit-keyframes requestFade {
+  //   from {
+  //     background-color: yellow;
+  //   }
+  //   to {
+  //     background-color: red;
+  //   }
+  // }
+
   .request-item-container {
     display: flex;
     width: 150px;
@@ -45,7 +63,7 @@
   span {
     font-family: $main;
   }
-  
+
   i {
     color: $Red;
     margin-right: 30px;

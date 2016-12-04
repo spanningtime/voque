@@ -1,10 +1,19 @@
 import axios from 'axios';
 import React from 'react';
 import weakKey from 'weak-key';
+// import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 const Requests = React.createClass({
 
+  getInitialState() {
+    return {
+      displayAnimation: 'none'
+    }
+  },
+
   removeRequest(request) {
+    console.log(request)
+    this.setState({ displayAnimation: 'requestFade 1s ease-in 1' })
     axios.delete(`/api/requests/${request.adminId}/${request.id}`)
     .then(() => {
       this.props.getRequests();
@@ -18,6 +27,10 @@ const Requests = React.createClass({
   render() {
     const styleNoRequests = {
       display: this.props.noRequestsDisplay
+    }
+
+    const styleRequestAnimation = {
+      animation: this.state.displayAnimation
     }
 
     return <div className="content-container">
@@ -35,14 +48,20 @@ const Requests = React.createClass({
 
             return <li key={weakKey(request)}>
               <div className="song-request-container">
+                {/* <ReactCSSTransitionGroup>
+
+                </ReactCSSTransitionGroup> */}
                 <i
                   className="material-icons"
+                  id="delete"
                   onTouchTap={(() =>
                      this.removeRequest(request)).bind(this)}
                 >
                   clear
                 </i>
-                <div className="container-for-border">
+                <div className="container-for-border"
+                     style={styleRequestAnimation}
+                >
                   <div className="request-item-container">
                     <span>{this.props.singerName}</span>
                   </div>

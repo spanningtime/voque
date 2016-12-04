@@ -236,7 +236,7 @@ const App = React.createClass({
         requestChange={this.requestChange}
         songs={this.state.songs}
       />
-      <div className="app-container" />
+      {/* <div className="app-container" /> */}
 
       <Snackbar
         bodyStyle={styleFailSnackbar}
