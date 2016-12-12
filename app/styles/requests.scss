@@ -1,5 +1,16 @@
 @import 'variables';
 
+.slide {
+  @keyframes slide {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(5000px);
+    }
+  }
+}
+
 .title {
   border-bottom: 2px solid $Yellow;
   width: 200px;
@@ -31,17 +42,8 @@
 
   .fade-leave.fade-leave-active {
     background-color: red;
-    transition: background-color 300ms ease-in;
+    transition: background-color 500ms ease-in;
   }
-
-  // @-webkit-keyframes requestFade {
-  //   from {
-  //     background-color: yellow;
-  //   }
-  //   to {
-  //     background-color: red;
-  //   }
-  // }
 
   .request-item-container {
     display: flex;
