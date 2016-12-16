@@ -68,7 +68,7 @@ const Dashboard = React.createClass({
 
   handleSubmit(event) {
     console.log('hey');
-    // this.setState({ displayProgress: 'inline-block' })
+    this.setState({ displayProgress: 'inline-block' })
     event.preventDefault();
     this.props.postSongs();
   },

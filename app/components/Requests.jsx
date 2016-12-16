@@ -26,7 +26,7 @@ const Requests = React.createClass({
   },
 
   removeAnimation(request) {
-    this.setState({ slide: true, requestToDelete: request }, this.removeRequest(request));
+    this.setState({ slide: true, requestToDelete: request });
   },
 
   render() {
@@ -35,7 +35,7 @@ const Requests = React.createClass({
     }
 
     const makeSlide = {
-      animation: "slide 0.5s ease-in forwards",
+      animation: "slide 2s ease-in-out forwards",
     }
 
     return <div className="content-container">

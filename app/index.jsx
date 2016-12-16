@@ -8,7 +8,6 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 injectTapEventPlugin();
 
 const muiTheme = getMuiTheme({
-
   palette: {
     primary1Color: '#f4af1d'
   }
