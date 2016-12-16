@@ -15,7 +15,7 @@ const SongList = React.createClass({
 
   handleTouchTap() {
     this.props.requestSong(this.state.selectedSong);
-    this.props.router.push('/thanks');
+    // this.props.router.push('/thanks');
   },
 
   handleToggleSubmitBtn(song) {

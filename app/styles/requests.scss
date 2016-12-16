@@ -1,14 +1,12 @@
 @import 'variables';
 
-.slide {
-  @keyframes slide {
-    0% {
-      transform: translateX(0%);
-    }
-    100% {
-      transform: translateX(5000px);
-    }
-  }
+.slide-leave {
+  transform: translateX(0%);
+}
+
+.slide-leave-active {
+  transform: translateX(600px);
+  transition: transform 300ms ease-in-out;
 }
 
 .title {

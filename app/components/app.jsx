@@ -28,6 +28,13 @@ const App = React.createClass({
     };
   },
 
+  updateRequests(updatedRequest){
+    this.setState({ requests: updatedRequest })
+    if (this.state.requests.length === 0) {
+      this.setState({ noRequestsDisplay: 'inline-block'})
+    }
+  },
+
   updateKjCode(kjCode) {
     axios.patch(`/api/users/update-code/${this.state.kjId}/${kjCode}`);
   },
@@ -89,7 +96,7 @@ const App = React.createClass({
     });
     axios.post('/api/requests/1', requestedSong)
       .then(() => {
-        this.getLyrics();
+        // this.getLyrics();
       })
       .catch((err) => {
         console.error(err);
@@ -288,7 +295,8 @@ const App = React.createClass({
         postSongs: this.postSongs,
         updateKjCode: this.updateKjCode,
         noRequestsDisplay: this.state.noRequestsDisplay,
-        displayProgress: this.state.displayProgress
+        displayProgress: this.state.displayProgress,
+        updateRequests: this.updateRequests
       })}
       <footer id="footer" />
     </main>;

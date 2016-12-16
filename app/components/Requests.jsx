@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import weakKey from 'weak-key';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 const Requests = React.createClass({
 
@@ -11,31 +12,22 @@ const Requests = React.createClass({
     }
   },
 
-  componentDidMount() {
-    console.log('did mount');
-  },
-
   removeRequest(request) {
     axios.delete(`/api/requests/${request.adminId}/${request.id}`)
     .then(() => {
-      this.props.getRequests();
+      let updatedRequests = this.props.requests.filter((reqObj) => {
+        return reqObj.id !== request.id
+      })
+      this.props.updateRequests(updatedRequests)
     })
     .catch((err) => {
       console.error(err);
     });
   },
 
-  removeAnimation(request) {
-    this.setState({ slide: true, requestToDelete: request });
-  },
-
   render() {
     const styleNoRequests = {
       display: this.props.noRequestsDisplay
-    }
-
-    const makeSlide = {
-      animation: "slide 2s ease-in-out forwards",
     }
 
     return <div className="content-container">
@@ -46,37 +38,40 @@ const Requests = React.createClass({
         >You have no requests.</h6>
       <div className="requests-container">
         <ol>
-          {this.props.requests.map((request, index) => {
-            if (request.songTitle.length > 21) {
-              request.songTitle = request.songTitle.substring(0, 21) + '...';
-            }
+          <ReactCSSTransitionGroup
+            transitionName="slide"
+            transitionEnterTimeout={500}
+            transitionLeaveTimeout={500}>
+            {this.props.requests.map((request, index) => {
+              if (request.songTitle.length > 21) {
+                request.songTitle = request.songTitle.substring(0, 21) + '...';
+              }
+              return <li key={weakKey(request)}>
+                <div className="song-request-container">
+                  <i
+                    className="material-icons"
+                    id="delete"
+                    onTouchTap={(() =>
+                       this.removeRequest(request)).bind(this)}>
+                    clear
+                  </i>
+                  <div className={"container-for-border"}>
+                    <div className="request-item-container">
+                      <span>{this.props.singerName}</span>
+                    </div>
 
-            return <li key={weakKey(request)}>
-              <div className="song-request-container">
-                <i
-                  className="material-icons"
-                  id="delete"
-                  onTouchTap={(() =>
-                     this.removeAnimation(request)).bind(this)}>
-                  clear
-                </i>
-                <div className={"container-for-border " + (this.state.slide ? "slide" : "")}
-                      style={request === this.state.requestToDelete ? makeSlide : null}>
-                  <div className="request-item-container">
-                    <span>{this.props.singerName}</span>
-                  </div>
+                    <div className="request-item-container">
+                      <span>{request.songTitle}</span>
+                    </div>
 
-                  <div className="request-item-container">
-                    <span>{request.songTitle}</span>
-                  </div>
-
-                  <div className="request-item-container">
-                    <span>by {request.artistName}</span>
+                    <div className="request-item-container">
+                      <span>by {request.artistName}</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </li>;
-          })}
+              </li>;
+            })}
+          </ReactCSSTransitionGroup>
         </ol>
       </div>
     </div>;
