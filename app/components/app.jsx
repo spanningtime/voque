@@ -30,9 +30,8 @@ const App = React.createClass({
 
   updateRequests(updatedRequest){
     this.setState({ requests: updatedRequest })
-    if (this.state.requests.length === 0) {
-      this.setState({ noRequestsDisplay: 'inline-block'})
-    }
+    this.state.requests.length === 0 ? this.setState(
+      { noRequestsDisplay: 'inline-block'}) : this.setState({ noRequestsDisplay: 'none' })
   },
 
   updateKjCode(kjCode) {
