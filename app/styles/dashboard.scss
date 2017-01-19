@@ -1,5 +1,14 @@
 @import "variables";
 
+.xmlError-enter {
+  opacity: 0;
+}
+
+.xmlError-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in-out;
+}
+
 .fade {
   opacity: 1;
   transition: opacity 1s ease-out;

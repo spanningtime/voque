@@ -3,6 +3,7 @@ import React from 'react';
 import Toggle from 'material-ui/Toggle';
 import { withRouter } from 'react-router';
 import CircularProgress from 'material-ui/CircularProgress';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 const Dashboard = React.createClass({
   getInitialState() {
@@ -67,7 +68,6 @@ const Dashboard = React.createClass({
   },
 
   handleSubmit(event) {
-    console.log('hey');
     this.setState({ displayProgress: 'inline-block' })
     event.preventDefault();
     this.props.postSongs();
@@ -82,7 +82,6 @@ const Dashboard = React.createClass({
     })
   },
 
-// need route to post updated code to db
   handleConfirmEdit(event) {
     this.setState({
       showEdit: 'inline-block',
@@ -257,12 +256,12 @@ const Dashboard = React.createClass({
           </label>
           <h6 id="filename">{this.state.filename}</h6>
           <CircularProgress style={styleProgress}/>
-          <h6
-            id="file-type-error"
-            style={styleFileTypeError}
-          >
-            Song lists must be in XML format.<br/> Please choose another file.
-          </h6>
+            <h6
+              id="file-type-error"
+              style={styleFileTypeError}
+            >
+              Song lists must be in XML format.<br/> Please choose another file.
+            </h6>
         </form>
       </div>
     </div>;

@@ -24,10 +24,10 @@ const App = React.createClass({
       requests: [],
       accept: true,
       noRequestsDisplay: 'none',
-      displayProgress: 'inline-block',
+      displayProgress: 'none',
     };
   },
-
+cd 
   updateRequests(updatedRequest){
     this.setState({ requests: updatedRequest })
     this.state.requests.length === 0 ? this.setState(
@@ -42,7 +42,6 @@ const App = React.createClass({
     axios.patch(`/api/users/${this.state.kjId}/${this.state.accept}`);
   },
 
-// add callback to this.setState to file changeAccept after state is set
   acceptRequests() {
     if (this.state.accept === false) {
       this.setState({ accept: true }, this.changeAccept());
@@ -122,7 +121,6 @@ const App = React.createClass({
       });
   },
 
-// during post songs change something in state to "fetching" and in .then() change the state to false or something
   postSongs(file) {
     this.setState({ displayProgress: 'inline-block' })
     const formData = new FormData(document.getElementById('upload-form'));

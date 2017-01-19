@@ -1,8 +1,8 @@
 
 # DIRECTIONS
-USER: Sign up and then log in with your information. Use the code "pleasehirewilliam" to access the default songlist that's set up. Search for a song or browse the small list. Click the song and click submit to send a request. You can also login to an admin account to view the request that was just sent.
+USER: This use case is designed specifically for mobile phones. For best results please view using the mobile phone options within your browser's developer tools. Sign up and then log in with your information. Use the code "pleasehirewilliam" to access the default songlist that's set up. Search for a song or browse the small list. Click the song and click submit to send a request. You can also login to an admin account to view the request that was just sent.
 
-ADMIN: Login to see the admin side of things with email: ryan@gmail.com  password: "password" Click "view requests" to see those incoming requests.
+ADMIN: This use case is designed specifically for tablets & desktops/laptops. Login to see the admin side of things with email: ryan@gmail.com  password: "password" Click "view requests" to see those incoming requests.
 
 
 ##What is it?
