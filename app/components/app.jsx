@@ -123,6 +123,7 @@ const App = React.createClass({
   postSongs(file) {
     this.setState({ displayProgress: 'inline-block' })
     const formData = new FormData(document.getElementById('upload-form'));
+    console.log(formData)
     axios.post(`/upload/songs/${this.state.kjId}`, formData)
       .then(() => {
         console.log('then')

@@ -33,7 +33,9 @@ const Dashboard = React.createClass({
   },
 
   handleFile(event) {
+    console.log(event)
     const path = event.target.value;
+    console.log(path)
     let filename;
 
       if (path) {
@@ -68,6 +70,8 @@ const Dashboard = React.createClass({
   },
 
   handleSubmit(event) {
+    console.log(event.target)
+    console.log(event.target.value)
     this.setState({ displayProgress: 'inline-block' })
     event.preventDefault();
     this.props.postSongs();

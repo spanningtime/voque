@@ -53,23 +53,25 @@ router.post('/upload/songs/:adminId', upload.single('songlist'), (req, res, next
           trackObj.songTitle = track.string[0];
           trackObj.artistName = track.string[1];
 
-          for (let x = 0; x < exists.length; x++) {
-            if (
-                exists[x].song_title === trackObj.songTitle
-                &&
-                exists[x].artist_name === trackObj.artistName
-              ) {
-              return false;
-            }
-            else if (x === exists.length - 1) {
-              tracksArray.push(trackObj);
-            }
-          }
+          // Checks to see if songs already exist
+          // for (let x = 0; x < exists.length; x++) {
+          //   if (
+          //       exists[x].song_title === trackObj.songTitle
+          //       &&
+          //       exists[x].artist_name === trackObj.artistName
+          //     ) {
+          //     return false;
+          //   }
+          //   else if (x === exists.length - 1) {
+          //     tracksArray.push(trackObj);
+          //   }
+          // }
+
+          tracksArray.push(trackObj);
         });
       });
 
       const rows = decamelizeKeys(tracksArray);
-
       return knex('songs').insert(rows, '*');
     })
     .catch((err) => {
