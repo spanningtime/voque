@@ -27,7 +27,6 @@ const App = React.createClass({
       displayProgress: 'none',
     };
   },
-cd 
   updateRequests(updatedRequest){
     this.setState({ requests: updatedRequest })
     this.state.requests.length === 0 ? this.setState(

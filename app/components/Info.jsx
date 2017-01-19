@@ -9,7 +9,7 @@ const Info = React.createClass({
         It's time to bring karaoke into the 21st Century
       </h1>
       <h2 className="second-header">
-        Lorem ipsum lorem ipsum lorem ipsum
+        with VOQUE:
       </h2>
       <div className="columns-container">
         <div className="columns-items-container">
