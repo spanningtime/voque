@@ -1,10 +1,17 @@
 @import "variables";
+@import "media-queries";
 
 .lyrics-container {
   border: 1px solid $LightGrey;
   border-radius: 2%;
   font-family: $main;
   margin-top: 10px;
+
+  @include mobile {
+    width: 95%;
+    max-height: 55vh;
+    overflow: scroll;
+  }
 
   .lyrics {
     margin-left: 25px;
@@ -15,7 +22,18 @@
 }
 
 .thanks-container {
-
+  .back-arrow {
+    @include mobile {
+      height: 30px;
+    }
+  }
+  .back-container {
+    @include mobile {
+      display: flex;
+      justify-content: flex-start;
+      margin-top: 10px;
+    }
+  }
   .second-header{
     line-height: 1.2em;
   }

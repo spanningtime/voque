@@ -131,12 +131,14 @@ const SongList = React.createClass({
                     >
                       {song.artistName}
                     </div>
-                  </div>
-                  <div
-                    className="request-submit"
-                    name="request-submit"
-                    onTouchTap={this.handleTouchTap}
-                    style={song === this.state.selectedSong ? styleSubmitButton : styleHideSubmitButton}>submit
+                    <div className="submit-container">
+                      <div
+                        className="request-submit"
+                        name="request-submit"
+                        onTouchTap={this.handleTouchTap}
+                        style={song === this.state.selectedSong ? styleSubmitButton : styleHideSubmitButton}>submit
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

@@ -1,3 +1,5 @@
+@import "media-queries";
+
 main {
   display: flex;
   flex-direction: column;
@@ -8,4 +10,9 @@ main {
   margin-left: 10em;
   margin-right: 2em;
   flex: 1;
+
+  @include mobile {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }

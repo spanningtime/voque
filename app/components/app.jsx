@@ -25,6 +25,7 @@ const App = React.createClass({
       accept: true,
       noRequestsDisplay: 'none',
       displayProgress: 'none',
+      fileStatus: ''
     };
   },
   updateRequests(updatedRequest){
@@ -120,6 +121,14 @@ const App = React.createClass({
       });
   },
 
+  changeFileStatus(filename) {
+    console.log('change file status')
+    this.setState({
+      fileStatus:
+      this.state.fileStatus === "" ? filename : "Upload Successful!"
+    })
+  },
+
   postSongs(file) {
     this.setState({ displayProgress: 'inline-block' })
     const formData = new FormData(document.getElementById('upload-form'));
@@ -127,6 +136,7 @@ const App = React.createClass({
     axios.post(`/upload/songs/${this.state.kjId}`, formData)
       .then(() => {
         console.log('then')
+        this.changeFileStatus();
         this.setState({ displayProgress: 'none' })
       })
       .catch((err) => {
@@ -135,6 +145,7 @@ const App = React.createClass({
         console.error(err);
       });
   },
+
 
   /* eslint-disable max-len */
   getSongs(code) {
@@ -293,9 +304,11 @@ const App = React.createClass({
         updateKjCode: this.updateKjCode,
         noRequestsDisplay: this.state.noRequestsDisplay,
         displayProgress: this.state.displayProgress,
-        updateRequests: this.updateRequests
+        updateRequests: this.updateRequests,
+        fileStatus: this.state.fileStatus,
+        changeFileStatus: this.changeFileStatus
       })}
-      <footer id="footer" />
+      {/* <footer id="footer" /> */}
     </main>;
   }
 });

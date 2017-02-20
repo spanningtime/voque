@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'media-queries';
 
 // NavBar
 .nav-container {
@@ -21,6 +22,10 @@
     height: 70%;
     width: 2px;
     background: $Yellow;
+
+    @include mobile {
+      display: none;
+    }
   }
 
   .title-logo {
@@ -58,6 +63,10 @@
   .nav-login-container, .nav-logout-container {
     height: 70%;
     align-items: center;
+
+    @include mobile {
+      display: none;
+    }
   }
 
   .login, .logout {
@@ -70,10 +79,20 @@
     font-size: 1.5em;
     cursor: pointer;
   }
-  
+
+  .login, .title-logo, .logout {
+    @include mobile {
+      display: none;
+    }
+  }
+
   .menu-icon {
     height: 4em;
     margin-right: 15px;
+
+    @include mobile {
+      display: block;
+    }
   }
 }
 // end NavBar

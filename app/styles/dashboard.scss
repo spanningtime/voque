@@ -99,7 +99,8 @@
   }
 
   #filename {
-    font-family: $main
+    font-family: $main;
+    margin-top: 10px;
   }
 
   #file-type-error {

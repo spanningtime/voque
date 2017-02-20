@@ -1,4 +1,5 @@
 @import "variables";
+@import "media-queries";
 
 .content-container {
   display:flex;
@@ -11,12 +12,23 @@
   margin-left: 1em;
   margin-right: 1em;
 
+  @include mobile {
+    display: flex;
+    margin-top: 10px;
+    min-height: 100vh;
+  }
+
   .main-header {
     margin-bottom: 15px;
     font-family: $main;
 
     span {
       color: $Red;
+    }
+
+    @include mobile {
+      font-size: 25px;
+      margin-top: 10px;
     }
   }
 
@@ -49,6 +61,10 @@
 
   .second-header {
     font-family: $main;
+
+    @include mobile {
+      font-size: 20px;
+    }
   }
 
   .third-header {
@@ -75,17 +91,20 @@
   .buttons-container {
     display: block;
     justify-content: center;
-    margin-bottom: 50px;
   }
 
   p {
     font-family: $main;
-    flex: 1;
     margin-bottom: 25px;
+
+    @include mobile {
+      display: block;
+    }
   }
-  
+
   p a {
     color: $Yellow;
     text-decoration: none;
+    margin-left: 5px;
   }
 }
