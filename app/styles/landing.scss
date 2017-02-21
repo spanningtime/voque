@@ -22,14 +22,24 @@
     margin-bottom: 15px;
     font-family: $main;
 
-    span {
-      color: $Red;
-    }
-
     @include mobile {
       font-size: 25px;
       margin-top: 10px;
     }
+
+    @include small-screen {
+      font-size: 35px;
+      margin-top: 40px;
+    }
+
+    @include xl-screen {
+      font-size: 60px;
+    }
+
+    span {
+      color: $Red;
+    }
+
   }
 
   .circle {
@@ -65,6 +75,14 @@
     @include mobile {
       font-size: 20px;
     }
+
+    @include small-screen {
+      font-size: 30px;
+    }
+
+    @include xl-screen {
+      font-size: 45px;
+    }
   }
 
   .third-header {
@@ -93,12 +111,16 @@
     justify-content: center;
   }
 
-  p {
+  .account-login-message {
     font-family: $main;
     margin-bottom: 25px;
 
     @include mobile {
       display: block;
+    }
+
+    @include small-screen {
+      display: none;
     }
   }
 

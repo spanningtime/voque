@@ -5,12 +5,19 @@
   border-radius: 2%;
   margin-top: 5px;
   display: flex;
-  width: 100%;
+  width: 95%;
+  height: 55vh;
+  overflow: scroll;
 
-  @include mobile {
-    width: 95%;
-    height: 55vh;
-    overflow: scroll;
+  @include med-large-screen {
+    width: 650px;
+    height: 70vh;
+  }
+
+  @include xl-screen {
+    width: 650px;
+    height: 70vh;
+
   }
 
   ol {
@@ -46,10 +53,6 @@
       width: 100%;
       margin-left: 10px;
       margin-right: 30px;
-
-      @include mobile {
-        width: 100%;
-      }
     }
 
     i {
@@ -67,20 +70,10 @@
     }
 
     .slidein-container {
+      display: flex;
+      justify-content: flex-end;
       width: 100%;
       position: relative;
-    }
-
-    .submit-container {
-      display: flex;
-      justify-items: flex-end;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      position: absolute;
-      height: 100%;
-      width: 100%;
     }
 
     .request-submit {
@@ -88,7 +81,7 @@
       background: $Yellow;
       height: 100%;
       top: 0;
-      left: 80%;
+      // left: 0;
       line-height: 50px;
       width: 78px;
       overflow: hidden;
@@ -98,6 +91,20 @@
 }
 
 .header-container {
+  flex-direction: column;
+  align-items: center;
+  @include small-screen {
+    width: 100%;
+  }
+
+  @include med-large-screen {
+    width: 650px;
+  }
+
+  // @include xl-screen {
+  //   width: 650px;
+  // }
+
   display: flex;
   justify-content: space-between;
   flex-wrap: nowrap;
@@ -105,8 +112,14 @@
 
   .kj-name {
     font-family: $main;
+    border-bottom: 2px solid $Yellow;
     font-size: 1.9em;
     margin-top: 10px;
+    margin-bottom: 20px;
+
+    @include med-large-screen {
+      margin-bottom: 0px;
+    }
   }
 
   .search-container {
@@ -132,6 +145,10 @@
     width: 60px;
     vertical-align: bottom;
     font-family: $main;
+
+    @include med-large-screen {
+      display: inline;
+    }
   }
 
   #title-tab {
@@ -145,6 +162,10 @@
     width: 100px;
     vertical-align: bottom;
     font-family: $main;
+
+    @include med-large-screen {
+      display: none;
+    }
   }
 
   #mobile-title-tab {

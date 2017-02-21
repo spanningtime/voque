@@ -13,9 +13,22 @@
     margin-top: 5px;
   }
 
+  @include small-screen {
+    width: 90%;
+  }
+
+  @include xl-screen {
+    width: 80%;
+    height: 55vh;
+  }
+
   .columns-items-container {
     display: flex;
     justify-content: space-between;
+
+    @include xl-screen {
+      width: 80%;
+    }
   }
 
   .column-item {
@@ -29,6 +42,14 @@
       margin-top: 20px;
 
       @include mobile {
+        width: 250px;
+      }
+
+      @include med-large-screen {
+        width: 250px;
+      }
+
+      @include xl-screen {
         width: 250px;
       }
     }

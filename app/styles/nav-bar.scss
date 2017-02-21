@@ -93,6 +93,10 @@
     @include mobile {
       display: block;
     }
+
+    @include small-screen {
+      display: none;
+    }
   }
 }
 // end NavBar

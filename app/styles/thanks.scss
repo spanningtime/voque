@@ -7,17 +7,30 @@
   font-family: $main;
   margin-top: 10px;
 
-  @include mobile {
-    width: 95%;
-    max-height: 55vh;
-    overflow: scroll;
-  }
 
   .lyrics {
     margin-left: 25px;
     margin-right: 25px;
     margin-top: 15px;
     margin-bottom: 15px;
+  }
+
+  @include mobile {
+    width: 95%;
+    max-height: 55vh;
+    overflow: scroll;
+  }
+
+  @include small-screen {
+    width: 100%;
+    height: 55vh;
+    overflow: scroll;
+  }
+
+  @include xl-screen {
+    width: 60%;
+    height: 55vh;
+    overflow: scroll;
   }
 }
 
@@ -32,6 +45,9 @@
       display: flex;
       justify-content: flex-start;
       margin-top: 10px;
+    }
+    @include small-screen {
+      display: none;
     }
   }
   .second-header{

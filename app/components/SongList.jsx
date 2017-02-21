@@ -118,6 +118,12 @@ const SongList = React.createClass({
               <div className="song-container">
                 <div className="slidein-container">
                   <div
+                    className="request-submit"
+                    name="request-submit"
+                    onTouchTap={this.handleTouchTap}
+                    style={song === this.state.selectedSong ? styleSubmitButton : styleHideSubmitButton}>submit
+                  </div>
+                  <div
                     className="border-container"
                     onTouchTap={(() => this.handleToggleSubmitBtn(song)).bind(this)}
                   >
@@ -130,14 +136,6 @@ const SongList = React.createClass({
                       className="artist-container"
                     >
                       {song.artistName}
-                    </div>
-                    <div className="submit-container">
-                      <div
-                        className="request-submit"
-                        name="request-submit"
-                        onTouchTap={this.handleTouchTap}
-                        style={song === this.state.selectedSong ? styleSubmitButton : styleHideSubmitButton}>submit
-                      </div>
                     </div>
                   </div>
                 </div>

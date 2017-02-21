@@ -11,10 +11,20 @@
   flex-direction: column;
   justify-content: center;
   margin-top: 20px;
+  height: 340px;
 
   @include mobile {
     height: 340px;
     width: 90%;
+  }
+
+  @include small-screen {
+    width: 90%;
+  }
+
+  @include med-large-screen {
+    height: 270px;
+    width: 600px;
   }
 
   .button-container {

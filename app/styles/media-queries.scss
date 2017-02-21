@@ -89,80 +89,91 @@
   // }
 // }
 
+@mixin small-screen {
+  @media screen and (min-width: 501px) {
+    @content;
+  }
+}
+
 @media screen and (min-width: 501px) {
+  // .header-container {
+  // flex-direction: column;
+  // align-items: center;
+  // }
+//
+//   #footer {
+//     position: absolute;
+//   }
 
-  #footer {
-    position: absolute;
-  }
+  // .menu-icon {
+  //   display: none
+  // }
 
-  .nav-login-container, .nav-logout-container {
-    // display: flex;
-  }
+  // .app-container {
+  //   margin-left: 2%;
+  //   margin-right: 2%;
+  // }
 
-  .menu-icon {
-    display: none
-  }
+  // .back-container {
+  //   display: none;
+  // }
 
-  .app-container {
-    margin-left: 2%;
-    margin-right: 2%;
-  }
+  // .main-header {
+  //   font-size: 35px;
+  //   margin-top: 40px;
+  // }
 
-  .back-container {
-    display: none;
-  }
+  // .second-header {
+  //   font-size: 30px;
+  // }
 
-  .main-header {
-    font-size: 35px;
-    margin-top: 40px;
-  }
+  // .content-container p {
+  //   display: none;
+  // }
 
-  .second-header {
-    font-size: 30px;
-  }
+  // .songs-container, .lyrics-container {
+  //   width: 100%;
+  //   height: 55vh;
+  //   overflow: scroll;
+  // }
 
-  .content-container p {
-    display: none;
-  }
+  // .songs-container ol {
+  //   width: 100%;
+  // }
 
-  .songs-container, .lyrics-container {
-    width: 100%;
-    height: 55vh;
-    overflow: scroll;
-  }
+  // .song-container {
+  //   width: 100%;
+  // }
 
-  .songs-container ol {
-    width: 100%;
-  }
+  // .header-container {
+  //   width: 78%;
+  // }
 
-  .song-container {
-    width: 100%;
-  }
+  // .columns-container {
+  //   width: 90%;
+  // }
 
-  .header-container {
-    width: 78%;
-  }
+  // .register-container {
+  //   height: 350px;
+  //   width: 90%;
+  // }
+}
 
-  .columns-container {
-    width: 90%;
-  }
-
-  .register-container {
-    height: 350px;
-    width: 90%;
+@mixin med-screen {
+  @media screen and (max-width: 860px) {
+    @content;
   }
 }
 
 @media screen and (max-width: 860px) {
-
   .header-container {
-    flex-direction: column;
-    align-items: center;
+    // flex-direction: column;
+    // align-items: center;
 
-    .kj-name {
-      margin-bottom: 20px;
-      border-bottom: 2px solid $Yellow;
-    }
+    // .kj-name {
+    //   margin-bottom: 20px;
+    //   border-bottom: 2px solid $Yellow;
+    // }
   }
 
   #artist-tab, #title-tab {
@@ -181,72 +192,90 @@
     // height: 55vh;
     // width: 600px;
   }
+
+}
+
+@mixin med-large-screen {
+  @media screen and (min-width: 861px) {
+    @content;
+  }
 }
 
 @media screen and (min-width: 861px) {
-
-  #artist-tab, #title-tab {
-    display: inline;
+  .header-container {
+    flex-direction: row;
+    align-items: center;
   }
 
-  #mobile-artist-tab, #mobile-title-tab {
-    display: none;
-  }
+  // #artist-tab, #title-tab {
+  //   display: inline;
+  // }
 
-  .column-item p {
-    width: 250px;
-  }
+  // #mobile-artist-tab, #mobile-title-tab {
+  //   display: none;
+  // }
 
-  .register-container {
-    height: 270px;
-    width: 600px;
-  }
+  // .column-item p {
+  //   width: 250px;
+  // }
 
-  .song-container {
-    width: 650px;
-  }
+  // .register-container {
+  //   height: 270px;
+  //   width: 600px;
+  // }
+
+  // .song-container {
+  //   width: 650px;
+  // }
 }
 
 // full screen
-@media screen and (min-width: 1093px) {
 
-  .main-header {
-    font-size: 60px;
-  }
-
-  .second-header {
-    font-size: 45px;
-  }
-
-  .songs-container, .lyrics-container {
-    width: 60%;
-    height: 55vh;
-    overflow: scroll;
-  }
-
-  .columns-container {
-    width: 80%;
-    height: 55vh;
-  }
-
-  .columns-items-container {
-    width: 80%;
-
-    p {
-      width: 250px;
-    }
-  }
-
-  .header-container {
-    width: 58%;
-  }
-
-  .register-container {
-    height: 270px;
-    width: 600px;
-  }
-
-  .song-container {
-    width: 650px;
+@mixin xl-screen {
+  @media screen and (min-width: 1093px) {
+    @content;
   }
 }
+
+// @media screen and (min-width: 1093px) {
+
+  // .main-header {
+  //   font-size: 60px;
+  // }
+
+  // .second-header {
+  //   font-size: 45px;
+  // }
+
+  // .songs-container, .lyrics-container {
+  //   width: 60%;
+  //   height: 55vh;
+  //   overflow: scroll;
+  // }
+
+  // .columns-container {
+  //   width: 80%;
+  //   height: 55vh;
+  // }
+
+  // .columns-items-container {
+  //   width: 80%;
+  //
+  //   p {
+  //     width: 250px;
+  //   }
+  // }
+
+  // .header-container {
+  //   width: 58%;
+  // }
+
+  // .register-container {
+  //   height: 270px;
+  //   width: 600px;
+  // }
+
+  // .song-container {
+  //   width: 650px;
+  // }
+// }
