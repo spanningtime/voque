@@ -1,6 +1,5 @@
 @import 'variables';
 @import 'media-queries';
-
 .songs-container {
   border-radius: 2%;
   margin-top: 5px;
@@ -8,6 +7,7 @@
   width: 95%;
   height: 55vh;
   overflow: scroll;
+  overflow-x: hidden;
 
   @include med-large-screen {
     width: 650px;
@@ -17,7 +17,6 @@
   @include xl-screen {
     width: 650px;
     height: 70vh;
-
   }
 
   ol {
@@ -26,7 +25,6 @@
 
   li {
     display: flex;
-    font-family: $main;
     justify-content: center;
 
     .artist-container {
@@ -52,7 +50,7 @@
       flex-direction: row;
       width: 100%;
       margin-left: 10px;
-      margin-right: 30px;
+      margin-right: 2%;
     }
 
     i {
@@ -80,8 +78,6 @@
       position: absolute;
       background: $Yellow;
       height: 100%;
-      top: 0;
-      // left: 0;
       line-height: 50px;
       width: 78px;
       overflow: hidden;
@@ -101,17 +97,12 @@
     width: 650px;
   }
 
-  // @include xl-screen {
-  //   width: 650px;
-  // }
-
   display: flex;
   justify-content: space-between;
   flex-wrap: nowrap;
   margin: 10px;
 
   .kj-name {
-    font-family: $main;
     border-bottom: 2px solid $Yellow;
     font-size: 1.9em;
     margin-top: 10px;
@@ -144,7 +135,6 @@
     line-height: 40px;
     width: 60px;
     vertical-align: bottom;
-    font-family: $main;
 
     @include med-large-screen {
       display: inline;
@@ -161,7 +151,6 @@
     line-height: 40px;
     width: 100px;
     vertical-align: bottom;
-    font-family: $main;
 
     @include med-large-screen {
       display: none;

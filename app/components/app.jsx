@@ -308,7 +308,6 @@ const App = React.createClass({
         fileStatus: this.state.fileStatus,
         changeFileStatus: this.changeFileStatus
       })}
-      {/* <footer id="footer" /> */}
     </main>;
   }
 });

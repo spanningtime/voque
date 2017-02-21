@@ -20,7 +20,6 @@
 
   .main-header {
     margin-bottom: 15px;
-    font-family: $main;
 
     @include mobile {
       font-size: 25px;
@@ -70,7 +69,6 @@
   }
 
   .second-header {
-    font-family: $main;
 
     @include mobile {
       font-size: 20px;
@@ -89,7 +87,6 @@
     width: 250px;
     display: inline-block;
     font-size: 25px;
-    font-family: $main;
     padding-bottom: 10px;
     margin-top: 50px;
     margin-bottom: 30px;
@@ -112,7 +109,6 @@
   }
 
   .account-login-message {
-    font-family: $main;
     margin-bottom: 25px;
 
     @include mobile {

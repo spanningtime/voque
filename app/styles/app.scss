@@ -1,9 +1,11 @@
 @import "media-queries";
+@import "variables";
 
 main {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  font-family: $main;
 }
 
 .app-container {
@@ -15,8 +17,4 @@ main {
     margin-left: 0;
     margin-right: 0;
   }
-}
-
-#footer {
-  position: absolute;
 }

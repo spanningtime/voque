@@ -18,7 +18,6 @@
   display: flex;
 
   #toggle-on, #toggle-off {
-    font-family: $main;
     font-size: 20px;
     margin-left: 15px;
   }
@@ -38,7 +37,6 @@
   }
 
   #current-code {
-    font-family: $main;
     font-size: 20px;
     margin-top: 40px;
   }
@@ -99,7 +97,6 @@
   }
 
   #filename {
-    font-family: $main;
     margin-top: 10px;
   }
 
@@ -107,7 +104,6 @@
     background-color: $Red;
     border-radius: 10px;
     color: white;
-    font-family: $main;
     line-height: 20px;
     margin-top: 10px;
     padding: 5px
